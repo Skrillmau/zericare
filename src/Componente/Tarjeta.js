@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-
+import Button from '@material-ui/core/Button';
+import AñadirCarrito from './AñadirCarrito';
 class Tarjeta extends PureComponent {
 
     render() {
@@ -44,6 +45,7 @@ class Tarjeta extends PureComponent {
                         {this.props.descripcion}
                     </p>
                 </a>
+                <AñadirCarrito></AñadirCarrito>
             </div>
         )
     }
