@@ -64,13 +64,13 @@ class Perfil extends PureComponent {
         }
 
         return (
-
+//"https://okdiario.com/img/2020/05/05/j-balvin.jpg"
             <div style={l.root}>
             <Paper style={l.paper}>
               <Grid container spacing={2}>
                 <Grid item>
                   <ButtonBase className={l.image}>
-                    <img style={l.img} alt="JBALVIN" src={"https://okdiario.com/img/2020/05/05/j-balvin.jpg"} />
+                    <img style={l.img} alt="JBALVIN" src={this.props.imagen} />
                   </ButtonBase>
                 </Grid>
                 <Grid item xs={12} sm container>
@@ -95,7 +95,7 @@ class Perfil extends PureComponent {
                     </Grid>
                   </Grid>
                   <Grid item>
-                    <Typography variant="subtitle1">Rosa</Typography>
+                    <Typography variant="subtitle1">Médícó</Typography>
                   </Grid>
                 </Grid>
               </Grid>
