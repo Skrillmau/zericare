@@ -1,0 +1,28 @@
+.main{
+                
+    text-align:center;
+}
+
+.titulo{
+    font-family: Arial;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.descripcion{
+    font-family: Arial;
+    color:white;
+    text-decoration-color: azure;
+    font-size:25px;
+}
+
+.image{
+    resize: contain;
+    height: 100px;
+    width: 100px;
+}
+
+.a{
+    text-decoration:none;
+}

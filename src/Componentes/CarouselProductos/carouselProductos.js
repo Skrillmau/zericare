@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Tarjeta from './Tarjeta';
+import Tarjeta from '../Tarjeta/Tarjeta';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 class CarouselProductos extends PureComponent {
