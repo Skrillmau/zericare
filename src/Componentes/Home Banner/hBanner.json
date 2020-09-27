@@ -1,0 +1,16 @@
+{
+	"slides": [
+		{
+			"path": "../../assets/gandalf.jpg",
+			"text": "Somos una compañía \n que cree que el servicio \n al cliente sobrepasa \n la simple entrega de \n un producto."
+		},
+		{
+			"path": "../../assets/gandalf.jpg",
+			"text": "Somos una compañía \n comprometida con producir, \n importar y comercializar \n productos de la más alta \n calidad para el cuidado \n de la salud."
+		},
+		{
+			"path": "../../assets/gandalf.jpg",
+			"text": "Somos una compañía \n con énfasis en \n productos farmacéuticos \n especializados."
+		}
+	]
+}

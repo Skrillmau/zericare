@@ -1,0 +1,102 @@
+@media screen and (max-width: 599px) {
+    .div{
+        width: 100%;
+        background: url("/assets/FondoAzul.png");
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        padding: 1%;
+        vertical-align: middle;
+    }
+    .i1{
+        column-span: 1;
+        row-span: 1;
+        padding: 1.5% 0;
+        margin: auto auto auto 0px;
+    }
+    .i2{
+        column-span: 2;
+        row-span: 2;
+        border-top: 2px solid green;
+        color: black;
+        padding: 1.5% 0;
+        font-size: 12px;
+        margin: auto 0;
+    }
+    .title{
+        font-size: 24px;
+        font-family: ProgressMd, serif;
+        color: BLACK;
+    }
+    .txt{
+        margin: 0;
+        color:black;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+    .div {
+        width: 100%;
+        background: url("/assets/FondoAzul.png");
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        padding: 2%;
+        vertical-align: middle;
+    }
+    .i1{
+        grid-column: 1;
+        padding: 4%;
+        margin: auto auto auto 0;
+    }
+    .i2{
+        column-span: 1;
+        border-left: 2px solid black;
+        color: black;
+        padding: 0 4%;
+        font-size: 14px;
+        margin: auto;
+        height: fit-content;
+    }
+    .title{
+        font-size: 28px;
+        font-family: ProgressMd, serif;
+        color: black;
+    }
+    .txt{
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .div{
+        width: 100%;
+        background: url("/assets/FondoAzul.png");
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        padding: 3%;
+        vertical-align: middle;
+    }
+    .i1{
+        column-span: 1;
+        padding: 5%;
+        margin: 0;
+    }
+    .i2{
+        column-span: 1;
+        border-left: 2px solid black;
+        color: black;
+        padding: 0 5%;
+        font-size: 16px;
+        margin: auto;
+        height: fit-content;
+    }
+    .title{
+        font-size: 32px;
+        font-family: ProgressMd, serif;
+        color: black;
+    }
+    .txt{
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}

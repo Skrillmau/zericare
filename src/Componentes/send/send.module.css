@@ -1,0 +1,87 @@
+
+@media screen and (max-width: 599px) {
+    .wrapper{
+        width: fit-content;
+        margin: auto;
+    }
+    .button{
+        font-size:18px;
+        font-family: ProgressBd, serif;
+        color:#e60000;
+        width:fit-content;
+        background: transparent;
+        border:none;
+        outline:none
+    }
+    .img{
+        height:18px;
+        width:auto;
+        float:left;
+        margin:auto
+    }
+    .txt{
+        float: right;
+        margin-top:0;
+        font-family: ProgressBd, serif;
+        margin-left:10px;
+        margin-bottom: 0
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+    .wrapper{
+        width: fit-content;
+        margin: auto;
+    }
+    .button{
+        font-size:21px;
+        font-family: ProgressBd, serif;
+        color:#e60000;
+        width:fit-content;
+        background: transparent;
+        border:none;
+        outline:none
+    }
+    .img{
+        height:21px;
+        width:auto;
+        float:left;
+        margin:auto
+    }
+    .txt{
+        float: right;
+        margin-top:0;
+        margin-left:10px;
+        font-family: ProgressBd, serif;
+        margin-bottom: 0
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .wrapper{
+        width: fit-content;
+        margin: auto;
+    }
+    .button{
+        font-size:24px;
+        font-family: ProgressBd, serif;
+        color:#e60000;
+        width:fit-content;
+        background: transparent;
+        border:none;
+        outline:none
+    }
+    .img{
+        height:24px;
+        width:auto;
+        float:left;
+        margin:auto
+    }
+    .txt{
+        float: right;
+        margin-top:0;
+        margin-left:10px;
+        font-family: ProgressBd, serif;
+        margin-bottom: 0
+    }
+}

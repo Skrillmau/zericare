@@ -1,0 +1,48 @@
+.main {
+	background: url("/assets/FondoAzul.png");
+}
+.logo {
+	position: absolute;
+	width: 180px;
+	height: auto;
+	top: 50px;
+	margin-left: 3.2%;
+	z-index: 5;
+}
+
+.slideTxt {
+	position: absolute;
+	left: 3.2%;
+	bottom: 8%;
+}
+
+.slideP {
+	color: #142882;
+	text-align: left;
+	background: transparent;
+	font-size: 24px;
+	font-family: ProgressBd, serif;
+}
+
+@media screen and (max-width: 599px) {
+	.logo {
+		width: 75px;
+		top: 2px;
+	}
+	.slideP {
+		font-size: 10px;
+	}
+}
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+	.logo {
+		width: 150px;
+		top: 20px;
+	}
+	.slideP {
+		font-size: 16px;
+	}
+}
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+}
+@media screen and (min-width: 1440px) {
+}
