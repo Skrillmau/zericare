@@ -4,17 +4,6 @@ class Titulo extends PureComponent {
     
 
     render() {
-        const l={
-            main:{
-                
-            },
-
-            title:{
-                fontFamily:"Arial",
-                margin:"10%",
-
-            }
-        }
         return (
             <div>
                 <h1 className={classes.title}>
