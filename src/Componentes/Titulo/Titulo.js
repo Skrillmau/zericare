@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-
+import classes from './Titulo.css'
 class Titulo extends PureComponent {
     
 
@@ -16,8 +16,8 @@ class Titulo extends PureComponent {
             }
         }
         return (
-            <div style={l.main}>
-                <h1 style={l.title}>
+            <div>
+                <h1 className={classes.title}>
                     {this.props.Titulo}
                 </h1>
             </div>
