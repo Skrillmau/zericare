@@ -1,6 +1,10 @@
 .divR{
-    color:green
+    color: #2dd99a;
+    font-weight: bold;
+    font-family:  Futura;
+    font-weight:  bold;
 }
 .divB{
-    color:purple
+    color:black;
+    font-family:  Futura;
 }
