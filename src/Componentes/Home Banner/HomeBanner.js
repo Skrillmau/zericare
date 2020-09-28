@@ -4,8 +4,6 @@ import styles from "./home.module.css";
 import hBannerjson from "./hBanner.json";
 import React from "react";
 import Fade from 'react-reveal/Fade'
-import VisibilitySensor from "react-visibility-sensor";
-
 SwiperCore.use([Pagination, Autoplay]);
 export default function HomeBanner(props) {
 	var slides = [];
