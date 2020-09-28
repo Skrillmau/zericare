@@ -5,7 +5,7 @@ class Perfil extends Component {
     render() {
         return (
             <div>
-                <Info nombre = "Nikolas" apellido = "Cardona" id="123" sexo="M" ocupacion="Estudiante"/>
+                <Info Nombre = "Nikolas" apellido = "Cardona" id="123" sexo="M" ocupacion="Estudiante"/>
             </div>
         );
     }
