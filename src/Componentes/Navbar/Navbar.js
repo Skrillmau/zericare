@@ -31,7 +31,7 @@ function Navbar() {
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Button color="inherit">
-            <Link to="/home" className={classes.linked}>
+            <Link to="/" className={classes.linked}>
               <Typography style={{fontFamily:"Futura", fontWeight:"Bold" }} variant="h6" className={classes.title}>
                 Zericare
               </Typography>
