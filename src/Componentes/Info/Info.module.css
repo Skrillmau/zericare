@@ -17,7 +17,7 @@
     align-content: center;
   }
 
-  img {
+   .imagen {
     max-width: 80%;
     height: auto;
     -webkit-box-shadow: 10px 10px 29px -13px rgba(0,0,0,0.72);
