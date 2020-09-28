@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Paragraph from '../Paragraph/Paragraph'
+import Txt from '../Button/txt/txtButton'
 
 class Historia extends Component {
     render() {
@@ -12,6 +13,8 @@ class Historia extends Component {
               PEEA última consulta:<Paragraph contenido= {this.props.consulta} clase={"importante"}/>
               DNR: <Paragraph contenido= {this.props.dnr} clase={"importante"}/>
               Exploración Física:<Paragraph contenido= {this.props.ef} clase={"importante"}/>
+              <Txt>Buenas</Txt>
+              
             </div>
         );
     }
