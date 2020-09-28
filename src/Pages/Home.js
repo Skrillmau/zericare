@@ -34,10 +34,12 @@ class Home extends Component {
         return (
             <div>
                 <Homebanner />
-                <BannerText title="Prueba">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
+                <BannerText title="Productos">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
 				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
                 <CarouselProductos products={this.state.productos} />
-                <PasosPedido titulo="¿Cómo funciona Zeri Care?"
+                <BannerText title="¿Cómo funciona Zeri Care?">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
+				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
+                <PasosPedido 
                     paso1="Regístrate"
                     paso2="Asiste a tu consulta"
                     paso3="Dale a tu médico tu código Care"
