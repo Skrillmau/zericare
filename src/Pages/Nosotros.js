@@ -1,24 +1,44 @@
 import React, { Component } from 'react';
 import BannerText from '../Componentes/BannerText/BannerText'
 import Iframe from 'react-iframe'
+import Texto from '../Componentes/Text/txt'
+import img1 from '../assets/pexels-pixabay-207601.jpg'
+import img2 from '../assets/pexels-anna-shvets-3683098.jpg'
+import Paragraph from '../Componentes/Paragraph/Paragraph'
 
 class Nosotros extends Component {
     render() {
+        const divStyle = {
+            display: "grid",
+            gridTemplateColumns: "40% 60%",
+            padding: "3%",
+        }
+
+        const div2 = {
+            width: "100%",
+            margin: "auto",
+
+        }
         return (
             <div>
-                <BannerText title="MISION">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
-				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
-                <BannerText title="VISION">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
-				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
-                <h1>¿Dónde encontrarnos?</h1>
-                <Iframe url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4117096030973!2d-74.07542068474939!3d4.698316342985262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ad7143e27c5%3A0x3fc4d0bb07cbde3f!2sCl%C3%ADnica%20Shaio!5e0!3m2!1ses-419!2sco!4v1601255663857!5m2!1ses-419!2sco"
-                    width="450px"
-                    height="450px"
-                    id="myId"
-                    className="myClassname"
-                    display="initial"
-                    position="relative" /> 
+                <div style={div2} >
+                    <img src={img1} height="700px" width="100%" />
+                </div>
+                <BannerText title="NOSOTROS">Somos coherentes entre lo que pensamos, sentimos y hacemos, basados en principios de honestidad y transparencia.</BannerText>
 
+                <h1>¿Dónde encontrarnos?</h1>
+                <div style={divStyle}>
+                    <div>
+                        <img src={img2} width="90%"/>
+                    </div>
+                    <div>
+                        <Texto >Pharmalab Phl Laboratorios es una compañía comprometida con el bienestar social de la población
+                        atendida. Por eso, anualmente se apoya en especie a Brigadas de Salud llevadas a cabo en zonas cómo
+                        Santa Catalina en Bolívar. También se apoya el deporte de esta zona entregando implementos deportivos a
+                        los equipos de fútbol infantil comunitarios. Pharmalab Phl Laboratorios también es donador activo de
+								entidades sin ánimo de lucro cómo el Instituto Para Niños Ciegos Juan Antonio Pardo.</Texto>
+                    </div>
+                </div>
             </div>
         );
     }

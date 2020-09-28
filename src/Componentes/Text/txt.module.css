@@ -1,0 +1,40 @@
+@media screen and (max-width: 599px) {
+    .p{
+        font-size: 12px;
+        color: #212529;
+        font-family: Avenir, serif;
+    }
+    .pR{
+        font-size: 16px;
+        color: #212529;
+        font-family: Avenir, serif;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+    .p{
+        font-size: 14px;
+        color: #212529;
+        font-family: Avenir, serif;
+    }
+    .pR{
+        font-size: 16px;
+        color: #212529;
+        font-family: Avenir, serif;
+        text-align: right;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+ .p{
+     font-size: 16px;
+     color: #212529;
+     font-family: Avenir, serif;
+ }
+    .pR{
+        font-size: 16px;
+        color: #212529;
+        font-family: Avenir, serif;
+        text-align: right;
+    }
+}
