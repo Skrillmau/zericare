@@ -1,0 +1,12 @@
+.texto{
+    font-size: 50px;
+    font-family: Futura;
+    font-weight: bold;
+}
+.main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 0%;
+    margin-right: 20%;
+
+}
