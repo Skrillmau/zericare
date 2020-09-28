@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import classes from './Tarjeta.css'
-import AñadirCarrito from '../AñadirCarrito';
+
 
 
 
@@ -27,7 +27,6 @@ class Tarjeta extends PureComponent {
                         {this.props.descripcion}
                     </p>
                 </a>
-                <AñadirCarrito></AñadirCarrito>
             </div>
         )
     }

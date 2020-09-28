@@ -323,7 +323,7 @@ class Caracteristicas extends React.Component {
     return (
       <div>
           <div style={l.main}>
-            <h1 style={l.title}>Características</h1>
+            <h1 style={l.title}>Ventajas</h1>
             <div style={l.grid}>
               <div style={l.item1r}>
                 <div style={l.info}>
