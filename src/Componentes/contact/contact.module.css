@@ -13,7 +13,15 @@
         grid-column: span 1;
         margin: 4% 4%;
         font-size: 21px;
-        color: #142882
+        color: #888b8d;
+        align-items: center;
+        align-content: center;
+    }
+
+    .item1 img{
+        max-width: 100%;
+        height: auto;
+        margin-top: 25%;
     }
 
     .item2 {
@@ -40,11 +48,11 @@
         border-radius: 10px;
         outline: none;
         font-family: Futura;
-        color: #142882
+        color: #888b8d
     }
 
     .subtitulo {
-        color: #e60000;
+        color: rgb(6,181,239);
         font-size: 21px;
         text-align: center;
         font-family: Futura;
@@ -68,7 +76,7 @@
     .blog {
         font-size: 21px;
         float: right;
-        color: #142882;
+        color: #888b8d;
         font-family: Futura;
         text-decoration: none
     }
@@ -84,8 +92,16 @@
         grid-column: span 1;
         margin: 4% 4%;
         font-size: 21px;
-        color: #142882
+        color: #888b8d;
+        align-items: center;
+        align-content: center;
     }
+    .item1 img{
+        max-width: 100%;
+        height: auto;
+        margin-top: 25%;
+    }
+    
 
     .item2 {
         grid-column: span 1;
@@ -110,11 +126,11 @@
         border-radius: 10px;
         outline: none;
         font-family: Futura;
-        color: #142882
+        color: #888b8d;
     }
 
     .subtitulo {
-        color: #e60000;
+        color: rgb(6,181,239);
         font-size: 21px;
         text-align: center;
         font-family: Futura;
@@ -138,7 +154,7 @@
     .blog {
         font-size: 21px;
         float: right;
-        color: #142882;
+        color: #888b8d;
         font-family: Futura;
         text-decoration: none
     }
@@ -155,8 +171,16 @@
         grid-column: span 1;
         margin: 5% 0;
         font-size: 24px;
-        color: #142882;
+        color: #888b8d;
         width: 90%;
+        align-items: center;
+        align-content: center;
+    }
+
+    .item1 img{
+        max-width: 100%;
+        height: auto;
+        margin-top: 25%;
     }
 
     .item2 {
@@ -182,11 +206,11 @@
         border-radius: 10px;
         outline: none;
         font-family: Futura;
-        color: #142882
+        color:  #888b8d;
     }
 
     .subtitulo {
-        color: #e60000;
+        color: rgb(6,181,239);
         font-size: 24px;
         text-align: center;
         font-family: Futura;
@@ -210,7 +234,7 @@
     .blog {
         font-size: 24px;
         float: right;
-        color: #142882;
+        color: #888b8d;
         font-family: Futura;
         text-decoration: none;
     }
