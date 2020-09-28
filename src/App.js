@@ -24,8 +24,9 @@ function App() {
       <Route path="/login"  component={Login}/>
       <Route path="/producto/:id" component={ProductoDetail}/>
       <Route path="/info"  component={Perfil}/>
-      <Route path="/" component={Home}/>
       <Route component={NotFound}/>
+      <Route path="/" component={Home}/>
+      
      </Switch>
      <Footer/>
     </BrowserRouter>
