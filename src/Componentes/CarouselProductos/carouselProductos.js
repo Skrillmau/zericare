@@ -18,7 +18,7 @@ function CarouselProductos(props) {
       <Swiper
         navigation={true}
         spaceBetween={20}
-        slidesPerView={2}
+        slidesPerView={3}
         pagination={{ clickable: true }}
         loop="true"
       >
