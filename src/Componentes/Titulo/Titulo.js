@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, {Component } from 'react'
 import classes from './Titulo.css'
-class Titulo extends PureComponent {
+class Titulo extends Component {
     
 
     render() {

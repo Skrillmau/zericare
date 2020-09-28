@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, {Component } from 'react'
 import classes from './ProductInfo.css'
 import axios from 'axios'
-class ProductInfo extends PureComponent {
+class ProductInfo extends Component {
 
     constructor(props) {
         super(props)
