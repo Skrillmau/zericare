@@ -4,7 +4,7 @@
 
 .appbar{
     background: rgb(6,181,239);
-background: linear-gradient(90deg, rgba(6,181,239,1) 60%, rgba(92,214,255,1) 100%); !important;
+background: linear-gradient(90deg, rgba(6,181,239,1) 60%, rgba(92,214,255,1) 100%) !important;
 
 }
 
