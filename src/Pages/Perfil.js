@@ -4,7 +4,7 @@ import Historia from '../Componentes/Historia/Historia'
 import classes from '../Pages/Perfil/Perfil.css'
 import { withRouter } from "react-router-dom";
 import axios from 'axios'
-
+import BannerText from '../Componentes/BannerText/BannerText'
 class Perfil extends Component {
 
     constructor(props) {
@@ -34,10 +34,10 @@ class Perfil extends Component {
     }
     render() {
         return (
-            <div>
+            <div className={classes.block}>
                 <h1>Perfil</h1>
                 <Info imagen= {this.state.usuario.imagen} nombre = {this.state.usuario.nombre} apellido = {this.state.usuario.apellido} id={this.state.usuario.registro} sexo={this.state.usuario.sexo} ocupacion={this.state.usuario.ocupacion}/>
-                <hr></hr>
+                 <BannerText title="Tu historia clínica">En el listado a continuación, podrás ver tus historial médico más reciente (recuerda darle tu código al médico encargado de tu consulta para que pueda actualizar tu historial)</BannerText>
                 <Historia patologicos={this.state.usuario.patologicos} npatologicos= {this.state.usuario.nopatologicos} familiares= {this.state.usuario.familiares} go={this.state.usuario.gineco} consulta={this.state.usuario.PEEA} dnr={this.state.usuario.dnr} ef={this.state.usuario.fisica}/>
                 
             </div>

@@ -6,14 +6,35 @@ class Historia extends Component {
     render() {
         return (
             <div className={classes.block}>
-              Antecedentes Patológicos: <Paragraph contenido= {this.props.patologicos} clase={"importante"}/>
-              Antecedentes no Patológicos: <Paragraph contenido= {this.props.npatologicos} clase={"importante"}/>
-              Antecedentes familiares: <Paragraph contenido= {this.props.familiares} clase={"importante"}/>
-              Antecedentes Gineco-obstétricos: <Paragraph contenido= {this.props.go} clase={"importante"}/>
-              PEEA última consulta:<Paragraph contenido= {this.props.consulta} clase={"importante"}/>
-              DNR: <Paragraph contenido= {this.props.dnr} clase={"importante"}/>
-              Exploración Física:<Paragraph contenido= {this.props.ef} clase={"importante"}/>
-              
+                <div className={classes.gridContainer}>
+                    <div className={classes.gridItem1}>
+                        Antecedentes Patológicos: <Paragraph contenido={this.props.patologicos} clase={"importante"} />
+                    </div>
+                    <div className={classes.gridItem1}>
+                        Antecedentes no Patológicos: <Paragraph contenido={this.props.npatologicos} clase={"importante"} />
+                    </div>
+                    <div className={classes.gridItem1}>
+                        Antecedentes familiares: <Paragraph contenido={this.props.familiares} clase={"importante"} />
+                    </div>
+                    <div className={classes.gridItem1}>
+                        Antecedentes Gineco-obstétricos: <Paragraph contenido={this.props.go} clase={"importante"} />
+                    </div>
+                    <div className={classes.gridItem1}>
+                        PEEA última consulta:<Paragraph contenido={this.props.consulta} clase={"importante"} />
+                    </div>
+                    <div className={classes.gridItem1}>
+                        DNR: <Paragraph contenido={this.props.dnr} clase={"importante"} />
+                    </div>
+                    <div className={classes.gridItem1}>
+                        Exploración Física:<Paragraph contenido={this.props.ef} clase={"importante"} />
+                    </div>
+
+
+
+
+                </div>
+
+
             </div>
         );
     }
