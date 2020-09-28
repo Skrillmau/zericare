@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from '../Componentes/LoginForm/LoginForm'
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import swal from "sweetalert2";
 
 class Login extends Component {
@@ -28,6 +28,7 @@ class Login extends Component {
         if(e.target.user.value===this.state.user.email && e.target.pass.value===this.state.user.pass){
             this.setState({logedUser:this.state.user.id});
             localStorage.setItem("user",this.state.user.id);
+            this.props.history.push(`/info/${0}`);
         }else{
             swal.fire({
                 title: "Credenciales incorrectos",
@@ -50,4 +51,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

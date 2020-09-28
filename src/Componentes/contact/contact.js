@@ -100,7 +100,7 @@ const Contact = (props) => {
           <label htmlFor={"check"}>
             Acepto Términos y Condiciones y Política de Privacidad.
           </label>
-          <Button color={"red"} type="submit" >Enviar</Button>
+          <Button color={"blue"} type="submit" >Enviar</Button>
         </form>
         <br />
       </div>

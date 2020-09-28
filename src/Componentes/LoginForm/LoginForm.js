@@ -11,7 +11,7 @@ class LoginForm extends Component {
           <p className={styles.label}>Contraseña</p>
           <input id="pass" className={styles.input} type="password" />
           <br />
-          <TxtButton color={"red"} type={"submit"}>Ingresar</TxtButton>
+          <TxtButton color={"blue"} type={"submit"}>Ingresar</TxtButton>
         </form>
       </div>
     );
