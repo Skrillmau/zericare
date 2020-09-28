@@ -1,5 +1,5 @@
 .main {
-	background: url("/assets/FondoAzul.png");
+	
 }
 .logo {
 	position: absolute;
@@ -17,11 +17,12 @@
 }
 
 .slideP {
-	color: black;
+	color: white;
 	text-align: left;
 	background: transparent;
 	font-size: 24px;
-	font-family: ProgressBd, serif;
+	font-family: Futura;
+	font-weight: bold;
 }
 
 @media screen and (max-width: 599px) {

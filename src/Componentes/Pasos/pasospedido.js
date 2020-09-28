@@ -7,7 +7,7 @@ class Pasospedido extends Component {
     const l = {
       main: { width: "100%", padding: "3%" },
       title: {
-        fontSize: "90px",
+        fontSize: "50px",
         fontFamily: "Futura",
         textAlign: "center",
         margin:'0px',
