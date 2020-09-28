@@ -54,67 +54,7 @@ const Contact = (props) => {
   return (
     <div className={Style.grid}>
       <div className={Style.item1}>
-        <p>
-          Calle 85a #28b - 34
-          <br />
-          Bogotá, Colombia
-        </p>
-        <br />
-        <p>
-          <a href="tel:0316215380">Tel. (031) 621 5380</a>
-        </p>
-        <br />
-        <p>
-          <a target={"blank"} href={"mailto:info@pharmalabsa.com"}>
-            info@pharmalabsa.com
-          </a>
-        </p>
-        <br />
-        <p>
-          Horario.
-          <br />
-          L-V 7:30 - 18:00 hrs.
-          <br />S 9:00 - 12:00 hrs.
-        </p>
-        <br />
-        <div style={{ width: "40%", marginLeft: "0px", paddingLeft: "0%" }}>
-          <a
-            className={`hvr-grow ${style}`}
-            target={"blank"}
-            href="https://www.instagram.com/pharmalabphl/"
-          >
-            <img
-              className={Style.icono}
-              src={"/assets/Instagram.png"}
-              alt="instagram"
-            />
-          </a>
-          <a
-            className={`hvr-grow ${style}`}
-            target={"blank"}
-            href="https://www.facebook.com/PharmalabPHL"
-          >
-            <img
-              className={Style.icono}
-              src={"/assets/Facebook.png"}
-              alt="facebook"
-            />
-          </a>
-          <a className={`hvr-grow ${Style.blog} ${style}`} href="#">
-            Blog
-          </a>
-        </div>
-        <a href="https://goo.gl/maps/LJzy3QZ9v3e9s5MHA" target={"blank"}>
-          <img
-            className={`hvr-grow ${style}`}
-            style={{
-              width: "100%",
-              marginTop: "10%",
-            }}
-            src={"/assets/Mapa.svg"}
-            alt="Mapa"
-          />
-        </a>
+        <img src="https://img.freepik.com/foto-gratis/felices-abuelos-jugando-su-nieto-casa_107420-10262.jpg?size=626&ext=jpg"></img>
       </div>
       <div className={Style.item2}>
         <h2 className={Style.subtitulo}>¡Queremos atenderte!</h2>
