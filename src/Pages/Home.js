@@ -34,11 +34,9 @@ class Home extends Component {
         return (
             <div>
                 <Homebanner />
-                <BannerText title="Productos">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
-				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
+                <BannerText title="Productos">A continuación verás una lista de productos que están disponibles bajo el mecanismo de venta libre según las regulaciones legales del país</BannerText>
                 <CarouselProductos products={this.state.productos} />
-                <BannerText title="¿Cómo funciona Zeri Care?">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
-				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
+                <BannerText title="¿Cómo funciona Zeri Care?">Somos una plataforma que buscar revolucionar el sistema de entrega de medicamentos y mejorar la trazabilidad de la historia clínica de nuestros usuarios</BannerText>
                 <PasosPedido 
                     paso1="Regístrate"
                     paso2="Asiste a tu consulta"
