@@ -1,0 +1,11 @@
+.divStyle {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 3%,
+}
+
+.div2  {
+    width: 100%;
+    margin: auto;
+
+}

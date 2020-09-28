@@ -6,27 +6,17 @@ import img1 from '../assets/pexels-gustavo-fring-4173251.jpg'
 import img2 from '../assets/pexels-anna-shvets-4226119.jpg'
 import Paragraph from '../Componentes/Paragraph/Paragraph'
 import TitContent from '../Componentes/titContent/titContent'
+import styles from '../Nosotros.module.css'
 
 class Nosotros extends Component {
     render() {
-        const divStyle = {
-            display: "grid",
-            gridTemplateColumns: "40% 60%",
-            padding: "3%",
-        }
-
-        const div2 = {
-            width: "100%",
-            margin: "auto",
-
-        }
         return (
             <div>
-                <div style={div2} >
+                <div className={styles.div2} >
                     <img src={img1} height="700px" width="100%" />
                 </div>
                 <BannerText title="NOSOTROS">Somos coherentes entre lo que pensamos, sentimos y hacemos, basados en principios de honestidad y transparencia.</BannerText>
-                <div style={divStyle}>
+                <div className={styles.divStyle}>
                     <TitContent contentType={"txt"} title={"Misión"}>
                         soportados por un equipo humano competente y una tecnología de avanzada; todo respaldado por una excelente gestión administrativa y financiera para responder a las necesidades de nuestros usuarios y sus familias..
                     </TitContent>
@@ -50,7 +40,7 @@ class Nosotros extends Component {
                 </div>
                 <BannerText title="¿Dónde Encontrarnos?">Podrás encontrar nuestros puntos en las clínicas aliadas</BannerText>
 
-                <div style={divStyle}>
+                <div className={styles.divStyle}>
                     <div>
                         <img src={img2} width="90%" />
                     </div>
