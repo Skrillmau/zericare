@@ -1,0 +1,20 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  
+
+  h1{
+      text-align: center;
+  }
+  
+  hr{
+      margin-left: 5%;
+
+      margin-right: 5%;
+  }
+
+  .gridItem{
+
+  }

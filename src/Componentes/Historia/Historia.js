@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Paragraph from '../Paragraph/Paragraph'
 import Txt from '../Button/txt/txtButton'
-
+import classes from './Historia.module.css'
 class Historia extends Component {
     render() {
         return (
-            <div>
+            <div className={classes.block}>
               Antecedentes Patológicos: <Paragraph contenido= {this.props.patologicos} clase={"importante"}/>
               Antecedentes no Patológicos: <Paragraph contenido= {this.props.npatologicos} clase={"importante"}/>
               Antecedentes familiares: <Paragraph contenido= {this.props.familiares} clase={"importante"}/>
