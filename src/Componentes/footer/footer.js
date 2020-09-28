@@ -3,12 +3,13 @@ import Style from './footer.module.css'
 import facebook from '../../assets/FacebookBlanco.svg'
 import instagram from '../../assets/InstagramBlanco.svg'
 import wa from '../../assets/WhatsAppLogoMini.svg'
+import health from '../../assets/health.svg'
 
 const Footer = (props) => {
     return (
         <div className={Style.div}>
             <div className={Style.logo}>
-                <a href="/"><img alt={'logo PHL'} width='100%' src={'/assets/LogoBlanco.svg'}/></a>
+                <a href="/"><img alt={'logo PHL'} width='100%' src={health}/></a>
             </div>
             <div className={Style.txt}>
                 <p><b>Zeri Care S.A.S</b><br/>Nit.91111111-6<br/>Calle 85a #28b-34, Barrio

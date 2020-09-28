@@ -7,18 +7,15 @@ import classes from "./Navbar.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Link} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
 function Navbar() {
-
-    const useStyles = makeStyles((theme) => ({
-        menuButton: {
-          marginRight: theme.spacing(2),
-        },
-        
-      }));
-
+  const useStyles = makeStyles((theme) => ({
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+  }));
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -33,20 +30,27 @@ function Navbar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-        <Button color="inherit">
-          <Link to='/home' className={classes.linked}><Typography variant="h6" className={classes.title}>
-          Zericare
-          </Typography></Link>
+          <Button color="inherit">
+            <Link to="/home" className={classes.linked}>
+              <Typography style={{fontFamily:"Futura", fontWeight:"Bold" }} variant="h6" className={classes.title}>
+                Zericare
+              </Typography>
+            </Link>
           </Button>
 
           <Button color="inherit">
-          <Link to='/nosotros' className={classes.linked}>Sobre Nosotros</Link>
+            <Link to="/nosotros" className={classes.linked}>
+              Sobre Nosotros
+            </Link>
           </Button>
-          
-          
-          <Button color="inherit"aria-controls="simple-menu"
+
+          <Button
+            color="inherit"
+            aria-controls="simple-menu"
             aria-haspopup="true"
-            onClick={handleClick} className={classes.boton}>
+            onClick={handleClick}
+            className={classes.boton}
+          >
             <AccountCircleIcon></AccountCircleIcon>
           </Button>
           <Menu
@@ -57,10 +61,15 @@ function Navbar() {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>
-            <Link to='/login' className={classes.linked2}>Login</Link>
-                </MenuItem>
-            <MenuItem onClick={handleClose}><Link to='/info' className={classes.linked2}>Perfil</Link></MenuItem>
-            
+              <Link to="/login" className={classes.linked2}>
+                Login
+              </Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link to="/info" className={classes.linked2}>
+                Perfil
+              </Link>
+            </MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

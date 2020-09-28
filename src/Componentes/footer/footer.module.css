@@ -38,7 +38,7 @@
     grid-column: span 1;
     font-size: 12px;
     font-family: Futura;
-    color: black;
+    color: white;
     text-decoration: underline;
   }
 }
@@ -59,7 +59,7 @@
   .logo {
     column-span: 1;
     text-align: left;
-    color: black;
+    color: white;
     margin-top: 0;
     width: 100%;
   }
@@ -123,11 +123,12 @@
     color: white;
     top: 0;
   }
-
+  
   .icon {
     height: 10px;
     width: 10px;
     margin-right: 10px;
+    color:white;
     
   }
 

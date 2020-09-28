@@ -1,54 +1,54 @@
 .main {
-	padding: 3%;
-	margin-top: 86px;
+  padding: 3%;
+  margin-top: 86px;
 }
 .check {
-	padding: 0% 2.5%;
-	color: #142882;
-	font-size: 16px;
+  padding: 0% 2.5%;
+  color: #142882;
+  font-size: 16px;
 }
 .link {
-	padding: 2.5%;
-	margin-top: 80%;
-	color: #142882;
-	font-size: 16px;
+  padding: 2.5%;
+  margin-top: 80%;
+  color: #142882;
+  font-size: 16px;
 }
 .titulo {
-	padding: 2.5%;
-	font-family: ProgressBd;
-	font-size: 32px;
-	color: #142882;
+  padding: 2.5%;
+  font-family: ProgressBd;
+  font-size: 32px;
+  color: #142882;
 }
 .input {
-	margin-bottom: 2.5%;
-	margin-left: 2.5%;
-	font-size: 16px;
-	width: 30%;
-	padding: 1%;
-	resize: none;
-	background: white;
-	border: none;
-	box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
-	border-radius: 10px;
-	outline: none;
-	font-family: arial;
-	color: #142882;
+  margin-bottom: 2.5%;
+  margin-left: 2.5%;
+  font-size: 16px;
+  width: 30%;
+  padding: 1%;
+  resize: none;
+  background: white;
+  border: none;
+  box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
+  border-radius: 10px;
+  outline: none;
+  font-family: arial;
+  color: #142882;
 }
 .label {
-	margin-bottom: 0px;
-	margin-left: 2.5%;
-	font-size: 16px;
+  margin-bottom: 0px;
+  margin-left: 2.5%;
+  font-size: 16px;
 }
 .button {
-	font-size: 16px;
-	margin-left: 2.5%;
-	border-radius: 53px;
-	padding: 10px 30px;
-	border: none;
-	outline: none;
-	color: white;
-	background: #aa0000;
-	margin-bottom: 2.5%;
-	box-shadow: 0px 3px 6px #00000029;
-	cursor: pointer;
+  font-size: 16px;
+  margin-left: 2.5%;
+  border-radius: 53px;
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  color: white;
+  background: #aa0000;
+  margin-bottom: 2.5%;
+  box-shadow: 0px 3px 6px #00000029;
+  cursor: pointer;
 }

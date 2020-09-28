@@ -13,23 +13,31 @@
 
 title {
   flex-grow: 1;
+  font-family: Futura !important;
+  font-weight: bold !important;
 }
 
 .boton {
   float: right !important;
 }
 
-  .linked{
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .linked2{
-    color: rgb(6,181,239);
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
+
+.linked {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: Futura ;
+  font-weight: medium ;
+
+}
+.linked2 {
+  color: rgb(6, 181, 239);
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: Futura ;
+  font-weight: medium ;
+}
