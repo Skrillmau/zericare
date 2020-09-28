@@ -59,7 +59,7 @@ function Navbar() {
             <MenuItem onClick={handleClose}>
             <Link to='/login' className={classes.linked2}>Login</Link>
                 </MenuItem>
-            <MenuItem onClick={handleClose}><Link to='/perfil' className={classes.linked2}>Perfil</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link to='/info' className={classes.linked2}>Perfil</Link></MenuItem>
             
           </Menu>
         </Toolbar>
