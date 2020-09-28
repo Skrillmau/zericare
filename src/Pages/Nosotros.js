@@ -61,7 +61,7 @@ class Nosotros extends Component {
                             width="30%"
                             id="myId"
                             className="myClassname"
-                            height="30%"
+                            height="60%"
                          />
                     </div>
                 </div>
