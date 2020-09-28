@@ -15,26 +15,27 @@
     .p{
         font-size: 14px;
         color: #212529;
-        font-family: Avenir, serif;
+        font-family: Futura;
     }
     .pR{
         font-size: 16px;
         color: #212529;
-        font-family: Avenir, serif;
+        font-family: Futura;
         text-align: right;
     }
 }
 
 @media screen and (min-width: 1200px) {
  .p{
-     font-size: 16px;
+     font-size: 20px;
      color: #212529;
-     font-family: Avenir, serif;
+     font-family: Futura;
+     font-weight: normal;
  }
     .pR{
         font-size: 16px;
         color: #212529;
-        font-family: Avenir, serif;
+        font-family: Futura;
         text-align: right;
     }
 }

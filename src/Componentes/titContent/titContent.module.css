@@ -1,0 +1,67 @@
+@media screen and (max-width: 599px) {
+    .div{
+        column-span: 1;
+        padding: 0 1%;
+        margin: 1% 0;
+    }
+    .title{
+        font-family: ProgressMd, serif;
+        font-size: 24px;
+        color: #142882;
+        margin-bottom: 1%;
+    }
+    .txt{
+        color: #212529;
+        font-family: Avenir, serif;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    .default{
+        margin: 1% auto;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+    .div{
+        column-span: 1;
+        padding: 0 4%;
+        margin: 4% 0;
+    }
+    .title{
+        font-family: ProgressMd, serif;
+        font-size: 28px;
+        color: #142882;
+        margin-bottom: 2%;
+    }
+    .txt{
+        color: #212529;
+        font-family: Avenir, serif;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .default{
+        margin: 2% auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .div{
+        column-span: 1;
+        margin: 5.5%
+    }
+    .title{
+        font-family: Futura;
+        font-size: 32px;
+        color: #2dd99a;
+        margin-bottom: 3%;
+    }
+    .txt{
+        color: #212529;
+        font-family: Futura;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    .default{
+        margin: 3% auto;
+    }
+}

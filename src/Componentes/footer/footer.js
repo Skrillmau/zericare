@@ -24,10 +24,10 @@ const Footer = (props) => {
                 <p>© 2020 Zeri Dev .</p>
             </div>
             <div className={Style.logo}>
-                <a className={`hvr-grow ${Style.icon}`} href="https://wa.me/573007771682" target={'blank'}><img alt={'icon'}
+                <a className={`hvr-grow ${Style.icon}`} href="*" target={'blank'}><img alt={'icon'}
                                                                      src={wa}/></a>
-                <a className={`hvr-grow ${Style.icon}`} href="https://www.instagram.com/pharmalabphl/" target={'blank'}><img alt={'icon'} src={instagram}/></a>
-                <a className={`hvr-grow ${Style.icon}`} href="https://www.facebook.com/PharmalabPHL" target={'blank'}><img alt={'icon'}
+                <a className={`hvr-grow ${Style.icon}`} href="*" target={'blank'}><img alt={'icon'} src={instagram}/></a>
+                <a className={`hvr-grow ${Style.icon}`} href="*" target={'blank'}><img alt={'icon'}
                                                                      src={facebook}/></a>
             </div>
         </div>
