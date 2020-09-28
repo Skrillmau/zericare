@@ -63,5 +63,7 @@
     }
     .default{
         margin: 3% auto;
+        font-weight: bold;
+        color: white;
     }
 }
