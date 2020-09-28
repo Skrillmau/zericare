@@ -1,28 +1,36 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
+import classes from "./carouselProductos.module.css";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
-class CarouselProductos extends PureComponent {
-  render() {
-    return (
-      <div style={{ width: "80%" }}>
-        <Swiper
-          spaceBetween={0}
-          slidesPerView={3}
-          loop={true}
-        >
-          {this.props.products.map((item, i) => {
-            console.log(item);
-            return (
-              <SwiperSlide key={i}>
-                <ProductCard id={i} nombre={item.nombre} imagen={item.imagen} />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div>
-    );
-  }
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+import "swiper/components/scrollbar/scrollbar.scss";
+
+SwiperCore.use([Navigation ,Pagination, A11y]);
+
+function CarouselProductos(props) {
+  return (
+    <div className={classes.main}>
+      <Swiper navigation={true} spaceBetween={20} slidesPerView={2} pagination={{ clickable: true }} loop="true">
+        {props.products.map((item, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <ProductCard
+                key={i}
+                nombre={item.nombre}
+                imagen={item.imagen}
+                id={i}
+              />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </div>
+  );
 }
 
 export default CarouselProductos;
