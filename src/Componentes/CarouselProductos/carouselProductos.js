@@ -10,12 +10,18 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 
-SwiperCore.use([Navigation ,Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y]);
 
 function CarouselProductos(props) {
   return (
     <div className={classes.main}>
-      <Swiper navigation={true} spaceBetween={20} slidesPerView={2} pagination={{ clickable: true }} loop="true">
+      <Swiper
+        navigation={true}
+        spaceBetween={20}
+        slidesPerView={2}
+        pagination={{ clickable: true }}
+        loop="true"
+      >
         {props.products.map((item, i) => {
           return (
             <SwiperSlide key={i}>
