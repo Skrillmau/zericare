@@ -108,25 +108,25 @@
   }
 
   .logo {
-    column-span: 1;
+    column-span: 2;
     margin: 0;
     text-align: left;
     color: white;
-    width: 100%;
+    width: 20%;
   }
 
   .txt {
     margin-top: 0;
     column-span: 1;
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     top: 0;
   }
 
   .icon {
-    height: 25px;
-    width: 25px;
+    height: 10px;
+    width: 10px;
     margin-right: 10px;
     
   }
