@@ -4,7 +4,7 @@ import TxtButton from "../Button/txt/txtButton";
 class LoginForm extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.main}>
         <form onSubmit={this.props.onSubmit}>
           <p className={styles.label}>Usuario</p>
           <input id="user" className={styles.input} type="text" />
