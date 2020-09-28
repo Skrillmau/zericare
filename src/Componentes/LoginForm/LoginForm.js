@@ -5,13 +5,13 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit="">
+        <form onSubmit={this.props.onSubmit}>
           <p className={styles.label}>Usuario</p>
-          <input className={styles.input} type="text" />
+          <input id="user" className={styles.input} type="text" />
           <p className={styles.label}>Contraseña</p>
-          <input className={styles.input} type="password" />
+          <input id="pass" className={styles.input} type="password" />
           <br />
-          <TxtButton color={"red"}>Ingresar</TxtButton>
+          <TxtButton color={"red"} type={"submit"}>Ingresar</TxtButton>
         </form>
       </div>
     );
