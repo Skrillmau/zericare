@@ -21,7 +21,7 @@ export default function HomeBanner(props) {
 					return (
 						<SwiperSlide key={i}>
                             <img src=
-                            "https://www.lg.com/co/images/TV/features/TV-UHD-60-UM72-03-Quad-Core-Processor-Desktop.jpg" style={{ width: "100%" }} alt={"imagen"} />
+                            "https://image.freepik.com/vector-gratis/fondo-elegante-textura-blanca_23-2148438405.jpg" style={{ width: "100%" }} alt={"imagen"} />
 							<div className={styles.slideTxt}>
 								{item.text.split("\n").map((line) => (
 									<p className={styles.slideP}><Fade  bottom>{line}</Fade></p>
