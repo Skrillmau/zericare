@@ -11,21 +11,21 @@ class Perfil extends Component {
         super(props)
 
         this.state = {
-            producto: {
+            usuario: {
 
             }
         }
     }
 
     componentDidMount() {
-        //const { id } = this.props.match.params;
-        const id = this.props.id;
+        const { id } = this.props.match.params;
+        
         console.log(this.props);
-        axios.get(`https://api.npoint.io/091cb40bb6d0f229f0d2/productos/${id}`, {})
+        axios.get(`https://api.npoint.io/05cf5d45abf19bfa8d4f/pacientes/${id}`, {})
             .then((res) => {
                 const data = res.data;
                 console.log(data);
-                this.setState({ producto: data });
+                this.setState({ usuario: data });
             })
             .catch((error) => {
                 console.log(error);
@@ -36,9 +36,9 @@ class Perfil extends Component {
         return (
             <div>
                 <h1>Perfil</h1>
-                <Info Nombre = "Nikolas" apellido = "Cardona" id="123" sexo="M" ocupacion="Estudiante"/>
+                <Info imagen= {this.state.usuario.imagen} nombre = {this.state.usuario.nombre} apellido = {this.state.usuario.apellido} id={this.state.usuario.registro} sexo={this.state.usuario.sexo} ocupacion={this.state.usuario.ocupacion}/>
                 <hr></hr>
-                <Historia patologicos="Lo que sea" npatologicos= "asdasd" familiares= "asdasd" go="asdasdas" consulta="asdjakdskajh" dnr="asdasd" ef="asdjaskld"/>
+                <Historia patologicos={this.state.usuario.patologicos} npatologicos= {this.state.usuario.nopatologicos} familiares= {this.state.usuario.familiares} go={this.state.usuario.gineco} consulta={this.state.usuario.PEEA} dnr={this.state.usuario.dnr} ef={this.state.usuario.fisica}/>
                 
             </div>
         );

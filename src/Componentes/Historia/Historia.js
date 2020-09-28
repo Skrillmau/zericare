@@ -13,7 +13,6 @@ class Historia extends Component {
               PEEA última consulta:<Paragraph contenido= {this.props.consulta} clase={"importante"}/>
               DNR: <Paragraph contenido= {this.props.dnr} clase={"importante"}/>
               Exploración Física:<Paragraph contenido= {this.props.ef} clase={"importante"}/>
-              <Txt>Buenas</Txt>
               
             </div>
         );
