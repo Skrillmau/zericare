@@ -25,12 +25,13 @@
 .texto {
   margin: 0%;
   color: #4e5757;
-  padding: 0% 15%;
+  padding: 0% 10%;
 }
 .texto2 {
   margin: auto;
   color: #4e5757;
-  padding: 0% 15%;
+  padding: 0% 0%;
+  margin-right: 20%;
 }
 image {
   width: 94%;
