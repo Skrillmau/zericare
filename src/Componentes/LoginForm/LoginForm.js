@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from "../LoginForm/adminlogin.module.css";
+import  TxtButton from '../txt/txtButton'
 class LoginForm extends Component {
     render() {
         return (
@@ -10,9 +11,7 @@ class LoginForm extends Component {
 				<p className={styles.label}>Contraseña</p>
 				<input className={styles.input} type="password" />
 				<br />
-				<button className={styles.button} type={"submit"}>
-					Ingresar
-				</button>
+				<TxtButton color={"red"}>Ingresar</TxtButton>
 			</form>
             </div>
         );

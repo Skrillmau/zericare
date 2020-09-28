@@ -2,9 +2,10 @@
     .div {
         position: relative;
         z-index: 3;
-        background: url('/assets/FondoAzul.png');
+        background: #2dd99a;
         margin-bottom: 0px;
         padding: 1%
+    
     }
 
     .img {
@@ -100,7 +101,7 @@
     .div {
         position: relative;
         z-index: 3;
-        background: url('/assets/FondoAzul.png');
+        background: #2dd99a;
         grid-column-gap: 2%;
         grid-template-columns:19% 14% 18% 32% auto;
         display: grid;

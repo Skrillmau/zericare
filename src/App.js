@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Nosotros from './Pages/Nosotros'
 import NotFound from './Pages/NotFound'
 import Login from './Pages/Login'
+import Footer from './Componentes/footer/footer'
 
 
 // Import Swiper styles
@@ -21,7 +22,10 @@ function App() {
       <Route path="/login" exact><Login /></Route>
       <Route component={NotFound}/>
      </Switch>
+     <Footer/>
     </BrowserRouter>
+ 
+
   );
 }
 

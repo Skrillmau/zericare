@@ -33,7 +33,7 @@ class Home extends Component {
                     texto6="Podemos hacer los diseños que requieras, bajo pedido, ayudándote  a exponer tu marca para que tus clientes te reconozcan."
                 />
                 <Contact type={"min"} />
-                <Footer />
+
             </div>
         );
     }
