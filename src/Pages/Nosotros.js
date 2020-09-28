@@ -35,15 +35,15 @@ class Nosotros extends Component {
                         servicio al cliente, valor agregado en gestión de procesos internos y por la eficiencia, calidad
                         e idoneidad de los productos farmacéuticos comercializados. Nos proyectamos como una empresa con
                         presencia en distintos países de Latinoamérica capaz de atender y suplir con estrategias claras
-                        los requerimientos terapéuticos en distintas áreas de la medicina. Pharmalab Phl Laboratorios se
+                        los requerimientos terapéuticos en distintas áreas de la medicina. Zeri Care se
                         consolidará en el mercado latinoamericano como una compañía enfocada en resolver de manera
                         integral las necesidades en enfermedades de alto impacto de los usuarios de la salud mediante el
                         uso de soluciones innovadoras que garanticen la sostenibilidad financiera del sistema y de los
                         aseguradores privados.
                             <br />
                         <br />
-                        Pharmalab Phl Laboratorios se consolidará en el mercado latinoamericano como una compañía
-                        enfocada en resolver de manera integral las necesidades en enfermedades de alto impacto de los usuarios de
+                        Zeri Care se consolidará en el mercado latinoamericano como una compañía
+                        enfocada en resolver de manera integral las necesidades  de los usuarios de
                         la salud mediante el uso de soluciones innovadoras que garanticen la sostenibilidad nanciera del sistema
                         y de los aseguradores privados.
                     </TitContent>
