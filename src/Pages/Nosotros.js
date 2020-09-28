@@ -56,13 +56,13 @@ class Nosotros extends Component {
                     </div>
                     <div>
                         <Texto >Debido a la creciente demanda de consultas médicas alredor del país, contamos con tres puntos de atención distribuidos a lo largo de la ciudad (Bogotá D.C). Nuestro punto principal se encuentra el la clínica Shaio. En los los puntos de atención, podrás realizar el registro de tu usuario Care, para el registro debes contar con tu documento de indentificación y en caso de ser menos de edad, deberás estar acompañado de tu tutor legal</Texto>
-                        <Iframe url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15905.646960313354!2d-74.073232!3d4.698311!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3fc4d0bb07cbde3f!2sCl%C3%ADnica%20Shaio!5e0!3m2!1ses-419!2sco!4v1601319230410!5m2!1ses-419!2sco" width="200" height="450" frameborder="0" style="border:0;"
+                        <Iframe url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15905.646960313354!2d-74.073232!3d4.698311!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3fc4d0bb07cbde3f!2sCl%C3%ADnica%20Shaio!5e0!3m2!1ses-419!2sco!4v1601319230410!5m2!1ses-419!2sco" 
                             position="absolute"
                             width="30%"
                             id="myId"
                             className="myClassname"
                             height="48%"
-                            styles={{ height: "25px" }} />
+                         />
                     </div>
                 </div>
 
