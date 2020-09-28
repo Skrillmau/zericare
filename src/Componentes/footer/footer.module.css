@@ -2,7 +2,7 @@
   .div {
     position: relative;
     z-index: 3;
-    background: #2dd99a;
+    background: rgb(6, 181, 239);
     margin-bottom: 0px;
     padding: 1%;
   }
@@ -48,12 +48,12 @@
     position: relative;
     width: 100%;
     z-index: 3;
-    background: url("/assets/FondoAzul.png");
     grid-column-gap: 1%;
     grid-template-columns: 19% 14% 14% 35% auto;
     display: grid;
     margin-bottom: 0;
     padding: 1%;
+    background: rgb(6, 181, 239);
   }
 
   .logo {

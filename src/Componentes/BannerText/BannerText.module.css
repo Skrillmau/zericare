@@ -70,10 +70,9 @@
     .div{
         width: auto;
         background: rgb(6, 181, 239);
-       
         display: grid;
         grid-template-columns: repeat(2, 50%);
-        padding: 3%;
+        padding: 1%;
         vertical-align: middle;
     }
     .i1{
