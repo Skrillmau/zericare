@@ -7,6 +7,7 @@ import NotFound from './Pages/NotFound'
 import Login from './Pages/Login'
 import Footer from './Componentes/footer/footer'
 import Navbar from './Componentes/Navbar/Navbar'
+import Perfil from './Componentes/Info/Info'
 
 // Import Swiper styles
 
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" exact><Home /></Route>
       <Route path="/nosotros" exact><Nosotros /></Route>
       <Route path="/login" exact><Login /></Route>
+      <Route path="/info" exact><Perfil /></Route>
       <Route component={NotFound}/>
      </Switch>
      <Footer/>
