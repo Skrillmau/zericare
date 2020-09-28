@@ -18,7 +18,7 @@ class Nosotros extends Component {
                 <BannerText title="NOSOTROS">Somos coherentes entre lo que pensamos, sentimos y hacemos, basados en principios de honestidad y transparencia.</BannerText>
                 <div className={styles.divStyle}>
                     <TitContent contentType={"txt"} title={"Misión"}>
-                        soportados por un equipo humano competente y una tecnología de avanzada; todo respaldado por una excelente gestión administrativa y financiera para responder a las necesidades de nuestros usuarios y sus familias..
+                       Queremos crear una plataforma que mejore la vida de nuestros clientes. Soportados por un equipo humano competente y una tecnología de avanzada; todo respaldado por una excelente gestión administrativa y financiera para responder a las necesidades de nuestros usuarios y sus familias..
                     </TitContent>
                     <TitContent contentType={"txt"} title={"Visión"}>
                         Para el 2030 seremos una compañía colombiana reconocida en Latinoamérica por su excelente
