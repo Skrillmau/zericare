@@ -96,6 +96,9 @@
 }
 
 @media screen and (min-width: 1200px) {
+  a{
+    color:white;
+  }
   .div {
     position: relative;
     z-index: 3;
@@ -119,7 +122,7 @@
     margin-top: 0;
     column-span: 1;
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     top: 0;
   }
