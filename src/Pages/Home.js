@@ -33,8 +33,6 @@ class Home extends Component {
     render() {
         return (
             <div>
-
-                <Titulo Titulo="Zericare" />
                 <Homebanner />
                 <BannerText title="PRUEBA">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
 				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
