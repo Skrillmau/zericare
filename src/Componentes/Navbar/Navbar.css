@@ -2,6 +2,10 @@ root{
     flex-grow: 1;
   }
 
+menuButton{
+    margin-right: 1000px,
+  }
+
 title{
     flex-grow: 1,
   }

@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class ProductoDetail extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+  render() {
+    console.log(this.props.match.params);
+    const { id } = this.props.match.params;
+  return <div>from producto {id}</div>;
+  }
 }
 
-export default ProductoDetail;
+export default withRouter(ProductoDetail);
