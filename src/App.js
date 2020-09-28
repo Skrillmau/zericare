@@ -6,7 +6,7 @@ import Nosotros from './Pages/Nosotros'
 import NotFound from './Pages/NotFound'
 import Login from './Pages/Login'
 import Footer from './Componentes/footer/footer'
-
+import Navbar from './Componentes/Navbar/Navbar'
 
 // Import Swiper styles
 
@@ -16,6 +16,7 @@ import Footer from './Componentes/footer/footer'
 function App() {
   return (
     <BrowserRouter>
+    <Navbar></Navbar>
      <Switch>
       <Route path="/" exact><Home /></Route>
       <Route path="/nosotros" exact><Nosotros /></Route>
