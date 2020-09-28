@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import classes from './Tarjeta.css'
-
+import {Link} from 'react-router-dom'
 
 
 
@@ -27,6 +27,7 @@ class Tarjeta extends PureComponent {
                         {this.props.descripcion}
                     </p>
                 </a>
+                <Link to="/producto/10000"><button>Hola</button></Link>
             </div>
         )
     }

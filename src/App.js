@@ -7,7 +7,7 @@ import NotFound from './Pages/NotFound'
 import Login from './Pages/Login'
 import Footer from './Componentes/footer/footer'
 import Navbar from './Componentes/Navbar/Navbar'
-
+import ProductoDetail from './Pages/ProductoDetail'
 // Import Swiper styles
 
 
@@ -16,11 +16,13 @@ import Navbar from './Componentes/Navbar/Navbar'
 function App() {
   return (
     <BrowserRouter>
-    <Navbar></Navbar>
+    <Navbar/>
      <Switch>
-      <Route path="/" exact><Home /></Route>
-      <Route path="/nosotros" exact><Nosotros /></Route>
-      <Route path="/login" exact><Login /></Route>
+      
+      <Route path="/nosotros"  component={Nosotros}/>
+      <Route path="/login"  component={Login}/>
+      <Route path="/producto/:id" component={ProductoDetail}/>
+      <Route path="/" component={Home}/>
       <Route component={NotFound}/>
      </Switch>
      <Footer/>
