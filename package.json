@@ -51,6 +51,7 @@
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
+    "react-iframe": "^1.8.0",
     "react-media": "^1.10.0",
     "react-responsive-carousel": "^3.2.10",
     "react-responsive-ssr": "^0.4.1",
