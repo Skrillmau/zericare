@@ -3,7 +3,8 @@
   }
 
 .appbar{
-background: green;
+background: green !important;
+
 }
 
 title{
@@ -12,11 +13,18 @@ title{
 
 
 .boton{
-    margin-block-end: auto;
+    float: right !important;
   }
 
   .linked{
     color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .linked2{
+    color: green;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;

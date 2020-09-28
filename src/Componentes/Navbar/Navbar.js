@@ -19,7 +19,6 @@ function Navbar() {
         
       }));
 
-      const clase = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -32,10 +31,10 @@ function Navbar() {
   };
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ background: '#2E3B55' }}>
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar>
         <Button color="inherit">
-          <Link to='' className={classes.linked}><Typography variant="h6" className={classes.title}>
+          <Link to='/home' className={classes.linked}><Typography variant="h6" className={classes.title}>
           Zericare
           </Typography></Link>
           </Button>
@@ -47,7 +46,7 @@ function Navbar() {
           
           <Button color="inherit"aria-controls="simple-menu"
             aria-haspopup="true"
-            onClick={handleClick}>
+            onClick={handleClick} className={classes.boton}>
             <AccountCircleIcon></AccountCircleIcon>
           </Button>
           <Menu
@@ -57,9 +56,11 @@ function Navbar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Login</MenuItem>
-            <MenuItem onClick={handleClose}>Perfil</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleClose}>
+            <Link to='/login' className={classes.linked2}>Login</Link>
+                </MenuItem>
+            <MenuItem onClick={handleClose}><Link to='/perfil' className={classes.linked2}>Perfil</Link></MenuItem>
+            
           </Menu>
         </Toolbar>
       </AppBar>
