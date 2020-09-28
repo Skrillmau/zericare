@@ -61,8 +61,8 @@ class Nosotros extends Component {
                             width="30%"
                             id="myId"
                             className="myClassname"
-                            height="60%"
-                         />
+                            height="38%"
+                            styles={{ padding: "3%" }} />
                     </div>
                 </div>
 
