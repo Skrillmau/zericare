@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Style from "./contact.module.css";
-import Send from "../send/send";
+import Button from "../Button/txt/txtButton";
 import emailjs from "emailjs-com";
 import swal from "sweetalert2";
 
@@ -96,18 +96,11 @@ const Contact = (props) => {
             name="check"
             type="checkbox"
             required
-          />{" "}
+          />
           <label htmlFor={"check"}>
-            Acepto{" "}
-            <a href="/terminosycondiciones" className={Style.link}>
-              Términos y Condiciones
-            </a>{" "}
-            y{" "}
-            <a href="/politicadeprivacidad" className={Style.link}>
-              Política de Privacidad.
-            </a>
+            Acepto Términos y Condiciones y Política de Privacidad.
           </label>
-          <Send type="submit" />
+          <Button color={"blue"} type="submit" >Enviar</Button>
         </form>
         <br />
       </div>
