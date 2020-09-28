@@ -1,11 +1,24 @@
-root{
+.root{
     flex-grow: 1;
   }
 
-menuButton{
-    margin-right: 1000px,
-  }
+.appbar{
+background: green;
+}
 
 title{
     flex-grow: 1,
+  }
+
+
+.boton{
+    margin-block-end: auto;
+  }
+
+  .linked{
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
   }

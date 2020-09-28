@@ -7,8 +7,20 @@ import classes from "./Navbar.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import {Link} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
 function Navbar() {
+
+    const useStyles = makeStyles((theme) => ({
+        menuButton: {
+          marginRight: theme.spacing(2),
+        },
+        
+      }));
+
+      const clase = useStyles();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -20,25 +32,23 @@ function Navbar() {
   };
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: '#2E3B55' }}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Zer
-          </Typography>
-          <Button color="inherit">Sobre Nosotros</Button>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">
-            <AccountCircleIcon></AccountCircleIcon>
+        <Button color="inherit">
+          <Link to='' className={classes.linked}><Typography variant="h6" className={classes.title}>
+          Zericare
+          </Typography></Link>
           </Button>
 
-          <Button
-            aria-controls="simple-menu"
+          <Button color="inherit">
+          <Link to='/nosotros' className={classes.linked}>Sobre Nosotros</Link>
+          </Button>
+          
+          
+          <Button color="inherit"aria-controls="simple-menu"
             aria-haspopup="true"
-            onClick={handleClick}
-          >
-            Open Menu
+            onClick={handleClick}>
+            <AccountCircleIcon></AccountCircleIcon>
           </Button>
           <Menu
             id="simple-menu"
@@ -47,8 +57,8 @@ function Navbar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Login</MenuItem>
+            <MenuItem onClick={handleClose}>Perfil</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
         </Toolbar>
