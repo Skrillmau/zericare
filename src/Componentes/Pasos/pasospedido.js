@@ -5,36 +5,6 @@ import styles from './pasospedido.module.css'
 
 class Pasospedido extends Component {
   render() {
-    const l = {
-      main: { width: "100%", padding: "3%" },
-      title: {
-        fontSize: "50px",
-        fontFamily: "Futura",
-        textAlign: "center",
-        margin: "0px",
-        padding: "2.5%",
-        fontWeight: "bold",
-      },
-      grid: {
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 25%)",
-        padding: "0% 0%",
-      },
-      item: {
-        columns: "span 1",
-        fontFamily: "Futura",
-        textAlign: "center",
-        fontSize: "24px",
-      },
-      texto: { margin: "0%", color: "#4e5757", padding: "0% 15%" },
-      texto2: { margin: "auto", color: "#4e5757", padding: "0% 15%" },
-      image: {
-        width: "94%",
-        padding: "0% 3%",
-        margin: "auto",
-      },
-      c4: { gridColumns: "span 4" },
-    };
     return (
       <div>
         <div className={styles.main}>
