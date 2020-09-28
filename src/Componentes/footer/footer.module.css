@@ -99,12 +99,7 @@
   .div {
     position: relative;
     z-index: 3;
-    background: rgb(45, 217, 154);
-    background: linear-gradient(
-      90deg,
-      rgba(45, 217, 154, 1) 50%,
-      rgba(103, 210, 171, 1) 100%
-    );
+    background: rgb(6, 181, 239);
     grid-column-gap: 2%;
     grid-template-columns: 19% 14% 18% 32% auto;
     display: grid;

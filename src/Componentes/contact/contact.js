@@ -6,7 +6,7 @@ import swal from "sweetalert2";
 
 const customStyles = {
   content: {
-    width:'80%',
+    width: "80%",
     top: "50%",
     left: "50%",
     right: "auto",
@@ -19,33 +19,17 @@ const customStyles = {
 const Contact = (props) => {
   const tipo = props.type;
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
   let style;
   if (tipo === "min") {
     style = Style.hidden;
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    setName(e.target.name.value);
-    setEmail(e.target.email.value);
-    setSubject(e.target.subject.value);
-    setMessage(e.target.message.value);
-  }
   function sendEmail(e) {
     e.preventDefault();
     emailjs
-      .send(
+      .sendForm(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT,
-        {
-          from_name: name,
-          email: email,
-          message: message,
-          subject: subject,
-        },
+        e.target,
         process.env.REACT_APP_EMAILJS_USER_ID
       )
       .then(
@@ -57,8 +41,6 @@ const Contact = (props) => {
             showConfirmButton: false,
             timer: 3500,
           });
-
-        
         },
         (error) => {
           swal.fire({
@@ -69,10 +51,6 @@ const Contact = (props) => {
         }
       );
   }
-  function handleSend(e) {
-    e.preventDefault();
-    sendEmail(e);
-  }
   return (
     <div className={Style.grid}>
       <div className={Style.item1}>
@@ -81,27 +59,41 @@ const Contact = (props) => {
           <br />
           Bogotá, Colombia
         </p>
-        <br/>
-        <p><a href="tel:0316215380">Tel. (031) 621 5380</a></p>
-        <br/>
-        <p><a target={'blank'} href={"mailto:info@pharmalabsa.com"}>info@pharmalabsa.com</a></p>
-        <br/>
+        <br />
+        <p>
+          <a href="tel:0316215380">Tel. (031) 621 5380</a>
+        </p>
+        <br />
+        <p>
+          <a target={"blank"} href={"mailto:info@pharmalabsa.com"}>
+            info@pharmalabsa.com
+          </a>
+        </p>
+        <br />
         <p>
           Horario.
           <br />
           L-V 7:30 - 18:00 hrs.
           <br />S 9:00 - 12:00 hrs.
         </p>
-        <br/>
+        <br />
         <div style={{ width: "40%", marginLeft: "0px", paddingLeft: "0%" }}>
-          <a className={`hvr-grow ${style}`} target={'blank'} href="https://www.instagram.com/pharmalabphl/">
+          <a
+            className={`hvr-grow ${style}`}
+            target={"blank"}
+            href="https://www.instagram.com/pharmalabphl/"
+          >
             <img
               className={Style.icono}
               src={"/assets/Instagram.png"}
               alt="instagram"
             />
           </a>
-          <a className={`hvr-grow ${style}`} target={'blank'}  href="https://www.facebook.com/PharmalabPHL">
+          <a
+            className={`hvr-grow ${style}`}
+            target={"blank"}
+            href="https://www.facebook.com/PharmalabPHL"
+          >
             <img
               className={Style.icono}
               src={"/assets/Facebook.png"}
@@ -126,10 +118,10 @@ const Contact = (props) => {
       </div>
       <div className={Style.item2}>
         <h2 className={Style.subtitulo}>¡Queremos atenderte!</h2>
-        <form className={Style.form} onSubmit={handleSubmit} id="contactForm">
+        <form className={Style.form} onSubmit={sendEmail} id="contactForm">
           <input
             className={Style.input}
-            id="name"
+            name="name"
             type="text"
             placeholder="Nombre"
             required
@@ -137,7 +129,7 @@ const Contact = (props) => {
           <br />
           <input
             className={Style.input}
-            id="email"
+            name="email"
             type="email"
             placeholder="Correo"
             required
@@ -145,34 +137,36 @@ const Contact = (props) => {
           <br />
           <input
             className={Style.input}
-            id="subject"
+            name="subject"
             type="text"
             placeholder="Asunto"
           />
           <br />
           <textarea
             className={Style.input}
-            id="message"
+            name="message"
             rows="10"
             placeholder="Descripción"
             required
           />
           <br />
-            <input
-              className={Style.checkbox}
-              id={"check"}
-              name="check"
-              type="checkbox"
-              required
-            />{" "}
-            <label htmlFor={"check"}>Acepto{" "}
-              <a href="/terminosycondiciones" className={Style.link}>
-                Términos y Condiciones
-              </a>{" "}
-              y{" "}
-              <a href="/politicadeprivacidad" className={Style.link}>
-                Política de Privacidad.
-              </a></label>
+          <input
+            className={Style.checkbox}
+            id={"check"}
+            name="check"
+            type="checkbox"
+            required
+          />{" "}
+          <label htmlFor={"check"}>
+            Acepto{" "}
+            <a href="/terminosycondiciones" className={Style.link}>
+              Términos y Condiciones
+            </a>{" "}
+            y{" "}
+            <a href="/politicadeprivacidad" className={Style.link}>
+              Política de Privacidad.
+            </a>
+          </label>
           <Send type="submit" />
         </form>
         <br />

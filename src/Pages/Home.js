@@ -34,7 +34,7 @@ class Home extends Component {
         return (
             <div>
                 <Homebanner />
-                <BannerText title="PRUEBA">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
+                <BannerText title="Prueba">Consideramos que el conocimiento es el pilar fundamental del cuidado de la salud. Por ello, Pharmalab PHL
 				Laboratorios abre un espacio en el que se compartirá información de salud del interés de la población.</BannerText>
                 <CarouselProductos products={this.state.productos}/>
                 <Caracteristicas
@@ -51,7 +51,7 @@ class Home extends Component {
                     titulo6="Incluimos la imagen de tu marca"
                     texto6="Podemos hacer los diseños que requieras, bajo pedido, ayudándote  a exponer tu marca para que tus clientes te reconozcan."
                 />
-                <Contact type={"min"} />
+                <Contact />
 
             </div>
         );

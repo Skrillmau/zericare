@@ -1,33 +1,35 @@
-.root{
-    flex-grow: 1;
-  }
-
-.appbar{
-    background: rgb(6,181,239);
-background: linear-gradient(90deg, rgba(6,181,239,1) 60%, rgba(92,214,255,1) 100%) !important;
-
+.root {
+  flex-grow: 1;
 }
 
-title{
-    flex-grow: 1,
-  }
+.appbar {
+  background: rgb(6, 181, 239);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 181, 239, 1) 60%,
+    rgba(92, 214, 255, 1) 100%
+  ) !important;
+}
 
+title {
+  flex-grow: 1;
+}
 
-.boton{
-    float: right !important;
-  }
+.boton {
+  float: right !important;
+}
 
-  .linked{
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .linked2{
-    color: green;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
+.linked {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.linked2 {
+  color: green;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
