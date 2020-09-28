@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
 import imagenPasos from "../../assets/PasosPedido.png";
+import styles from './pasospedido.module.css'
 
 class Pasospedido extends Component {
   render() {
@@ -36,23 +37,23 @@ class Pasospedido extends Component {
     };
     return (
       <div>
-        <div style={l.main}>
-          <h1 style={l.title}>{this.props.titulo}</h1>
+        <div className={styles.main}>
+          <h1 className={styles.title}>{this.props.titulo}</h1>
           <Fade left delay={200}>
-            <img style={l.image} src={imagenPasos} alt="Pasos Pedidos" />
+            <img className={styles.image} src={imagenPasos} alt="Pasos Pedidos" />
           </Fade>
-          <div style={l.grid}>
-            <div style={l.item}>
-              <p style={l.texto2}>{this.props.paso1}</p>
+          <div className={styles.grid}>
+            <div className={styles.item}>
+              <p className={styles.texto2}>{this.props.paso1}</p>
             </div>
-            <div style={l.item}>
-              <p style={l.texto}>{this.props.paso2}</p>
+            <div className={styles.item}>
+              <p className={styles.texto}>{this.props.paso2}</p>
             </div>
-            <div style={l.item}>
-              <p style={l.texto}>{this.props.paso3}</p>
+            <div className={styles.item}>
+              <p className={styles.texto}>{this.props.paso3}</p>
             </div>
-            <div style={l.item}>
-              <p style={l.texto}>{this.props.paso4}</p>
+            <div className={styles.item}>
+              <p className={styles.texto}>{this.props.paso4}</p>
             </div>
           </div>
         </div>

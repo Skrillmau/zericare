@@ -1,0 +1,38 @@
+.main { 
+    width: "100%"; 
+    padding: "3%" }
+
+.title {
+  font-size: "50px";
+  font-family: "Futura";
+  text-align: "center";
+  margin: "0px";
+  padding: "2.5%";
+  font-weight: "bold";
+}
+.grid {
+  display: "grid";
+  grid-template-columns: "repeat(4, 25%)";
+  padding: "0% 0%";
+}
+.item {
+  columns: "span 1";
+  font-family: "Futura";
+  text-align: "center";
+  font-size: "24px";
+}
+.texto { margin: "0%"; 
+    color: "#4e5757"; 
+    padding: "0% 15%"; 
+}
+.texto2 { 
+    margin: "auto"; color: "#4e5757"; padding: "0% 15%"; 
+}
+image {
+  width: "94%";
+  padding: "0% 3%";
+  margin: "auto";
+}
+.c4 { 
+    grid-template-columns: "span 4" ;
+}
