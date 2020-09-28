@@ -2,7 +2,7 @@
     .divB {
         width: fit-content;
         padding: 14px 30px;        background: #142882;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         color: white;
         border-radius: 30px;
         cursor: pointer;
@@ -30,7 +30,7 @@
     .divB {
         width: fit-content;
         padding: 14px 30px;        background: #142882;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         color: white;
         border-radius: 40px;
         cursor: pointer;
@@ -45,7 +45,7 @@
         margin: 3%;
         width: fit-content;
         padding: 14px 30px;        background: #a00;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         color: white;
         border-radius: 40px;
         cursor: pointer;
@@ -62,7 +62,7 @@
         padding: 14px 30px;
         background: #142882;
         font-size: 16px;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         color: white;
         border-radius: 40px;
         cursor: pointer;
@@ -77,7 +77,7 @@
         width: fit-content;
         padding: 14px 30px;
         background: #a00;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         font-size: 16px;
         color: white;
         border-radius: 40px;

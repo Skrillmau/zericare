@@ -39,7 +39,7 @@
         box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
         border-radius: 10px;
         outline: none;
-        font-family: Avenir, serif;
+        font-family: Futura;
         color: #142882
     }
 
@@ -47,7 +47,7 @@
         color: #e60000;
         font-size: 21px;
         text-align: center;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         margin-bottom: 25px
     }
 
@@ -69,7 +69,7 @@
         font-size: 21px;
         float: right;
         color: #142882;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         text-decoration: none
     }
 }
@@ -109,7 +109,7 @@
         box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
         border-radius: 10px;
         outline: none;
-        font-family: Avenir, serif;
+        font-family: Futura;
         color: #142882
     }
 
@@ -117,7 +117,7 @@
         color: #e60000;
         font-size: 21px;
         text-align: center;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         margin-bottom: 25px
     }
 
@@ -139,7 +139,7 @@
         font-size: 21px;
         float: right;
         color: #142882;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         text-decoration: none
     }
 }
@@ -181,7 +181,7 @@
         box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
         border-radius: 10px;
         outline: none;
-        font-family: Avenir, serif;
+        font-family: Futura;
         color: #142882
     }
 
@@ -189,7 +189,7 @@
         color: #e60000;
         font-size: 24px;
         text-align: center;
-        font-family: ProgressMd, serif;
+        font-family: Futura;
         margin-bottom: 30px
     }
 
@@ -211,7 +211,7 @@
         font-size: 24px;
         float: right;
         color: #142882;
-        font-family: ProgressBd, serif;
+        font-family: Futura;
         text-decoration: none;
     }
 

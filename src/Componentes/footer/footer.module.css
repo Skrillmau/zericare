@@ -1,149 +1,153 @@
 @media screen and (max-width: 599px) {
-    .div {
-        position: relative;
-        z-index: 3;
-        background: #2dd99a;
-        margin-bottom: 0px;
-        padding: 1%
-    
-    }
+  .div {
+    position: relative;
+    z-index: 3;
+    background: #2dd99a;
+    margin-bottom: 0px;
+    padding: 1%;
+  }
 
-    .img {
-        grid-column: span 1;
-        color: black;
-        width: 100%
-    }
+  .img {
+    grid-column: span 1;
+    color: black;
+    width: 100%;
+  }
 
-    .itemIcn {
-        grid-row: 1;
-        grid-column: 1;
-        color: black;
-        margin-left: 50%;
-        width: fit-content
-    }
+  .itemIcn {
+    grid-row: 1;
+    grid-column: 1;
+    color: black;
+    margin-left: 50%;
+    width: fit-content;
+  }
 
-    .txt {
-        grid-column: span 1;
-        text-align: left;
-        font-size: 8px;
-        color: black;
-        top: 0
-    }
+  .txt {
+    grid-column: span 1;
+    text-align: left;
+    font-size: 8px;
+    color: black;
+    top: 0;
+  }
 
-    .icon {
-        height: 20px;
-        width: 20px;
-        margin-right: 10px;
-    }
-    .col {
-        grid-column: span 1;
-        font-size: 12px;
-        font-family: Avenir, serif;
-        color: black;
-        text-decoration: underline;
-    }
-
+  .icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+  .col {
+    grid-column: span 1;
+    font-size: 12px;
+    font-family: Futura;
+    color: black;
+    text-decoration: underline;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1199px) {
-    .div {
-        position: relative;
-        width: 100%;
-        z-index: 3;
-        background: url('/assets/FondoAzul.png');
-        grid-column-gap: 1%;
-        grid-template-columns: 19% 14% 14% 35% auto;
-        display: grid;
-        margin-bottom: 0;
-        padding: 1%
-    }
+  .div {
+    position: relative;
+    width: 100%;
+    z-index: 3;
+    background: url("/assets/FondoAzul.png");
+    grid-column-gap: 1%;
+    grid-template-columns: 19% 14% 14% 35% auto;
+    display: grid;
+    margin-bottom: 0;
+    padding: 1%;
+  }
 
-    .logo {
-        column-span: 1;
-        text-align: left;
-        color: black;
-        margin-top: 0;
-        width: 100%
-    }
+  .logo {
+    column-span: 1;
+    text-align: left;
+    color: black;
+    margin-top: 0;
+    width: 100%;
+  }
 
-    .txt {
-        column-span: 1;
-        margin-top: 0;
-        text-align: left;
-        font-size: 8px;
-        color: black;
-        top: 0;
-    }
+  .txt {
+    column-span: 1;
+    margin-top: 0;
+    text-align: left;
+    font-size: 8px;
+    color: black;
+    top: 0;
+  }
 
-    .icon {
-        height: 20px;
-        width: 20px;
-        margin-right: 5px;
-        margin-top: 0;
-    }
-    .row {
-        grid-column: span 5;
-        width: 80%;
-        margin-top: 4%;
-        display: grid;
-        grid-template-columns:auto auto auto auto auto;
-    }
-    .col {
-        grid-column: span 1;
-        font-size: 12px;
-        font-family: Avenir, serif;
-        color: black;
-        text-decoration: underline;
-    }
+  .icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    margin-top: 0;
+  }
+  .row {
+    grid-column: span 5;
+    width: 80%;
+    margin-top: 4%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
+  .col {
+    grid-column: span 1;
+    font-size: 12px;
+    font-family: Futura;
+    color: black;
+    text-decoration: underline;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-    .div {
-        position: relative;
-        z-index: 3;
-        background: #2dd99a;
-        grid-column-gap: 2%;
-        grid-template-columns:19% 14% 18% 32% auto;
-        display: grid;
-        margin-bottom: 0;
-        padding: 2%;
-    }
+  .div {
+    position: relative;
+    z-index: 3;
+    background: rgb(45, 217, 154);
+    background: linear-gradient(
+      90deg,
+      rgba(45, 217, 154, 1) 50%,
+      rgba(103, 210, 171, 1) 100%
+    );
+    grid-column-gap: 2%;
+    grid-template-columns: 19% 14% 18% 32% auto;
+    display: grid;
+    margin-bottom: 0;
+    padding: 2%;
+  }
 
-    .logo {
-        column-span: 1;
-        margin: 0;
-        text-align: left;
-        color: black;
-        width: 100%;
-    }
+  .logo {
+    column-span: 1;
+    margin: 0;
+    text-align: left;
+    color: white;
+    width: 100%;
+  }
 
-    .txt {
-        margin-top: 0;
-        column-span: 1;
-        text-align: left;
-        font-size: 12px;
-        color: black;
-        top: 0;
-    }
+  .txt {
+    margin-top: 0;
+    column-span: 1;
+    text-align: left;
+    font-size: 12px;
+    color: white;
+    top: 0;
+  }
 
-    .icon {
-        height: 25px;
-        width: 25px;
-        margin-right: 10px;
-    }
+  .icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    
+  }
 
-    .row {
-        grid-column: span 5;
-        width: 80%;
-        margin-top: 4%;
-        display: grid;
-        grid-template-columns:auto auto auto auto auto;
-    }
+  .row {
+    grid-column: span 5;
+    width: 80%;
+    margin-top: 4%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
 
-    .col {
-        grid-column: span 1;
-        font-family: Avenir, serif;
-        color: black;
-        text-decoration: underline;
-    }
+  .col {
+    grid-column: span 1;
+    font-family: Futura;
+    color: white;
+    text-decoration: underline;
+  }
 }

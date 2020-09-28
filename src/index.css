@@ -1,13 +1,19 @@
+@font-face {
+	font-family: "Futura";
+  src: url(../src/assets/Fonts/futura-book-bt-22240.ttf) format("truetype");
+  src: url(../src/assets/Fonts/futura-condensed-bolditalic.ttf) format("truetype");
+  src: url(../src/assets/Fonts/futurabq-medium.otf) format("truetype");
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-family: Futura;
+
+}
+p{
+  font-family: Futura;
 }
