@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import firebase from '../../config/firebase';
 
 const startAuthLoading = () => {
     return {
@@ -37,6 +38,12 @@ const startAuthLoading = () => {
 export const logIn = (authData, onSuccessCallback) => {
     return (dispatch) => {
       dispatch(startAuthLoading());
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
       axios
         .post("/accounts:signInWithPassword?key=" + API_KEY, authData)
         .then((response) => {
