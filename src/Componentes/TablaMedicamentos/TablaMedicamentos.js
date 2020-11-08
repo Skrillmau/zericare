@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Orden from '../Componentes/Orden/Orden'
-import OrdenFinal from '../Componentes/OrdenFinal/OrdenFinal';
-import Buttom from '../Componentes/Button/txt/txtButton.js';
 
+import OrdenFinal from '../OrdenFinal/OrdenFinal';
+import Orden from '../Orden/Orden'
+import classes from "./TablaMedicamentos.css";
 
-const TablaMedicamentos = (props) => {
+const TablaMedicamentos = () => {
     const [Items, setItems] = useState([]);
     const [Selecteditem, setSelecteditem] = useState(null);
 
@@ -27,24 +27,30 @@ const TablaMedicamentos = (props) => {
         console.log(test, "test")
         setItems(test);
     }
-    
+
     return (
-        <div>
-            <p>Agregar Medicamento</p>
-            <Orden onsubmit={addMedicamentos} />
-            <div>
-            {Items.map((item, i) => {
+        <div className={classes.App}>
+            <div className={classes.gridContainer}>
+                <div className={classes.item2}>
+                    <Orden onsubmit={addMedicamentos} />
+                </div>
 
-                return (
+                <div className={classes.item2}>
+                    {Items.map((item, i) => {
 
-                    <OrdenFinal nombre={item.Nombre} cantidad={item.Cantidad} dosis={item.Dosis} observaciones={item.Observaciones} onclick={() => deleteMedicamentos(i)} />
-                )
-            })}
+                        return (
+
+                            <OrdenFinal nombre={item.Nombre} cantidad={item.Cantidad} dosis={item.Dosis} observaciones={item.Observaciones} onclick={() => deleteMedicamentos(i)} />
+                        )
+                    })}
+                </div>
             </div>
-        
+
+
+
         </div>
     );
-   
+
 };
 
 export default TablaMedicamentos;
