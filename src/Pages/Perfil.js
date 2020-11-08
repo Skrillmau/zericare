@@ -6,7 +6,7 @@ import { Redirect, withRouter } from "react-router-dom";
 import BannerText from "../Componentes/BannerText/BannerText";
 import { connect } from "react-redux";
 import ListaPacientes from "../Componentes/ListaPacientes/ListaPacientes";
-
+import Spinner from "../Componentes/Spinner/Spinner";
 import * as actionCreators from "../Store/Actions/";
 
 class Perfil extends Component {
@@ -16,18 +16,20 @@ class Perfil extends Component {
   };
 
   componentDidMount() {
-    if (!this.state.isUserLoggedIn) {
-      console.log("hola");
-      this.props.history.push("/login");
-    }
     const { id } = this.props.match.params;
     this.props.fetchUser(id);
+  }
+  componentDidUpdate() {
+    if (!this.state.isUserLoggedIn) {
+      this.props.history.push(`/login`);
+    }
   }
 
   componentWillReceiveProps(nextState) {
     this.setState({
       isUserLoggedIn: nextState.isUserLoggedIn,
       usuario: nextState.user,
+      isUserLoaded: nextState.isUserLoaded,
     });
   }
   handleLogout = () => {
@@ -35,8 +37,8 @@ class Perfil extends Component {
     this.props.onlogOut();
     this.props.history.push(`/login`);
   };
-  onUserLoggedIn = () => {
-    //if (this.state.usuario.Tipo == "Paciente") {
+  toggleProfile = () => {
+    if (this.state.usuario.Tipo == "Paciente") {
       return (
         <div className={classes.block}>
           <h1>Perfil</h1>
@@ -49,6 +51,7 @@ class Perfil extends Component {
             sexo={this.state.usuario.Sexo}
             ocupacion={this.state.usuario.Ocupacion}
           />
+         
           <BannerText title="Tu historia clínica">
             En el listado a continuación, podrás ver tus historial médico más
             reciente (recuerda darle tu código al médico encargado de tu
@@ -71,7 +74,7 @@ class Perfil extends Component {
           <p>Insertar órdenes de firebase</p>
         </div>
       );
-   /* } else if (this.state.usuario.Tipo == "Medico") {
+    } else if (this.state.usuario.Tipo == "Medico") {
       return (
         <div>
           <Info
@@ -91,14 +94,13 @@ class Perfil extends Component {
         </div>
       );
     } else {
-      return <p>Un momento por favor...</p>;
-    }*/
+      return  <Spinner/>;
+    }
   };
-  onUserLoggedOut = ()=>{
-    return(<Redirect to="/login"></Redirect>)
-  }
+ 
   render() {
-    return this.state.isUserLoggedIn? this.onUserLoggedIn(): this.onUserLoggedOut();
+    if (!this.state.usuario) return <Spinner/>;
+    return this.toggleProfile();
   }
 }
 const mapStateToProps = (state) => {

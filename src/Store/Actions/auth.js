@@ -58,6 +58,8 @@ export const logIn = (authData, onSuccessCallback) => {
         };
         userSession = JSON.stringify(userSession);
         localStorage.setItem("userSession", userSession);
+        dispatch(users.fetchUser(uid));
+
         dispatch(saveSession(email, token, uid));
         dispatch(endAuthLoading());
         if (onSuccessCallback) {
@@ -76,7 +78,6 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    
     firebase
       .auth()
       .signOut()
