@@ -11,6 +11,7 @@ import * as actionCreators from "../Store/Actions/";
 
 class Perfil extends Component {
   state = {
+    isUserLoggedIn: this.props.isUserLoggedIn,
     usuario: {},
   };
 
@@ -25,9 +26,9 @@ class Perfil extends Component {
     });
   }
   handleLogout = () => {
-    console.log("hola");
-    localStorage.removeItem("user");
-    this.props.history.push(`/`);
+    console.log("sad")
+    this.props.onlogOut();
+    //this.props.history.push(`/`);
   };
 
   render() {
@@ -110,6 +111,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
+    onlogOut : () =>dispatch(actionCreators.logOut())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Perfil);
