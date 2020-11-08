@@ -27,7 +27,7 @@ function Navbar(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  if (isUserLoggedIn) {
+  if (props.isUserLoggedIn) {
     let LogedinMenu = (<MenuItem onClick={handleClose}>
       <Link to="/perfil" className={classes.linked2}>
         Perfil
@@ -38,9 +38,11 @@ function Navbar(props) {
     </MenuItem> )
   }
   else{
-    (<Link to="/login" className={classes.linked2}>
+    (<MenuItem onClick={handleClose}> 
+    <Link to="/login" className={classes.linked2}>
     Login
-  </Link>)
+  </Link>
+  </MenuItem>)
   }
   return (
     <div className={classes.root}>
