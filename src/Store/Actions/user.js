@@ -10,6 +10,14 @@ const getUser = (user) => {
     },
   };
 };
+const addUser =()=>{
+  return{
+    type: actionTypes.ADD_USER,
+    payload:{
+      user,
+    },
+  };
+};
 
 export const fetchUser = (uid) => {
   return (dispatch) => {
@@ -33,3 +41,13 @@ export const fetchUser = (uid) => {
     );
   };
 };
+
+export const addPaciente = (user, userid, uid) =>{
+  return (dispatch) =>{
+
+    database.ref('Users/'+userid).set(user);
+    database.ref('Users/'+uid+'/Pacientes'+userid).set(user);
+     
+
+  };
+}

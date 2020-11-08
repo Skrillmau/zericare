@@ -30,16 +30,23 @@ const lgout = () => {
     type: actionTypes.LOG_OUT,
   };
 };
-/*const saveSignUp = (userName, token, localId) => {
-  return {
-    type: actionTypes.SIGN_UP,
-    payload: {
-      userName: userName,
-      idToken: token,
-      localId: localId,
-    },
-  };
-};*/
+
+export const Register = (user, uid)=>{
+  firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
+    console.log(response)
+    const IdUser = response.user.uid
+    users.addPaciente(user, IdUser,uid);
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    dispatch(errors.saveError(errorMessage));
+    // ...
+  });
+}
+
+
+
 export const logIn = (authData, onSuccessCallback) => {
   return (dispatch) => {
     dispatch(startAuthLoading());
