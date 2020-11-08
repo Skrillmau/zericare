@@ -1,8 +1,4 @@
-import ProductGrid from '../Componentes/ProductGrid/ProductGrid'
 import Info from "../Componentes/Info/Info";
-import BannerText from "../Componentes/BannerText/BannerText";
-import Pacientes from "../Componentes/Pacientes/Pacientes.js"
-import axios from 'axios';
 import React, { PureComponent } from 'react'
 import ListaPacientes from '../Componentes/ListaPacientes/ListaPacientes'
 
@@ -13,7 +9,6 @@ class PerfilM extends PureComponent {
         return (
             <div>
             <Info
-                
                 imagen="Jane Doe"
                 nombre="asdsadaasd"
                 apellido="assadsadsad"

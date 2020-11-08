@@ -45,6 +45,7 @@ const reducer = (state = initialState, action) => {
       return login(state, action);
     //case actionTypes.SIGN_UP: return signUp(state, action);
     case actionTypes.LOG_OUT:
+        
       return logOut(state, action);
     case actionTypes.START_LOADING_AUTH:
       return startLoading(state, action);

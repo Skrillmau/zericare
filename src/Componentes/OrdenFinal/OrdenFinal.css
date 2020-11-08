@@ -1,0 +1,29 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-columns: auto;
+  align-items: flex-start;
+  word-wrap: break-word;
+  box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
+}
+
+.item1 {
+  grid-column: 1 / span 2;
+  justify-content: center;
+}
+
+.bloque {
+  position: sticky;
+  display: block;
+  justify-items: center;
+  align-items: center;
+  width: 300px;
+  height: auto;
+  word-wrap: break-word;
+}
+
+.bloque2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

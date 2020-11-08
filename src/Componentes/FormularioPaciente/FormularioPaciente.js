@@ -1,15 +1,16 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import Buttom from "../Button/txt/txtButton.js";
+import Style from './FormularioPaciente.css';
 
 const FormularioPaciente = (props) => {
     return (
         
-        <div>
+        <div className={Style.item2}>
             <h3>Agregar Paciente</h3>
-              <form className="" onSubmit="" id="contactForm">
+              <form className={Style.form} onSubmit="" id="contactForm">
         <input
-          className=""
+          className={Style.input}
           name="name"
           type="text"
           placeholder="Nombre "
@@ -17,7 +18,7 @@ const FormularioPaciente = (props) => {
         />
         <br />
         <input
-          className=""
+          className={Style.input}
           name="apellido"
           type="text"
           placeholder="Apellido"
@@ -25,14 +26,14 @@ const FormularioPaciente = (props) => {
         />
         <br />
         <input
-          className=""
+          className={Style.input}
           name="sexo"
           type="text"
           placeholder="Sexo "
         />
         <br />
         <textarea
-          className=""
+          className={Style.input}
           name="sexo"
           rows="10"
           placeholder="Sexo"

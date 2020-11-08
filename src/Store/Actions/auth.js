@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import firebase from "../../config/firebase";
+import {Firebase} from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
 
@@ -25,7 +25,7 @@ const saveSession = (userName, token, uid) => {
     },
   };
 };
-const lgout = () => {
+const cerrarSesion = () => {
   return {
     type: actionTypes.LOG_OUT,
   };
@@ -52,7 +52,7 @@ export const logIn = (authData, onSuccessCallback) => {
     dispatch(startAuthLoading());
     console.log(authData);
     const { email, password } = authData;
-    firebase
+    Firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (result) {
@@ -65,6 +65,8 @@ export const logIn = (authData, onSuccessCallback) => {
         };
         userSession = JSON.stringify(userSession);
         localStorage.setItem("userSession", userSession);
+        dispatch(users.fetchUser(uid));
+
         dispatch(saveSession(email, token, uid));
         dispatch(endAuthLoading());
         if (onSuccessCallback) {
@@ -83,19 +85,19 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    console.log("logout");
-    firebase
+    Firebase
       .auth()
       .signOut()
       .then(function () {
         // Sign-out successful.
-
+        console.log("logout");
         localStorage.removeItem("userSession");
-        dispatch(lgout);
+        dispatch(cerrarSesion());
       })
       .catch(function (error) {
         // An error happened.
         const errorMessage = error.message;
+        console.log(errorMessage);
         dispatch(errors.saveError(errorMessage));
       });
   };
