@@ -1,11 +1,13 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
+import Buttom from "../Button/txt/txtButton.js";
 
-const FormularioPaciente = () => {
+const FormularioPaciente = (props) => {
     return (
         
         <div>
             <h3>Agregar Paciente</h3>
-              <form className="" onSubmit={props.onsubmit} id="contactForm">
+              <form className="" onSubmit="" id="contactForm">
         <input
           className=""
           name="name"
@@ -36,7 +38,7 @@ const FormularioPaciente = () => {
           placeholder="Sexo"
           required
         />
-        <Button color={"blue"} type="submit" >Agregar</Button>
+        <button color={"blue"} type="submit" >Agregar</button>
       </form>
         </div>
     );

@@ -12,6 +12,7 @@ import Tienda from './Pages/Tienda'
 import PerfilM from './Pages/PerfilM'
 import FormularioMedicamentos from './Pages/FormularioMedicamento'
 import Perfil from './Pages/Perfil'
+import FormularioPaciente from './Componentes/FormularioPaciente/FormularioPaciente';
 // Import Swiper styles
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/producto/:id" component={ProductoDetail} />
         <Route path="/FormularioMedicamentos"  component={FormularioMedicamentos}/>
         <Route path="/info/:id"  component={Perfil}/>
+        <Route path="/addPaciente" component={FormularioPaciente}/>
         <Route component={NotFound} />
       </Switch>
       <Footer />
