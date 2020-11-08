@@ -10,6 +10,7 @@ import * as actionCreators from "../Store/Actions/";
 
 class Perfil extends Component {
   state = {
+    isUserLoggedIn: this.props.isUserLoggedIn,
     usuario: {},
   };
 
