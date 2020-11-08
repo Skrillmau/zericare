@@ -11,7 +11,6 @@ class Login extends Component {
         password: '',
         uid:'',
         error:'',
-        type:''
     }
 
     componentDidMount(){
@@ -42,7 +41,6 @@ class Login extends Component {
             isUserLoggedIn: nextState.isUserLoggedIn,
             uid:nextState.uid,
             error: nextState.error,
-            type:nextState.type
         });
     }
     handleSubmit = (e) =>{
@@ -87,7 +85,6 @@ const mapStateToProps = state => {
         uid:state.authStore.user.uid,
         loadingAuth: state.authStore.loadingAuth,
         error:state.errorStore.error,
-        type:state.authStore.user.type
     }
 }
 const mapDispatchToProps = dispatch => {

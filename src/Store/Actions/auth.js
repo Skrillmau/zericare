@@ -25,7 +25,11 @@ const saveSession = (userName, token, uid) => {
     },
   };
 };
-
+const logout = () => {
+  return {
+    type: actionTypes.LOG_OUT,
+  };
+};
 /*const saveSignUp = (userName, token, localId) => {
   return {
     type: actionTypes.SIGN_UP,
@@ -47,7 +51,13 @@ export const logIn = (authData, onSuccessCallback) => {
       .then(function (result) {
         const uid = result.user.uid;
         const token = result.user.ya;
-        console.log(result.user.uid);
+        let userSession = {
+          token,
+          email,
+          uid,
+        };
+        userSession = JSON.stringify(userSession);
+        localStorage.setItem("userSession", userSession);
         dispatch(saveSession(email, token, uid));
         dispatch(endAuthLoading());
         if (onSuccessCallback) {
@@ -65,7 +75,38 @@ export const logIn = (authData, onSuccessCallback) => {
   };
 };
 export const logOut = () => {
-  return {
-    type: actionTypes.LOG_OUT,
+  return (dispatch) => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        // Sign-out successful.
+        dispatch(logout);
+        localStorage.removeItem("userSession");
+      })
+      .catch(function (error) {
+        // An error happened.
+        const errorMessage = error.message;
+        dispatch(errors.saveError(errorMessage));
+      });
+  };
+};
+export const persistAuthentication = () => {
+  return (dispatch) => {
+    let userSession = localStorage.getItem("userSession");
+
+    if (!userSession) {
+      dispatch(logOut());
+    } else {
+      userSession = JSON.parse(userSession);
+
+      dispatch(
+        saveSession(
+          userSession.userEmail,
+          userSession.token,
+          userSession.localId
+        )
+      );
+    }
   };
 };
