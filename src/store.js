@@ -3,7 +3,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import { ReactReduxContext } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import authReducer from './store/reducers/auth';
+import authReducer from './Store/Reducers/auth';
 
 
 const initialState = {};
