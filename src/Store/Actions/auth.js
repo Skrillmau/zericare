@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import firebase from "../../config/firebase";
+import {Firebase, auxFirebase} from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
 
@@ -30,22 +30,31 @@ const cerrarSesion = () => {
     type: actionTypes.LOG_OUT,
   };
 };
-/*const saveSignUp = (userName, token, localId) => {
-  return {
-    type: actionTypes.SIGN_UP,
-    payload: {
-      userName: userName,
-      idToken: token,
-      localId: localId,
-    },
-  };
-};*/
+
+export const Register = (user, uid)=>{
+  auxFirebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
+    console.log(response)
+    const IdUser = response.user.uid
+    users.addPaciente(user, IdUser,uid);
+    auxFirebase.auth().signOut();
+
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    dispatch(errors.saveError(errorMessage));
+    // ...
+  });
+}
+
+
+
 export const logIn = (authData, onSuccessCallback) => {
   return (dispatch) => {
     dispatch(startAuthLoading());
     console.log(authData);
     const { email, password } = authData;
-    firebase
+    Firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (result) {
@@ -78,7 +87,7 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    firebase
+    Firebase
       .auth()
       .signOut()
       .then(function () {
