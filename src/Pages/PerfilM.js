@@ -2,6 +2,7 @@ import React from 'react';
 import Info from "../Componentes/Info/Info";
 import BannerText from "../Componentes/BannerText/BannerText";
 import Pacientes from "../Componentes/Pacientes/Pacientes.js"
+import Buttom from "../Componentes/Button/txt/txtButton.js"
 
 const PerfilM = (props) => {
     return (
@@ -15,8 +16,10 @@ const PerfilM = (props) => {
                 sexo="asdasdsad"
                 ocupacion="Médico Internista"
             />
-            <p>Buenas noches</p>
+            
             <Pacientes nombre="Nikolas" />
+            <Buttom color="blue">Añadir Paciente</Buttom>
+
         </div>
     );
 };
