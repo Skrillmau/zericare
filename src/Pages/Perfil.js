@@ -3,49 +3,43 @@ import Info from "../Componentes/Info/Info";
 import Historia from "../Componentes/Historia/Historia";
 import classes from "../Pages/Perfil/Perfil.css";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
 import BannerText from "../Componentes/BannerText/BannerText";
-class Perfil extends Component {
-  constructor(props) {
-    super(props);
+import { connect } from "react-redux";
 
-    this.state = {
-      usuario: {},
-    };
-  }
+import * as actionCreators from "../Store/Actions/";
+
+class Perfil extends Component {
+  state = {
+    usuario: {},
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
-
+    this.props.fetchUser(id);
     console.log(this.props);
-    axios
-      .get(`https://api.npoint.io/05cf5d45abf19bfa8d4f/pacientes/${id}`, {})
-      .then((res) => {
-        const data = res.data;
-        console.log(data);
-        this.setState({ usuario: data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
-  handleLogout = () =>{
-      console.log("hola");
+  componentWillReceiveProps (nextState) {
+    this.setState({
+        usuario: nextState.user
+    });
+}
+  handleLogout = () => {
+    console.log("hola");
     localStorage.removeItem("user");
     this.props.history.push(`/`);
-}
+  };
   render() {
     return (
       <div className={classes.block}>
         <h1>Perfil</h1>
         <Info
           logout={this.handleLogout}
-          imagen={this.state.usuario.imagen}
-          nombre={this.state.usuario.nombre}
-          apellido={this.state.usuario.apellido}
-          id={this.state.usuario.registro}
-          sexo={this.state.usuario.sexo}
-          ocupacion={this.state.usuario.ocupacion}
+          imagen={this.state.usuario.Imagen}
+          nombre={this.state.usuario.Nombre}
+          apellido={this.state.usuario.Apellido}
+          id={this.state.usuario.Registro}
+          sexo={this.state.usuario.Sexo}
+          ocupacion={this.state.usuario.Ocupacion}
         />
         <BannerText title="Tu historia clínica">
           En el listado a continuación, podrás ver tus historial médico más
@@ -62,12 +56,23 @@ class Perfil extends Component {
           ef={this.state.usuario.fisica}
         />
         <BannerText title="Tus órdenes">
-          En el listado a continuación, podrás ver las órdenes provistas por tu médico asignado (recuerda confirmar cada orden por separado para poder autorizar el envío de las misma)
+          En el listado a continuación, podrás ver las órdenes provistas por tu
+          médico asignado (recuerda confirmar cada orden por separado para poder
+          autorizar el envío de las misma)
         </BannerText>
         <p>Insertar órdenes de firebase</p>
       </div>
     );
   }
 }
-
-export default withRouter(Perfil);
+const mapStateToProps = state => {
+  return {
+      user: state.userStore.user,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Perfil);
