@@ -12,7 +12,7 @@ const pacientes = (props) => {
                 <p>Nombre: {props.nombre}</p>
                 <p>Id: {props.id}</p>
                 <p>Visto última vez: {props.uv}</p>
-                <Button color="blue"> Ver más</Button>
+                <Button color="blue"> Añadir Consulta</Button>
                 <Button color="blue"> Añadir Orden  </Button>
             </div>
 

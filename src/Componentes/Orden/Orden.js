@@ -1,10 +1,11 @@
 import React from 'react';
+import Button from "../Button/txt/txtButton.js"
 
-const orden = () => {
+const orden = (props) => {
     return (
-        <form className={Style.form} onSubmit={sendEmail} id="contactForm">
+        <form className="" onSubmit={props.onsubmit} id="contactForm">
         <input
-          className={Style.input}
+          className=""
           name="name"
           type="text"
           placeholder="Nombre medicamento"
@@ -12,7 +13,7 @@ const orden = () => {
         />
         <br />
         <input
-          className={Style.input}
+          className=""
           name="cantidad"
           type="text"
           placeholder="Cantidad"
@@ -20,14 +21,14 @@ const orden = () => {
         />
         <br />
         <input
-          className={Style.input}
+          className=""
           name="dosis"
           type="text"
           placeholder="Dosis diaria"
         />
         <br />
         <textarea
-          className={Style.input}
+          className=""
           name="observaciones"
           rows="10"
           placeholder="Observaciones"
@@ -35,7 +36,7 @@ const orden = () => {
         />
         <br />
         <input
-          className={Style.checkbox}
+          className=""
           id={"check"}
           name="check"
           type="checkbox"
