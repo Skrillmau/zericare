@@ -84,7 +84,7 @@
 
 @media screen and (min-width: 600px) and (max-width: 1199px) {
     .grid {
-        grid-template-columns:repeat(2, 50%);
+        grid-template-columns:repeat(1, 50%);
         display: grid
     }
 
@@ -162,7 +162,7 @@
 
 @media screen and (min-width: 1200px) {
     .grid {
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(1, 100%);
         display: grid;
         width: 100%
     }
@@ -186,7 +186,7 @@
     .item2 {
         grid-column: span 1;
         margin: 5% auto;
-        width: 100%;
+        width: 80%;
     }
 
     .form {
@@ -195,7 +195,7 @@
     }
 
     .input {
-        margin: auto auto 5%;
+        margin: auto auto 3%;
         font-size: 16px;
         width: 80%;
         padding: 3%;
@@ -223,7 +223,7 @@
     }
 
     .texto {
-        font-size: 16px;
+        font-size: 12px;
         color: #6c6d6d;
     }
 
