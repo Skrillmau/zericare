@@ -1,0 +1,14 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: auto auto 15%;
+    padding: 3%;
+    grid-gap: 3%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img{
+    border-radius: 50%;
+    height: auto;
+    width: 100px;
+  }
