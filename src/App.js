@@ -9,6 +9,7 @@ import Footer from './Componentes/footer/footer'
 import Navbar from './Componentes/Navbar/Navbar'
 import ProductoDetail from './Pages/ProductoDetail'
 import Tienda from './Pages/Tienda'
+import PerfilM from './Pages/PerfilM'
 import Perfil from './Pages/Perfil'
 // Import Swiper styles
 
@@ -24,6 +25,7 @@ function App() {
       <Route path="/nosotros"  component={Nosotros}/>
       <Route path="/login"  component={Login}/>
       <Route path="/Tienda" component={Tienda}/>
+      <Route path="/PerfilM"  component={PerfilM}/>
       <Route path="/producto/:id" component={ProductoDetail}/>
       <Route component={NotFound}/>
      

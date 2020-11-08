@@ -14,6 +14,7 @@ const PerfilM = (props) => {
                 sexo={this.state.usuario.sexo}
                 ocupacion={this.state.usuario.ocupacion}
             />
+            <p>Buenas noches</p>
         </div>
     );
 };
