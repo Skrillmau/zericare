@@ -50,7 +50,6 @@ class Login extends Component {
         };
 
         this.props.onUserLogin(userData, () => {
-            console.log(this.state.type);
             this.props.history.push(`/info/${this.state.uid}`);
         });
        

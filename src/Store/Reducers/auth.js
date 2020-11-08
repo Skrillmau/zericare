@@ -11,6 +11,7 @@ const initialState = {
   loadingAuth: false,
 };
 const logOut = (state, action) => {
+    console.log("NIkolas manco de mierda")
   return updateObject(state, {
     isUserLoggedIn: false,
     user: {

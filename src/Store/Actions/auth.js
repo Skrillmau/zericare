@@ -25,7 +25,7 @@ const saveSession = (userName, token, uid) => {
     },
   };
 };
-const lgout = () => {
+const cerrarSesion = () => {
   return {
     type: actionTypes.LOG_OUT,
   };
@@ -76,19 +76,20 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    console.log("logout");
+    dispatch(cerrarSesion);
     firebase
       .auth()
       .signOut()
       .then(function () {
         // Sign-out successful.
-
+        console.log("logout");
         localStorage.removeItem("userSession");
-        dispatch(lgout);
+        
       })
       .catch(function (error) {
         // An error happened.
         const errorMessage = error.message;
+        console.log(errorMessage);
         dispatch(errors.saveError(errorMessage));
       });
   };

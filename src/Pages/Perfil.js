@@ -5,7 +5,7 @@ import classes from "../Pages/Perfil/Perfil.css";
 import { withRouter } from "react-router-dom";
 import BannerText from "../Componentes/BannerText/BannerText";
 import { connect } from "react-redux";
-import ListaPacientes from '../Componentes/ListaPacientes/ListaPacientes'
+import ListaPacientes from "../Componentes/ListaPacientes/ListaPacientes";
 
 import * as actionCreators from "../Store/Actions/";
 
@@ -22,17 +22,16 @@ class Perfil extends Component {
   }
   componentWillReceiveProps(nextState) {
     this.setState({
-      usuario: nextState.user
+      usuario: nextState.user,
     });
   }
   handleLogout = () => {
-    console.log("sad")
+    console.log(this.props);
     this.props.onlogOut();
     //this.props.history.push(`/`);
   };
 
   render() {
-    console.log(this.state.usuario.Tipo);
     if (this.state.usuario.Tipo == "Paciente") {
       return (
         <div className={classes.block}>
@@ -48,9 +47,9 @@ class Perfil extends Component {
           />
           <BannerText title="Tu historia clínica">
             En el listado a continuación, podrás ver tus historial médico más
-            reciente (recuerda darle tu código al médico encargado de tu consulta
-            para que pueda actualizar tu historial)
-        </BannerText>
+            reciente (recuerda darle tu código al médico encargado de tu
+            consulta para que pueda actualizar tu historial)
+          </BannerText>
           <Historia
             patologicos={this.state.usuario.patologicos}
             npatologicos={this.state.usuario.nopatologicos}
@@ -61,19 +60,18 @@ class Perfil extends Component {
             ef={this.state.usuario.fisica}
           />
           <BannerText title="Tus órdenes">
-            En el listado a continuación, podrás ver las órdenes provistas por tu
-            médico asignado (recuerda confirmar cada orden por separado para poder
-            autorizar el envío de las misma)
-        </BannerText>
+            En el listado a continuación, podrás ver las órdenes provistas por
+            tu médico asignado (recuerda confirmar cada orden por separado para
+            poder autorizar el envío de las misma)
+          </BannerText>
           <p>Insertar órdenes de firebase</p>
         </div>
       );
-    }
-    else if (this.state.usuario.Tipo == "Medico") {
+    } else if (this.state.usuario.Tipo == "Medico") {
       return (
         <div>
           <Info
-
+            logout={this.handleLogout}
             imagen={this.state.usuario.Imagen}
             nombre={this.state.usuario.Nombre}
             apellido={this.state.usuario.Apellido}
@@ -83,35 +81,25 @@ class Perfil extends Component {
           />
           <p>Buenas noches</p>
 
-
-
-
           <div>
             <ListaPacientes />
           </div>
-
         </div>
       );
-
-
+    } else {
+      return <p>Un momento por favor...</p>;
     }
-    else {
-      return (
-        <p>Un momento por favor...</p>
-      );
-    }
-
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     user: state.userStore.user,
-  }
-}
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
-    onlogOut : () =>dispatch(actionCreators.logOut())
+    onlogOut: () => dispatch(actionCreators.logOut()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Perfil);

@@ -28,25 +28,47 @@ function Navbar(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogOut = () => {
+    props.onlogOut();
+    handleClose();
+  };
   let LogedinMenu;
   if (props.isUserLoggedIn) {
     LogedinMenu = (
-      <MenuItem onClick={handleClose}>
-        <Link to="/perfil" className={classes.linked2}>
-          Perfil
-        </Link>
-        <Link to="/" className={classes.linked2}>
-          Cerrar Sesión
-        </Link>
-      </MenuItem>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>
+          <Link to={`/info/${props.uid}`} className={classes.linked2}>
+            Perfil
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/" className={classes.linked2}>
+            Cerrar Sesión
+          </Link>
+        </MenuItem>
+      </Menu>
     );
   } else {
     LogedinMenu = (
-      <MenuItem onClick={handleClose}>
-        <Link to="/login" className={classes.linked2}>
-          Login
-        </Link>
-      </MenuItem>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleLogOut}>
+          <Link to="/login" className={classes.linked2}>
+            Login
+          </Link>
+        </MenuItem>
+      </Menu>
     );
   }
   return (
@@ -96,17 +118,9 @@ function Navbar(props) {
             onClick={handleClick}
             className={classes.boton}
           >
-            <AccountCircleIcon></AccountCircleIcon>
+            <AccountCircleIcon />
           </Button>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            {LogedinMenu}
-          </Menu>
+          {LogedinMenu}
         </Toolbar>
       </AppBar>
     </div>
@@ -115,6 +129,7 @@ function Navbar(props) {
 const mapStateToProps = (state) => {
   return {
     isUserLoggedIn: state.authStore.isUserLoggedIn,
+    uid: state.authStore.user.uid,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -122,6 +137,7 @@ const mapDispatchToProps = (dispatch) => {
     onUserLogin: (authData, onSuccessCallback) =>
       dispatch(actionCreators.logIn(authData, onSuccessCallback)),
     onClearError: () => dispatch(actionCreators.clearError()),
+    onlogOut: () => dispatch(actionCreators.logOut()),
   };
 };
 
