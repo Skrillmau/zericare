@@ -1,20 +1,22 @@
 import React from 'react';
 import Info from "../Componentes/Info/Info";
 import BannerText from "../Componentes/BannerText/BannerText";
+import Pacientes from "../Componentes/Pacientes/Pacientes.js"
 
 const PerfilM = (props) => {
     return (
         <div>
             <Info
-                logout={this.handleLogout}
-                imagen={this.state.usuario.imagen}
-                nombre={this.state.usuario.nombre}
-                apellido={this.state.usuario.apellido}
-                id={this.state.usuario.registro}
-                sexo={this.state.usuario.sexo}
-                ocupacion={this.state.usuario.ocupacion}
+                
+                imagen="Jane Doe"
+                nombre="asdsadaasd"
+                apellido="assadsadsad"
+                id="asdasdasd"
+                sexo="asdasdsad"
+                ocupacion="Médico Internista"
             />
             <p>Buenas noches</p>
+            <Pacientes nombre="Nikolas" />
         </div>
     );
 };
