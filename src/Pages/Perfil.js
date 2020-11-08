@@ -24,9 +24,9 @@ class Perfil extends Component {
     });
 }
   handleLogout = () => {
-    console.log("hola");
-    localStorage.removeItem("user");
-    this.props.history.push(`/`);
+    console.log("sad")
+    this.props.onlogOut();
+    //this.props.history.push(`/`);
   };
   render() {
     return (
@@ -73,6 +73,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
+    onlogOut : () =>dispatch(actionCreators.logOut())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Perfil);

@@ -1,7 +1,7 @@
 export {
     logIn,
     logOut,
-    
+    persistAuthentication
 } from './auth';
 export {
     
