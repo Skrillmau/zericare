@@ -76,7 +76,7 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    dispatch(cerrarSesion);
+    
     firebase
       .auth()
       .signOut()
@@ -84,7 +84,7 @@ export const logOut = () => {
         // Sign-out successful.
         console.log("logout");
         localStorage.removeItem("userSession");
-        
+        dispatch(cerrarSesion());
       })
       .catch(function (error) {
         // An error happened.

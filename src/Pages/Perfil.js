@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Info from "../Componentes/Info/Info";
 import Historia from "../Componentes/Historia/Historia";
 import classes from "../Pages/Perfil/Perfil.css";
-import { withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import BannerText from "../Componentes/BannerText/BannerText";
 import { connect } from "react-redux";
 import ListaPacientes from "../Componentes/ListaPacientes/ListaPacientes";
@@ -16,23 +16,27 @@ class Perfil extends Component {
   };
 
   componentDidMount() {
+    if (!this.state.isUserLoggedIn) {
+      console.log("hola");
+      this.props.history.push("/login");
+    }
     const { id } = this.props.match.params;
     this.props.fetchUser(id);
-    console.log(this.props);
   }
+
   componentWillReceiveProps(nextState) {
     this.setState({
+      isUserLoggedIn: nextState.isUserLoggedIn,
       usuario: nextState.user,
     });
   }
   handleLogout = () => {
     console.log(this.props);
     this.props.onlogOut();
-    //this.props.history.push(`/`);
+    this.props.history.push(`/login`);
   };
-
-  render() {
-    if (this.state.usuario.Tipo == "Paciente") {
+  onUserLoggedIn = () => {
+    //if (this.state.usuario.Tipo == "Paciente") {
       return (
         <div className={classes.block}>
           <h1>Perfil</h1>
@@ -67,7 +71,7 @@ class Perfil extends Component {
           <p>Insertar órdenes de firebase</p>
         </div>
       );
-    } else if (this.state.usuario.Tipo == "Medico") {
+   /* } else if (this.state.usuario.Tipo == "Medico") {
       return (
         <div>
           <Info
@@ -88,12 +92,19 @@ class Perfil extends Component {
       );
     } else {
       return <p>Un momento por favor...</p>;
-    }
+    }*/
+  };
+  onUserLoggedOut = ()=>{
+    return(<Redirect to="/login"></Redirect>)
+  }
+  render() {
+    return this.state.isUserLoggedIn? this.onUserLoggedIn(): this.onUserLoggedOut();
   }
 }
 const mapStateToProps = (state) => {
   return {
     user: state.userStore.user,
+    isUserLoggedIn: state.authStore.isUserLoggedIn,
   };
 };
 const mapDispatchToProps = (dispatch) => {

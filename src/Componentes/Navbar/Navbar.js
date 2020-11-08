@@ -47,7 +47,7 @@ function Navbar(props) {
             Perfil
           </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogOut}>
           <Link to="/" className={classes.linked2}>
             Cerrar Sesión
           </Link>
