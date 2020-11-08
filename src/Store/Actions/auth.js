@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import {Firebase} from "../../config/firebase";
+import {Firebase, auxFirebase} from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
 
@@ -32,10 +32,12 @@ const cerrarSesion = () => {
 };
 
 export const Register = (user, uid)=>{
-  firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
+  auxFirebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
     console.log(response)
     const IdUser = response.user.uid
     users.addPaciente(user, IdUser,uid);
+    auxFirebase.auth().signOut();
+
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
