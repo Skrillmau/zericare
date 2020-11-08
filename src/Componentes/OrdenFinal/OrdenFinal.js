@@ -1,4 +1,5 @@
 import React from 'react';
+import Buttom from "../Button/txt/txtButton.js";
 
 const OrdenFinal = (props) => {
 
@@ -12,6 +13,7 @@ const OrdenFinal = (props) => {
     <p>Dosis: {props.dosis}</p>
     <p>Observaciones: {props.observaciones}</p>
             </div>
+            <Buttom color="red" onclick={props.onclick}>Eliminar</Buttom>
         </div>
     );
 };

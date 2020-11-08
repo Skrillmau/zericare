@@ -37,7 +37,7 @@ const FormularioMedicamento = (props) => {
 
                 return (
 
-                    <OrdenFinal nombre={item.Nombre} cantidad={item.Cantidad} dosis={item.Dosis} observaciones={item.Observaciones} deleteItem={() => props.deleteItem(i)} />
+                    <OrdenFinal nombre={item.Nombre} cantidad={item.Cantidad} dosis={item.Dosis} observaciones={item.Observaciones} onclick={() => deleteMedicamentos(i)} />
                 )
             })}
             </div>
