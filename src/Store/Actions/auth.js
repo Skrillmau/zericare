@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import firebase from "../../config/firebase";
 import * as errors from "../Actions/error";
+import * as users from "../Actions/user";
 
 const startAuthLoading = () => {
   return {
