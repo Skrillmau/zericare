@@ -1,11 +1,17 @@
-import React from 'react';
+import ProductGrid from '../Componentes/ProductGrid/ProductGrid'
 import Info from "../Componentes/Info/Info";
 import BannerText from "../Componentes/BannerText/BannerText";
 import Pacientes from "../Componentes/Pacientes/Pacientes.js"
+import axios from 'axios';
+import React, { PureComponent } from 'react'
+import ListaPacientes from '../Componentes/ListaPacientes/ListaPacientes'
 
-const PerfilM = (props) => {
-    return (
-        <div>
+
+class PerfilM extends PureComponent {
+   
+    render() {
+        return (
+            <div>
             <Info
                 
                 imagen="Jane Doe"
@@ -16,9 +22,19 @@ const PerfilM = (props) => {
                 ocupacion="Médico Internista"
             />
             <p>Buenas noches</p>
-            <Pacientes nombre="Nikolas" />
-        </div>
-    );
-};
 
-export default PerfilM;
+                
+            
+            <div>
+                <ListaPacientes/>
+            </div>
+
+            </div>
+
+            
+        );
+    }
+
+}
+
+export default PerfilM
