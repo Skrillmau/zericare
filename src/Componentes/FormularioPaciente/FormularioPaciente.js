@@ -38,7 +38,7 @@ const FormularioPaciente = (props) => {
           placeholder="Sexo"
           required
         />
-        <button color={"blue"} type="submit" >Agregar</button>
+        <Button color={"blue"} type="submit" >Agregar</Button>
       </form>
         </div>
     );
