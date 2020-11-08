@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import firebase from "../../config/firebase";
+import {Firebase} from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
 
@@ -45,7 +45,7 @@ export const logIn = (authData, onSuccessCallback) => {
     dispatch(startAuthLoading());
     console.log(authData);
     const { email, password } = authData;
-    firebase
+    Firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (result) {
@@ -78,7 +78,7 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    firebase
+    Firebase
       .auth()
       .signOut()
       .then(function () {

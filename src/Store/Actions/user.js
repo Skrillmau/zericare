@@ -1,7 +1,7 @@
 import * as actionTypes from "./actionTypes";
-import firebase from "../../config/firebase";
+import {Firebase} from "../../config/firebase";
 
-const database = firebase.database();
+const database = Firebase.database();
 const getUser = (user) => {
   return {
     type: actionTypes.GET_USER,
