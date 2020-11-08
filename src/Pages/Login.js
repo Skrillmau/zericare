@@ -14,6 +14,7 @@ class Login extends Component {
     }
 
     componentDidMount(){
+        console.log("sadsadsad");
         const user = localStorage.getItem("user");
         if(user){
             this.setState({logedUser:user});
@@ -69,6 +70,7 @@ class Login extends Component {
 
     render() {
         if(this.state.logedUser){
+        
             //return <Redirect to={`/info/${this.state.uid}`}/>
         }else{
             return (
