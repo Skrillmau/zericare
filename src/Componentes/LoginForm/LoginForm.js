@@ -7,9 +7,9 @@ class LoginForm extends Component {
       <div className={styles.main}>
         <form onSubmit={this.props.onSubmit}>
           <p className={styles.label}>Usuario</p>
-          <input id="user" className={styles.input} type="text" />
+          <input id="user" className={styles.input} type="text" onChange={(e)=>{this.props.onChange(e,'userName')}} />
           <p className={styles.label}>Contraseña</p>
-          <input id="pass" className={styles.input} type="password" />
+          <input id="pass" className={styles.input} type="password" onChange={(e)=>{this.props.onChange(e,'password')}}/>
           <br />
           <TxtButton color={"blue"} type={"submit"}>Ingresar</TxtButton>
         </form>

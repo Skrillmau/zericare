@@ -3,10 +3,10 @@ import updateObject from "./utils";
 
 const initialState = {
   isUserLoggedIn: false,
-  userLoggedIn: {
+  user: {
     userName: "",
     idToken: "",
-    localId: "",
+    uid: "",
     userType: "",
   },
   loadingAuth: false,
@@ -14,10 +14,10 @@ const initialState = {
 const logOut = (state, action) => {
   return updateObject(state, {
     isUserLoggedIn: false,
-    userLoggedIn: {
+    user: {
       userName: "",
       idToken: "",
-      localId: "",
+      uid: "",
       userType:""
     },
   });
@@ -26,10 +26,10 @@ const login = (state, action) => {
   const { payload } = action;
   return updateObject(state, {
     isUserLoggedIn: true,
-    userLoggedIn: {
+    user: {
       userName: payload.userName,
       idToken: payload.idToken,
-      localId: payload.localId,
+      uid: payload.uid,
       userType: payload.userType,
     },
   });

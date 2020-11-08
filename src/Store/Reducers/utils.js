@@ -1,6 +1,6 @@
-const updateObject = (oldObject, updatedValues) => {
+const updateObject = (prevObject, updatedValues) => {
     return {
-        ...oldObject,
+        ...prevObject,
         ...updatedValues
     }
 };

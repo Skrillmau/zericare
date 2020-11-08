@@ -1,29 +1,28 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from '../Actions/actionTypes';
+import updateObject from './utils';
 
-const setError = (error) => {
-    return {
-        type: actionTypes.SET_ERROR,
-        payload:{
-            error
-        }
-    }
-}
-const clearErr = () => {
-    return {
-        type: actionTypes.CLEAR_ERROR
-    }
+const initialState = {
+    
+    error: ''
 }
 
-export const saveError = error => {
-    return dispatch => {
-        dispatch(setError(error));
-       
-    }
-};
+const setError = (state, action) => {
 
-export const clearError = () => {
-    return dispatch => {
-        dispatch(clearErr());
-       
+    const error = action.payload.error
+    return updateObject(state, { error});
+}
+const clearError = (state, action) => {
+
+    return updateObject(state, { error:''});
+}
+
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case actionTypes.SET_ERROR: return setError(state, action);
+        case actionTypes.CLEAR_ERROR: return clearError(state, action);
+  
+        default: return state;
     }
-};
+}
+
+export default reducer;

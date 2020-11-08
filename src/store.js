@@ -4,13 +4,14 @@ import { ReactReduxContext } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import authReducer from './Store/Reducers/auth';
-
+import errorReducer from './Store/Reducers/error';
 
 const initialState = {};
 const middleware = [thunk];
 
 const rootReducer = combineReducers ({
     authStore: authReducer,
+    errorStore:errorReducer,
     
 });
 const store = createStore(

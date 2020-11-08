@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import LoginForm from '../Componentes/LoginForm/LoginForm'
 import { Redirect, withRouter } from "react-router-dom";
-import swal from "sweetalert2";
-
+import { connect } from 'react-redux';
+import Swal from "sweetalert2";
+import * as actionCreators from '../Store/Actions/';
 class Login extends Component {
-    constructor() {
-        super();
-        this.state = {
-            logedUser: null,
-            user:{
-                email:"paciente@correo.com",
-                pass:"12345",
-                id:0
-            }
-        };
+    state = {
+        isUserLoggedIn: this.props.isUserLoggedIn,
+        userName: '',
+        password: '',
+        uid:'',
+        error:''
     }
 
     componentDidMount(){
@@ -22,21 +19,53 @@ class Login extends Component {
             this.setState({logedUser:user});
         }
     }
+    componentDidUpdate () {
+        if (this.state.isUserLoggedIn) {
+            this.props.history.push('/');
+        }else if(this.state.error!==''){
+            Swal
+			.fire({
+				title: "Ha ocurrido un error",
+				text: this.state.error,
+				icon: "error",
+				confirmButtonText: "Entendido",
+				
+			})
+			.then( (result) => {
+				this.props.onClearError();
+			});
+        }
+    }
+    componentWillReceiveProps (nextState) {
+        this.setState({
+            isUserLoggedIn: nextState.isUserLoggedIn,
+            uid:nextState.uid,
+            error: nextState.error
+        });
+    }
     handleSubmit = (e) =>{
         e.preventDefault();
-        //console.log(e.target.user.value);
-        if(e.target.user.value===this.state.user.email && e.target.pass.value===this.state.user.pass){
-            this.setState({logedUser:this.state.user.id});
-            localStorage.setItem("user",this.state.user.id);
-            this.props.history.push(`/info/${0}`);
-        }else{
-            swal.fire({
-                title: "Credenciales incorrectos",
-                icon: "error",
-                confirmButtonColor: "#CE0058",
-              });
-        }
+        console.log(e.target.user.value);
+        const userData = {
+            email: this.state.userName,
+            password: this.state.password
+        };
+
+        this.props.onUserLogin(userData, () => {
+            this.props.history.push(`/info/${this.state.uid}`);
+        });
+       
     } 
+    handleChange = (e,target)=>{
+        var updatedState = {
+            ...this.state
+        }
+        updatedState[target] = e.target.value;
+        this.setState({
+            userName: updatedState.userName,
+            password: updatedState.password
+          });
+    }
 
     render() {
         if(this.state.logedUser){
@@ -44,11 +73,25 @@ class Login extends Component {
         }else{
             return (
             <div>
-                <LoginForm onSubmit={this.handleSubmit}/>	
+                <LoginForm onSubmit={this.handleSubmit} onChange={this.handleChange}/>	
        
             </div>
         );}
     }
 }
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authStore.isUserLoggedIn,
+        uid:state.authStore.user.uid,
+        loadingAuth: state.authStore.loadingAuth,
+        error:state.errorStore.error
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        onUserLogin: (authData, onSuccessCallback) => dispatch(actionCreators.logIn(authData, onSuccessCallback)),
+        onClearError: () => dispatch(actionCreators.clearError())
+    }
+}
 
-export default withRouter(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
