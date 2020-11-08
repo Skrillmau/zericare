@@ -10,6 +10,7 @@ import Navbar from './Componentes/Navbar/Navbar'
 import ProductoDetail from './Pages/ProductoDetail'
 import Tienda from './Pages/Tienda'
 import PerfilM from './Pages/PerfilM'
+import FormularioMedicamentos from './Pages/FormularioMedicamento'
 import Perfil from './Pages/Perfil'
 // Import Swiper styles
 
@@ -26,6 +27,7 @@ function App() {
       <Route path="/login"  component={Login}/>
       <Route path="/Tienda" component={Tienda}/>
       <Route path="/PerfilM"  component={PerfilM}/>
+      <Route path="/FormularioMedicamentos"  component={FormularioMedicamentos}/>
       <Route path="/producto/:id" component={ProductoDetail}/>
       <Route component={NotFound}/>
      

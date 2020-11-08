@@ -56,6 +56,12 @@ function Navbar() {
             </Link>
           </Button>
 
+          <Button color="inherit">
+            <Link to="/FormularioMedicamentos" className={classes.linked}>
+             Listado puto
+            </Link>
+          </Button>
+
           <Button
             color="inherit"
             aria-controls="simple-menu"
