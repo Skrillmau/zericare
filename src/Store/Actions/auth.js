@@ -15,14 +15,13 @@ const endAuthLoading = () => {
   };
 };
 
-const saveSession = (userName, token, uid, userType) => {
+const saveSession = (userName, token, uid) => {
   return {
     type: actionTypes.LOGIN,
     payload: {
       userName: userName,
       idToken: token,
       uid: uid,
-      userType,
     },
   };
 };
@@ -47,9 +46,9 @@ export const logIn = (authData, onSuccessCallback) => {
       .signInWithEmailAndPassword(email, password)
       .then(function (result) {
         const uid = result.user.uid;
-        const token = "a";
+        const token = result.user.ya;
         console.log(result.user.uid);
-        dispatch(saveSession(email, token, uid, "paciente"));
+        dispatch(saveSession(email, token, uid));
         dispatch(endAuthLoading());
         if (onSuccessCallback) {
           onSuccessCallback();

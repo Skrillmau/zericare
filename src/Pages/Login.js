@@ -10,7 +10,8 @@ class Login extends Component {
         userName: '',
         password: '',
         uid:'',
-        error:''
+        error:'',
+        type:''
     }
 
     componentDidMount(){
@@ -21,7 +22,7 @@ class Login extends Component {
     }
     componentDidUpdate () {
         if (this.state.isUserLoggedIn) {
-            this.props.history.push('/');
+            //this.props.history.push('/');
         }else if(this.state.error!==''){
             Swal
 			.fire({
@@ -40,18 +41,19 @@ class Login extends Component {
         this.setState({
             isUserLoggedIn: nextState.isUserLoggedIn,
             uid:nextState.uid,
-            error: nextState.error
+            error: nextState.error,
+            type:nextState.type
         });
     }
     handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(e.target.user.value);
         const userData = {
             email: this.state.userName,
             password: this.state.password
         };
 
         this.props.onUserLogin(userData, () => {
+            console.log(this.state.type);
             this.props.history.push(`/info/${this.state.uid}`);
         });
        
@@ -69,7 +71,7 @@ class Login extends Component {
 
     render() {
         if(this.state.logedUser){
-            return <Redirect to={`/info/${this.state.logedUser}`}/>
+            //return <Redirect to={`/info/${this.state.uid}`}/>
         }else{
             return (
             <div>
@@ -84,7 +86,8 @@ const mapStateToProps = state => {
         isUserLoggedIn: state.authStore.isUserLoggedIn,
         uid:state.authStore.user.uid,
         loadingAuth: state.authStore.loadingAuth,
-        error:state.errorStore.error
+        error:state.errorStore.error,
+        type:state.authStore.user.type
     }
 }
 const mapDispatchToProps = dispatch => {
