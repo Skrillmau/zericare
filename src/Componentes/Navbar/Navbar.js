@@ -45,11 +45,16 @@ function Navbar() {
           </Button>
 
           <Button color="inherit">
-            <Link to="/nosotros" className={classes.linked}>
+            <Link to="/Tienda" className={classes.linked}>
              Tienda
             </Link>
           </Button>
           
+          <Button color="inherit">
+            <Link to="/Tienda" className={classes.linked}>
+             Perfil medico
+            </Link>
+          </Button>
 
           <Button
             color="inherit"

@@ -8,6 +8,7 @@ import Login from './Pages/Login'
 import Footer from './Componentes/footer/footer'
 import Navbar from './Componentes/Navbar/Navbar'
 import ProductoDetail from './Pages/ProductoDetail'
+import Tienda from './Pages/Tienda'
 import Perfil from './Pages/Perfil'
 // Import Swiper styles
 
@@ -22,8 +23,8 @@ function App() {
      <Route path="/" exact component={Home}/>
       <Route path="/nosotros"  component={Nosotros}/>
       <Route path="/login"  component={Login}/>
+      <Route path="/Tienda" component={Tienda}/>
       <Route path="/producto/:id" component={ProductoDetail}/>
-      <Route path="/info/:id"  component={Perfil}/>
       <Route component={NotFound}/>
      
       
