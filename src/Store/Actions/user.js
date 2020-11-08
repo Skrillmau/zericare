@@ -10,7 +10,7 @@ const getUser = (user) => {
     },
   };
 };
-const addUser =()=>{
+const addUser =(user)=>{
   return{
     type: actionTypes.ADD_USER,
     payload:{
