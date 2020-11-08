@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import * as actionCreators from '../Store/Actions/';
 class Login extends Component {
     state = {
-        isUserLoggedIn: this.props.isUserLoggedIn,
+        isUserLoggedIn: '',
         userName: '',
         password: '',
         uid:'',
@@ -14,14 +14,13 @@ class Login extends Component {
     }
 
     componentDidMount(){
-        const user = localStorage.getItem("user");
-        if(user){
-            this.setState({logedUser:user});
+        if (this.state.isUserLoggedIn) {
+            this.props.history.push(`/info/${this.state.uid}`);
         }
     }
     componentDidUpdate () {
         if (this.state.isUserLoggedIn) {
-            //this.props.history.push('/');
+            this.props.history.push(`/info/${this.state.uid}`);
         }else if(this.state.error!==''){
             Swal
 			.fire({
@@ -51,7 +50,6 @@ class Login extends Component {
         };
 
         this.props.onUserLogin(userData, () => {
-            console.log(this.state.type);
             this.props.history.push(`/info/${this.state.uid}`);
         });
        
@@ -69,6 +67,7 @@ class Login extends Component {
 
     render() {
         if(this.state.logedUser){
+        
             //return <Redirect to={`/info/${this.state.uid}`}/>
         }else{
             return (

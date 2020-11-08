@@ -25,7 +25,7 @@ const saveSession = (userName, token, uid) => {
     },
   };
 };
-const logout = () => {
+const cerrarSesion = () => {
   return {
     type: actionTypes.LOG_OUT,
   };
@@ -58,6 +58,8 @@ export const logIn = (authData, onSuccessCallback) => {
         };
         userSession = JSON.stringify(userSession);
         localStorage.setItem("userSession", userSession);
+        dispatch(users.fetchUser(uid));
+
         dispatch(saveSession(email, token, uid));
         dispatch(endAuthLoading());
         if (onSuccessCallback) {
@@ -81,12 +83,14 @@ export const logOut = () => {
       .signOut()
       .then(function () {
         // Sign-out successful.
-        dispatch(logout);
+        console.log("logout");
         localStorage.removeItem("userSession");
+        dispatch(cerrarSesion());
       })
       .catch(function (error) {
         // An error happened.
         const errorMessage = error.message;
+        console.log(errorMessage);
         dispatch(errors.saveError(errorMessage));
       });
   };
@@ -101,11 +105,7 @@ export const persistAuthentication = () => {
       userSession = JSON.parse(userSession);
 
       dispatch(
-        saveSession(
-          userSession.userEmail,
-          userSession.token,
-          userSession.localId
-        )
+        saveSession(userSession.email, userSession.token, userSession.uid)
       );
     }
   };

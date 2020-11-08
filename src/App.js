@@ -1,5 +1,8 @@
 import React from 'react';
+import {useEffect} from 'react'
 import { BrowserRouter, link, Route,Redirect,Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actionCreators from './Store/Actions/';
 import './App.css';
 import Home from './Pages/Home'
 import Nosotros from './Pages/Nosotros'
@@ -15,7 +18,10 @@ import Perfil from './Pages/Perfil'
 import FormularioPaciente from './Componentes/FormularioPaciente/FormularioPaciente';
 // Import Swiper styles
 
-function App() {
+function App(props) {
+  useEffect(()=>{
+    props.onPersistAuthentication();
+  },[])
   return (
     <BrowserRouter>
       <Navbar />
@@ -35,5 +41,9 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    onPersistAuthentication: () => dispatch( actionCreators.persistAuthentication() )
+  };
+};
+export default connect(null, mapDispatchToProps) (App);
