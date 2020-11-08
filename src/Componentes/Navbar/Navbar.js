@@ -9,7 +9,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import * as actionCreators from '../Store/Actions/';
+import * as actionCreators from "../../Store/Actions/";
+import { connect } from "react-redux";
 
 function Navbar(props) {
   const useStyles = makeStyles((theme) => ({
@@ -27,22 +28,26 @@ function Navbar(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  let LogedinMenu;
   if (props.isUserLoggedIn) {
-    let LogedinMenu = (<MenuItem onClick={handleClose}>
-      <Link to="/perfil" className={classes.linked2}>
-        Perfil
-      </Link>
-      <Link to="/" className={classes.linked2}>
-        Cerrar Sesión
-      </Link>
-    </MenuItem> )
-  }
-  else{
-    (<MenuItem onClick={handleClose}> 
-    <Link to="/login" className={classes.linked2}>
-    Login
-  </Link>
-  </MenuItem>)
+    LogedinMenu = (
+      <MenuItem onClick={handleClose}>
+        <Link to="/perfil" className={classes.linked2}>
+          Perfil
+        </Link>
+        <Link to="/" className={classes.linked2}>
+          Cerrar Sesión
+        </Link>
+      </MenuItem>
+    );
+  } else {
+    LogedinMenu = (
+      <MenuItem onClick={handleClose}>
+        <Link to="/login" className={classes.linked2}>
+          Login
+        </Link>
+      </MenuItem>
+    );
   }
   return (
     <div className={classes.root}>
@@ -50,7 +55,11 @@ function Navbar(props) {
         <Toolbar>
           <Button color="inherit">
             <Link to="/" className={classes.linked}>
-              <Typography style={{ fontFamily: "Futura", fontWeight: "Bold" }} variant="h6" className={classes.title}>
+              <Typography
+                style={{ fontFamily: "Futura", fontWeight: "Bold" }}
+                variant="h6"
+                className={classes.title}
+              >
                 Zericare
               </Typography>
             </Link>
@@ -97,23 +106,23 @@ function Navbar(props) {
             onClose={handleClose}
           >
             {LogedinMenu}
-
           </Menu>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    isUserLoggedIn: state.authStore.isUserLoggedIn
-  }
-}
-const mapDispatchToProps = dispatch => {
+    isUserLoggedIn: state.authStore.isUserLoggedIn,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
   return {
-    onUserLogin: (authData, onSuccessCallback) => dispatch(actionCreators.logIn(authData, onSuccessCallback)),
-    onClearError: () => dispatch(actionCreators.clearError())
-  }
-}
+    onUserLogin: (authData, onSuccessCallback) =>
+      dispatch(actionCreators.logIn(authData, onSuccessCallback)),
+    onClearError: () => dispatch(actionCreators.clearError()),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
