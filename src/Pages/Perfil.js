@@ -61,6 +61,10 @@ class Perfil extends Component {
           dnr={this.state.usuario.dnr}
           ef={this.state.usuario.fisica}
         />
+        <BannerText title="Tus órdenes">
+          En el listado a continuación, podrás ver las órdenes provistas por tu médico asignado (recuerda confirmar cada orden por separado para poder autorizar el envío de las misma)
+        </BannerText>
+        <p>Insertar órdenes de firebase</p>
       </div>
     );
   }
