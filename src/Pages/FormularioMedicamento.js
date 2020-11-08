@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Orden from '../Componentes/Orden/Orden'
 import OrdenFinal from '../Componentes/OrdenFinal/OrdenFinal';
+import Buttom from '../Componentes/Button/txt/txtButton.js';
 
 
 const FormularioMedicamento = (props) => {
@@ -26,6 +27,7 @@ const FormularioMedicamento = (props) => {
         console.log(test, "test")
         setItems(test);
     }
+    
     return (
         <div>
             <p>Agregar Medicamento</p>
@@ -39,8 +41,10 @@ const FormularioMedicamento = (props) => {
                 )
             })}
             </div>
+        
         </div>
     );
+   
 };
 
 export default FormularioMedicamento;
