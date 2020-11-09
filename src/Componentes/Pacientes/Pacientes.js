@@ -10,13 +10,13 @@ const pacientes = (props) => {
                 <img src="https://p16-sg.tiktokcdn.com/aweme/1080x1080/tiktok-obj/1666346592333826.jpeg" />
             </div>
             <div className={classes.item}>
-                <p>Nombre: {props.nombre}</p>
+                <p>{props.nombre}</p>
             </div>
             <div className={classes.item}>
-                <p>Apellido: {props.apellido}</p>
+                <p>{props.apellido}</p>
             </div>
             <div className={classes.item}>
-                <p>Creado: {props.creado}</p>
+                <p>{props.creado}</p>
             </div>
             
             <div className={classes.item}>
