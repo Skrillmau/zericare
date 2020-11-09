@@ -36,7 +36,7 @@ export const Register = (user, uid)=>{
   auxFirebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
     console.log(response)
     const IdUser = response.user.uid
-    users.addPaciente(user, IdUser,uid);
+    dispatch(users.addPaciente(user, IdUser,uid));
     auxFirebase.auth().signOut()
 
   }).catch(function(error) {
