@@ -1,3 +1,4 @@
+
 .visible{
     display: block;
 }
@@ -12,8 +13,21 @@
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+            user-select: none;
+            padding-left: 5% ;
+             /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.gridContainer {
+    display: flex;
+    box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin:3%
+  }
 
+  .item{
+    display: flex;
+    justify-content: center;
+  }

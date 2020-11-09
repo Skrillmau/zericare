@@ -7,6 +7,8 @@ import ListaHistorias from "../Componentes/ListaHistorias/ListaHistorias";
 import ListaOrdenes from "../Componentes/ListaOrdenes/ListaOrdenes";
 import classes from './VerPaciente/VerPaciente.css';
 import Spinner from "../Componentes/Spinner/Spinner";
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import LocalPharmacyOutlinedIcon from '@material-ui/icons/LocalPharmacyOutlined';
 
 class VerPaciente extends Component {
   state = {
@@ -46,31 +48,40 @@ class VerPaciente extends Component {
       <div>
         <h1>Informacion del paciente</h1>
         <InfoPaciente paciente={this.state.user} />
-        <Button color="blue"
-          onclick={() =>
-            this.props.history.push(`/AddHistoria/${this.state.user.id}`)
-          }
-        >
-          Añadir Historia
-        </Button>
-        <Button color="blue"
-          onclick={() =>
-            this.props.history.push(`/AddOrden/${this.state.user.id}`)
-          }
-        >
-          Añadir Receta
-        </Button>
-        <div className={classes.gridContainer}>
-          <div className={classes.item1}>
-            <ListaHistorias historias={this.state.user.Historias} />
+        <div className={classes.botones}>
+          <Button color="blue"
+            onclick={() =>
+              this.props.history.push(`/AddHistoria/${this.state.user.id}`)
+            }
+          >
+            <PostAddIcon />
+          </Button>
+          <Button color="blue"
+            onclick={() =>
+              this.props.history.push(`/AddOrden/${this.state.user.id}`)
+            }
+          >
+            <LocalPharmacyOutlinedIcon />
+          </Button>
+        </div>
+
+        <div>
+          <div className={classes.Header}>
+            <div className={classes.item3}>Historia clinica</div>
+            <div className={classes.item4}>Recetas medicas</div>
           </div>
 
-          <div className={classes.item1}>
-            <ListaOrdenes ordenes={this.state.user.Ordenes} />
+          <div className={classes.gridContainer}>
+            <div className={classes.item1}>
+              <ListaHistorias historias={this.state.user.Historias} />
+            </div>
+
+            <div className={classes.item2}>
+              <ListaOrdenes ordenes={this.state.user.Ordenes} />
+            </div>
           </div>
         </div>
 
-        
 
       </div>
     );

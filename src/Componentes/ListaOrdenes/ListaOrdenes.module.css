@@ -1,0 +1,17 @@
+.gridContainer {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    width:100%
+  }
+  
+  .item2{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
+      border-radius: 10px;
+      background-color: rgb(255, 10, 10);
+      
+    }

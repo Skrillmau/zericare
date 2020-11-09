@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import HistoriaBanner from '../HistoriaBanner/HistoriaBanner';
-
+import classes from './ListaHistorias.css'
 function ListaHistorias(props) {
   const historias = Object.values(props.historias).map(function (obj,i) {
       let newObj = {
@@ -12,11 +12,14 @@ function ListaHistorias(props) {
   });
 
   return (
-    <div>
+    <div className={classes.gridContainer}>
+      
       {historias.map((item, i) => {
         return <HistoriaBanner key={i} historia={item}/>
       })}
-    </div>
+      </div>
+      
+    
   );
 }
 
