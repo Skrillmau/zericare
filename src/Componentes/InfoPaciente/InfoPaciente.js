@@ -10,7 +10,7 @@ class InfoPaciente extends Component {
             <div className={classes.block}>
                 <div className={classes.gridContainer}>
                     <div className={classes.gridItem1}>
-                        <img className={classes.imagen} src={this.props.paciente.imagen} />
+                        <img alt="imagen de perfil"  className={classes.imagen} src={this.props.paciente.imagen} />
                     </div>
 
                     <div className={classes.gridItem2}>

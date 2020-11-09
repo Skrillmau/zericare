@@ -54,7 +54,7 @@ const Contact = (props) => {
   return (
     <div className={Style.grid}>
       <div className={Style.item1}>
-        <img src="https://img.freepik.com/foto-gratis/felices-abuelos-jugando-su-nieto-casa_107420-10262.jpg?size=626&ext=jpg"></img>
+        <img alt="Imagen seccion contactanos " src="https://img.freepik.com/foto-gratis/felices-abuelos-jugando-su-nieto-casa_107420-10262.jpg?size=626&ext=jpg"></img>
       </div>
       <div className={Style.item2}>
         <h2 className={Style.subtitulo}>¡Queremos atenderte!</h2>

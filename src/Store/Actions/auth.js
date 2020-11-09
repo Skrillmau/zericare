@@ -17,14 +17,14 @@ const endAuthLoading = () => {
   };
 };
 
-const saveSession = (userName, token, uid,tipo) => {
+const saveSession = (userName, token, uid, tipo) => {
   return {
     type: actionTypes.LOGIN,
     payload: {
       userName: userName,
       idToken: token,
       uid: uid,
-      tipo:tipo
+      tipo: tipo,
     },
   };
 };
@@ -43,7 +43,7 @@ export const Register = (user, uid, image) => {
         var storageRef = storage.ref();
         const IdUser = response.user.uid;
         var imagesRef = storageRef.child(`images/${IdUser}/${image.name}`);
-      
+
         imagesRef.put(image).then(async function (snapshot) {
           const imgUrl = await snapshot.ref.getDownloadURL();
           const newUser = {
@@ -67,17 +67,14 @@ export const Register = (user, uid, image) => {
 export const logIn = (authData, onSuccessCallback) => {
   return (dispatch) => {
     dispatch(startAuthLoading());
-    console.log(authData);
     const { email, password } = authData;
     Firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (result) {
         const uid = result.user.uid;
         const token = result.user.ya;
-
         dispatch(users.fetchUser(uid));
         var ref = database.ref(`Users/${uid}/tipo`);
-
         ref.once(
           "value",
           function (snapshot) {
@@ -85,7 +82,7 @@ export const logIn = (authData, onSuccessCallback) => {
               token,
               email,
               uid,
-              tipo:snapshot.val()
+              tipo: snapshot.val(),
             };
             userSession = JSON.stringify(userSession);
             localStorage.setItem("userSession", userSession);
@@ -138,7 +135,12 @@ export const persistAuthentication = () => {
       userSession = JSON.parse(userSession);
 
       dispatch(
-        saveSession(userSession.email, userSession.token, userSession.uid,userSession.tipo)
+        saveSession(
+          userSession.email,
+          userSession.token,
+          userSession.uid,
+          userSession.tipo
+        )
       );
     }
   };
