@@ -20,12 +20,16 @@ function ListaPacientes(props) {
 
     return (
         
-        <div className={classes.main}>
+        <div >
             <div className={classes.gridContainer}>
                 {pacientes.map((item, i) => {
                     return (
-
-                        <Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro} ver={props.ver} />
+<div>
+<Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro} ver={props.ver} />
+<br/>
+</div>
+                        
+                        
                     )
                 })}
 

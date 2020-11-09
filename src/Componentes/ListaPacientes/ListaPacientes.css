@@ -1,16 +1,16 @@
 .gridContainer {
-
-    display: grid;
-    grid-template-columns:repeat(1, 100%);
-    grid-gap: 3%;
+  position: relative;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3%;
+    margin-top: 3%;
   }
 
   .main{
     position: relative !important;
-    width: 100%;
-    margin-bottom: 3%;
+    width: auto;
+    height: auto;
+    margin-bottom: 10%;
     margin-top: 3%;
 }
 
