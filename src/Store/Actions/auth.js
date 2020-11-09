@@ -117,7 +117,14 @@ export const logOut = () => {
       .then(function () {
         // Sign-out successful.
         console.log("logout");
-        localStorage.removeItem("userSession");
+        let userSession = {
+          token:"",
+          email:"",
+          uid:"",
+          tipo:"Login"
+        };
+        userSession = JSON.stringify(userSession);
+        localStorage.setItem("userSession",userSession);
         dispatch(cerrarSesion());
       })
       .catch(function (error) {
