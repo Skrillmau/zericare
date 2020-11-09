@@ -52,7 +52,9 @@ const orden = (props) => {
         <Button color={"blue"} type="submit" >Agregar</Button>
        
       </form>
+      <div className={Style.item3}>
       <Button color={"red"}  onclick={props.onSend}>Enviar</Button>
+      </div>
     </div>
 
   )

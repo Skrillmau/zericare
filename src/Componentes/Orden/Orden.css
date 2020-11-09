@@ -243,4 +243,11 @@
         margin-bottom: 30px;
     }
 
+    .item3{
+        display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+    }
+
 }
