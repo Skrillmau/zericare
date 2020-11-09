@@ -1,6 +1,8 @@
 import * as actionTypes from "../Actions/actionTypes";
 import updateObject from "./utils";
-const initialState = {};
+const initialState = {
+  user:{}
+};
 
 const getUser = (state, action) => {
   const { payload } = action;

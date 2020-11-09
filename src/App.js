@@ -15,7 +15,7 @@ import Tienda from './Pages/Tienda'
 import PerfilM from './Pages/PerfilM'
 import FormularioMedicamentos from './Pages/FormularioMedicamento'
 import Perfil from './Pages/Perfil'
-import FormularioPaciente from './Componentes/FormularioPaciente/FormularioPaciente';
+import FormularioPaciente from './Pages/AñadirPaciente';
 import FormularioHistoria from './Componentes/FormularioHistoria/FormularioHistoria';
 import VerPaciente from './Pages/VerPaciente';
 

@@ -13,19 +13,17 @@ const FormularioPaciente = (props) => {
   const [files, setFiles] = useState([]);
   const [images, setImages] = useState([]);
   const [isHovered, setHovered] = useState("");
-
   useEffect(() => {
-    if(props.error!==''){
-      console.log(props.error);
+    if (props.error !== "") {
+      console.log(props.user);
       Swal.fire({
         title: "Error al registrar el paciente",
         text: props.error,
         icon: "error",
         confirmButtonColor: "#CE0058",
-      }).then( (result) => {
-				props.onClearError();
-			});;
-      
+      }).then((result) => {
+        props.onClearError();
+      });
     }
   });
   const thumbs = files.map((file, i) => (
@@ -99,30 +97,39 @@ const FormularioPaciente = (props) => {
       });
     }
   }
-  const handleSubmit = (e) => {
-    let today = new Date().toLocaleDateString();
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    let user = {
-      nombre: e.target.name.value,
-      apellido: e.target.apellido.value,
-      sexo: e.target.sexo.value,
-      ocupacion: e.target.ocupacion.value,
-      email: e.target.correo.value,
-      password: generatePassword(),
-      tipo: "Paciente",
-      registro: today,
-    };
-    console.log(images[0]);
-    props.onRegister(user, props.uid, images[0]);
+    console.log(props.uid);
+    await props.fetchUser(props.uid);
+    console.log(props.user);
+    if (props.user.tipo !== "Medico") {
+     
+      //props.history.push(`/login`);
+    } else {
+      let today = new Date().toLocaleDateString();
+      
+      let user = {
+        nombre: e.target.name.value,
+        apellido: e.target.apellido.value,
+        sexo: e.target.sexo.value,
+        ocupacion: e.target.ocupacion.value,
+        email: e.target.correo.value,
+        password: generatePassword(),
+        tipo: "Paciente",
+        registro: today,
+      };
+      console.log(images[0]);
+      props.onRegister(user, props.uid, images[0]);
 
-    Swal.fire({
-      title: "Paciente creado correctamente",
-      text: "El paciente se ha registrado correctamente",
-      icon: "success",
-      confirmButtonColor: "#06b5ef",
-    }).then((result)=>{
-      props.history.push(`/info/${props.uid}`);
-    });
+      Swal.fire({
+        title: "Paciente creado correctamente",
+        text: "El paciente se ha registrado correctamente",
+        icon: "success",
+        confirmButtonColor: "#06b5ef",
+      }).then((result) => {
+        props.history.push(`/info/${props.uid}`);
+      });
+    }
   };
   function generatePassword() {
     var length = 8,
@@ -207,11 +214,13 @@ const mapDispatchToProps = (dispatch) => {
     onRegister: (user, uid, image) =>
       dispatch(actionCreators.Register(user, uid, image)),
     onClearError: () => dispatch(actionCreators.clearError()),
+    fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
   };
 };
 
 const mapStateToProps = (state) => {
   return {
+    user: state.userStore.user,
     isUserLoggedIn: state.authStore.isUserLoggedIn,
     uid: state.authStore.user.uid,
     error: state.errorStore.error,

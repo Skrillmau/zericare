@@ -1,13 +1,66 @@
-import React from 'react';
-import FormularioPaciente from '../Componentes/FormularioPaciente/FormularioPaciente';
+import React, { Component } from "react";
+import FormularioPaciente from "../Componentes/FormularioPaciente/FormularioPaciente";
+import { connect } from "react-redux";
+import * as actionCreators from "../Store/Actions/";
+import Spinner from "../Componentes/Spinner/Spinner";
+import NotFound from "../Pages/NotFound";
 
+class AñadirPaciente extends Component {
+  state = {
+    isUserLoggedIn: this.props.isUserLoggedIn,
+    tipo:"",
+    uid: this.props.uid,
+  };
+  componentDidMount() {
+    console.log(this.props.uid);
+    let userSession = localStorage.getItem("userSession");
+    userSession = JSON.parse(userSession);
+    const { tipo } = userSession;
+    this.setState({tipo})
+    
+  }
 
-const AñadirPaciente = () => {
+  componentDidUpdate() {
+    if (!this.state.isUserLoggedIn) {
+      this.props.history.push(`/login`);
+    }
+  }
+
+  componentWillReceiveProps(nextState) {
+    this.setState({
+      isUserLoggedIn: nextState.isUserLoggedIn,
+      usuario: nextState.user,
+      isUserLoaded: nextState.isUserLoaded,
+      uid: nextState.uid,
+    });
+  }
+  render() {
+    if (!this.state.usuario) return <Spinner />;
+    else if(this.state.tipo!=="Medico") return<NotFound />
     return (
-        <div>
-            <FormularioPaciente/>
-        </div>
+      <div>
+        <FormularioPaciente />
+      </div>
     );
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onRegister: (user, uid, image) =>
+      dispatch(actionCreators.Register(user, uid, image)),
+    onClearError: () => dispatch(actionCreators.clearError()),
+    fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
+  };
 };
 
-export default AñadirPaciente;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userStore.user,
+    isUserLoggedIn: state.authStore.isUserLoggedIn,
+    uid: state.authStore.user.uid,
+    error: state.errorStore.error,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AñadirPaciente);
