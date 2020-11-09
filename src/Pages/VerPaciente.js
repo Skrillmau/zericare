@@ -33,6 +33,7 @@ class VerPaciente extends Component {
 
         return (
             <div>
+                <h1>Informacion del paciente</h1>
                 <InfoPaciente paciente={this.state.user}/>
             </div>
         );

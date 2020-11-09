@@ -12,6 +12,7 @@ class Info extends Component {
           </div>
 
           <div className={classes.gridItem2}>
+            
             Nombre:
             <Paragraph contenido={this.props.nombre} clase={"importante"} />
             Apellido:
@@ -21,7 +22,6 @@ class Info extends Component {
             Sexo: <Paragraph contenido={this.props.sexo} clase={"importante"} />
             Ocupacion:
             <Paragraph contenido={this.props.ocupacion} clase={"importante"} />
-            <Button onclick={this.props.logout} color="red">Cerrar Sesión</Button>
           </div>
         </div>
       </div>
