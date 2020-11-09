@@ -34,9 +34,13 @@ class Perfil extends Component {
   }
 
   componentWillReceiveProps(nextState) {
+    console.log("Next",nextState);
     this.setState({
       isUserLoggedIn: nextState.isUserLoggedIn,
-      usuario: nextState.user,
+      usuario: {
+        ...this.state.usuario,
+        ...nextState.user
+      },
       isUserLoaded: nextState.isUserLoaded,
     });
   }
