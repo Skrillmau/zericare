@@ -1,7 +1,10 @@
 import * as actionTypes from "../Actions/actionTypes";
 import updateObject from "./utils";
 const initialState = {
-  user:{}
+  user:{
+    Historias:{},
+    Pacientes:{}
+  }
 };
 
 const getUser = (state, action) => {

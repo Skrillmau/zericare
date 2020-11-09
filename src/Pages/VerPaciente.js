@@ -10,6 +10,7 @@ class VerPaciente extends Component {
   state = {
     user: {
         Historias:{}
+        
     },
   };
 
@@ -19,6 +20,7 @@ class VerPaciente extends Component {
     var ref = database.ref(`Users/${id}`);
     let user = {
       id,
+      ...this.state.user
     };
     ref.once(
       "value",
@@ -50,6 +52,7 @@ class VerPaciente extends Component {
         </Button>
 
         <ListaHistorias historias={this.state.user.Historias} />
+        
       </div>
     );
   }

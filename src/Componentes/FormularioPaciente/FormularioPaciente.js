@@ -97,10 +97,10 @@ const FormularioPaciente = (props) => {
       });
     }
   }
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
     console.log(props.uid);
-    await props.fetchUser(props.uid);
+    props.fetchUser(props.uid);
     console.log(props.user);
     let today = new Date().toLocaleDateString();
 
