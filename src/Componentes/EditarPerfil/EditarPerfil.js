@@ -1,7 +1,7 @@
 import  Button  from '../Button/txt/txtButton';
 import React from 'react';
 import { Firebase } from "../../config/firebase";
-
+import { Redirect, withRouter } from "react-router-dom";
 
 
 const EditarPerfil = (props) => {
@@ -25,6 +25,7 @@ const EditarPerfil = (props) => {
        
          updateUser.child(ids[0]).update({'nombre':user.nombre,'apellido':user.apellido,'ocupacion':user.ocupacion,'sexo':user.sexo})
          updatePaciente.child(ids[0]).update({'nombre':user.nombre,'apellido':user.apellido,'ocupacion':user.ocupacion,'sexo':user.sexo})
+        props.history.push('/info/'+ids[0]);
     }
     return (
         <div>
@@ -39,4 +40,4 @@ const EditarPerfil = (props) => {
     );
 };
 
-export default EditarPerfil;
+export default withRouter(EditarPerfil);
