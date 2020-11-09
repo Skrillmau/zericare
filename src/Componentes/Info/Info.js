@@ -6,7 +6,7 @@ import Button from "../Button/txt/txtButton";
 var QRCode = require('qrcode.react');
 class Info extends Component {
   render() {
-    if(this.props.tipo=="Paciente"){
+    if(this.props.usuario.tipo=="Paciente"){
     return (
       <div className={classes.block}>
         <div className={classes.superflex}>
@@ -17,14 +17,14 @@ class Info extends Component {
               </div>
               <div className={classes.gridItem2}>
                 Nombre:
-            <Paragraph contenido={this.props.nombre} clase={"importante"} />
+            <Paragraph contenido={this.props.usuario.nombre} clase={"importante"} />
             Apellido:
-            <Paragraph contenido={this.props.apellido} clase={"importante"} />
+            <Paragraph contenido={this.props.usuario.apellido} clase={"importante"} />
             Registro:
-            <Paragraph contenido={this.props.id} clase={"importante"} />
-            Sexo: <Paragraph contenido={this.props.sexo} clase={"importante"} />
+            <Paragraph contenido={this.props.usuario.id} clase={"importante"} />
+            Sexo: <Paragraph contenido={this.props.usuario.sexo} clase={"importante"} />
             Ocupacion:
-            <Paragraph contenido={this.props.ocupacion} clase={"importante"} />
+            <Paragraph contenido={this.props.usuario.ocupacion} clase={"importante"} />
               </div>
             </div>
           <div className={classes.gridItem3}>
@@ -33,7 +33,7 @@ class Info extends Component {
           </div>
          
         </div>
-        <Button color="blue" onclick={()=>this.props.history.push("/editarPerfil")}>Editar Perfil</Button>
+        <Button color="blue" onclick={this.props.onclick}>Editar Perfil</Button>
       </div>
       
 
@@ -49,14 +49,14 @@ class Info extends Component {
                 </div>
                 <div className={classes.gridItem2}>
                   Nombre:
-              <Paragraph contenido={this.props.nombre} clase={"importante"} />
+              <Paragraph contenido={this.props.usuario.nombre} clase={"importante"} />
               Apellido:
-              <Paragraph contenido={this.props.apellido} clase={"importante"} />
+              <Paragraph contenido={this.props.usuario.apellido} clase={"importante"} />
               Registro:
-              <Paragraph contenido={this.props.id} clase={"importante"} />
-              Sexo: <Paragraph contenido={this.props.sexo} clase={"importante"} />
+              <Paragraph contenido={this.props.usuario.registro} clase={"importante"} />
+              Sexo: <Paragraph contenido={this.props.usuario.sexo} clase={"importante"} />
               Ocupacion:
-              <Paragraph contenido={this.props.ocupacion} clase={"importante"} />
+              <Paragraph contenido={this.props.usuario.ocupacion} clase={"importante"} />
                 </div>
               </div>
           </div>

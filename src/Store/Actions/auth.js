@@ -43,11 +43,12 @@ export const Register = (user, uid, image) => {
         var storageRef = storage.ref();
         const IdUser = response.user.uid;
         var imagesRef = storageRef.child(`images/${IdUser}/${image.name}`);
-
+      
         imagesRef.put(image).then(async function (snapshot) {
           const imgUrl = await snapshot.ref.getDownloadURL();
           const newUser = {
             ...user,
+            doctor: uid,
             imagen: imgUrl,
           };
           dispatch(users.addPaciente(newUser, IdUser, uid));

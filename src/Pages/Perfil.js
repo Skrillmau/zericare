@@ -56,14 +56,10 @@ class Perfil extends Component {
         <div className={classes.block}>
           <h1>Perfil</h1>
           <Info
+            onclick={()=>this.props.history.push("/editarPerfil/"+this.state.usuario.uid)}
             tipo="Paciente"
+            usuario={this.state.usuario}
             logout={this.handleLogout}
-            imagen={this.state.usuario.imagen}
-            nombre={this.state.usuario.nombre}
-            apellido={this.state.usuario.apellido}
-            id={this.state.usuario.registro}
-            sexo={this.state.usuario.sexo}
-            ocupacion={this.state.usuario.ocupacion}
           />
           
          
@@ -86,12 +82,7 @@ class Perfil extends Component {
           <Info 
             tipo="Medico"
             logout={this.handleLogout}
-            imagen={this.state.usuario.imagen}
-            nombre={this.state.usuario.nombre}
-            apellido={this.state.usuario.apellido}
-            id={this.state.usuario.registro}
-            sexo={this.state.usuario.sexo}
-            ocupacion={this.state.usuario.ocupacion}
+            usuario={this.state.usuario}
           />
           <hr></hr>
           <BannerImagen title="Tus pacientes">
