@@ -1,4 +1,5 @@
 .gridContainer {
+  margin-top: 10%;
   display: grid;
   grid-template-columns: 300px 300px;
   grid-template-columns: auto;
@@ -13,8 +14,10 @@
 }
 
 .bloque {
+  margin-top: 10%;
   position: sticky;
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
   align-items: center;
   width: 300px;
