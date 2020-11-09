@@ -7,6 +7,7 @@ const initialState = {
     userName: "",
     idToken: "",
     uid: "",
+    tipo:""
   },
   loadingAuth: false,
 };
@@ -17,6 +18,7 @@ const logOut = (state, action) => {
       userName: "",
       idToken: "",
       uid: "",
+      tipo:""
     },
   });
 };

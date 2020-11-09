@@ -3,6 +3,8 @@ import { Firebase, auxFirebase } from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
 const storage = Firebase.storage();
+const database = Firebase.database();
+
 const startAuthLoading = () => {
   return {
     type: actionTypes.START_LOADING_AUTH,
@@ -15,13 +17,14 @@ const endAuthLoading = () => {
   };
 };
 
-const saveSession = (userName, token, uid) => {
+const saveSession = (userName, token, uid,tipo) => {
   return {
     type: actionTypes.LOGIN,
     payload: {
       userName: userName,
       idToken: token,
       uid: uid,
+      tipo:tipo
     },
   };
 };
@@ -36,19 +39,17 @@ export const Register = (user, uid, image) => {
     auxFirebase
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password)
-      .then( function (response) {
+      .then(function (response) {
         var storageRef = storage.ref();
         const IdUser = response.user.uid;
-        var imagesRef = storageRef.child(
-          `images/${IdUser}/${image.name}`
-        );
-       
+        var imagesRef = storageRef.child(`images/${IdUser}/${image.name}`);
+
         imagesRef.put(image).then(async function (snapshot) {
-          const imgUrl = await snapshot.ref.getDownloadURL()
-          const newUser = { 
+          const imgUrl = await snapshot.ref.getDownloadURL();
+          const newUser = {
             ...user,
-            imagen:imgUrl
-          }
+            imagen: imgUrl,
+          };
           dispatch(users.addPaciente(newUser, IdUser, uid));
           auxFirebase.auth().signOut();
         });
@@ -72,20 +73,31 @@ export const logIn = (authData, onSuccessCallback) => {
       .then(function (result) {
         const uid = result.user.uid;
         const token = result.user.ya;
-        let userSession = {
-          token,
-          email,
-          uid,
-        };
-        userSession = JSON.stringify(userSession);
-        localStorage.setItem("userSession", userSession);
-        dispatch(users.fetchUser(uid));
 
-        dispatch(saveSession(email, token, uid));
-        dispatch(endAuthLoading());
-        if (onSuccessCallback) {
-          onSuccessCallback();
-        }
+        dispatch(users.fetchUser(uid));
+        var ref = database.ref(`Users/${uid}/tipo`);
+
+        ref.once(
+          "value",
+          function (snapshot) {
+            let userSession = {
+              token,
+              email,
+              uid,
+              tipo:snapshot.val()
+            };
+            userSession = JSON.stringify(userSession);
+            localStorage.setItem("userSession", userSession);
+            dispatch(saveSession(email, token, uid, snapshot.val()));
+            dispatch(endAuthLoading());
+            if (onSuccessCallback) {
+              onSuccessCallback();
+            }
+          },
+          function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+          }
+        );
       })
       .catch(function (error) {
         // Handle Errors
@@ -125,7 +137,7 @@ export const persistAuthentication = () => {
       userSession = JSON.parse(userSession);
 
       dispatch(
-        saveSession(userSession.email, userSession.token, userSession.uid)
+        saveSession(userSession.email, userSession.token, userSession.uid,userSession.tipo)
       );
     }
   };
