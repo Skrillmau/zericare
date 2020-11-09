@@ -6,13 +6,13 @@ class InfoPaciente extends Component {
     render() {
         return (
             <div>
-                <img src={this.state.imagen} />
-                <p>Nombre: {this.state.nombre} </p>
-                <p>Apellido: {this.state.apellido} </p>
-                <p>Sexo {this.state.sexo}</p>
-                <p>Ocupación: {this.state.ocupacion}</p>
-                <p>Creado: {this.state.registro}</p>
-                <p>ID: {this.state.uid}</p>
+                <img src={this.props.paciente.imagen} />
+                <p>Nombre: {this.props.paciente.nombre} </p>
+                <p>Apellido: {this.props.paciente.apellido} </p>
+                <p>Sexo {this.props.paciente.sexo}</p>
+                <p>Ocupación: {this.props.paciente.ocupacion}</p>
+                <p>Creado: {this.props.paciente.registro}</p>
+                <p>Código Care: {this.props.paciente.id}</p>
             </div>
         );
     }
