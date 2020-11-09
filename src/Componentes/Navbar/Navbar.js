@@ -99,18 +99,6 @@ function Navbar(props) {
             </Link>
           </Button>
 
-          <Button color="inherit">
-            <Link to="/PerfilM" className={classes.linked}>
-              Perfil medico
-            </Link>
-          </Button>
-
-          <Button color="inherit">
-            <Link to="/FormularioMedicamentos" className={classes.linked}>
-              Listado puto
-            </Link>
-          </Button>
-
           <Button
             color="inherit"
             aria-controls="simple-menu"
