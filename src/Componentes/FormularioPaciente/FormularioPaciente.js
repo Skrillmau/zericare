@@ -97,39 +97,34 @@ const FormularioPaciente = (props) => {
       });
     }
   }
-  const handleSubmit =async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
     console.log(props.uid);
-    await props.fetchUser(props.uid);
+    props.fetchUser(props.uid);
     console.log(props.user);
-    if (props.user.tipo !== "Medico") {
-     
-      //props.history.push(`/login`);
-    } else {
-      let today = new Date().toLocaleDateString();
-      
-      let user = {
-        nombre: e.target.name.value,
-        apellido: e.target.apellido.value,
-        sexo: e.target.sexo.value,
-        ocupacion: e.target.ocupacion.value,
-        email: e.target.correo.value,
-        password: generatePassword(),
-        tipo: "Paciente",
-        registro: today,
-      };
-      console.log(images[0]);
-      props.onRegister(user, props.uid, images[0]);
+    let today = new Date().toLocaleDateString();
 
-      Swal.fire({
-        title: "Paciente creado correctamente",
-        text: "El paciente se ha registrado correctamente",
-        icon: "success",
-        confirmButtonColor: "#06b5ef",
-      }).then((result) => {
-        props.history.push(`/info/${props.uid}`);
-      });
-    }
+    let user = {
+      nombre: e.target.name.value,
+      apellido: e.target.apellido.value,
+      sexo: e.target.sexo.value,
+      ocupacion: e.target.ocupacion.value,
+      email: e.target.correo.value,
+      password: generatePassword(),
+      tipo: "Paciente",
+      registro: today,
+    };
+    console.log(images[0]);
+    props.onRegister(user, props.uid, images[0]);
+
+    Swal.fire({
+      title: "Paciente creado correctamente",
+      text: "El paciente se ha registrado correctamente",
+      icon: "success",
+      confirmButtonColor: "#06b5ef",
+    }).then((result) => {
+      props.onRedirect(`/info/${props.uid}`);
+    });
   };
   function generatePassword() {
     var length = 8,

@@ -45,8 +45,8 @@ export const fetchUser = (uid) => {
 export const addPaciente = (user, userid, uid) => {
   return (dispatch) => {
     try {
-      database.ref("Users/" + userid).set(user);
-      database.ref("Users/" + uid + "/Pacientes/" + userid).set(user);
+      database.ref(`Users/${userid}`).set(user);
+      database.ref(`Users/${uid}/Pacientes/${userid}`).set(user);
     } catch (error) {
       console.log(error);
     }
@@ -55,15 +55,14 @@ export const addPaciente = (user, userid, uid) => {
 
 export const addHistoria = (historia, userid) => {
   return (dispatch) => {
-    database.ref("Users/" + userid + "/Historial").set(historia);
+    database.ref(`Users/${userid}/Historias/${historia.fecha}`).set(historia);
   };
 };
 
 export const addRecipe = (recipe, userid) => {
   return (dispatch) => {
     database
-      .ref()
-      .set("Users/" + userid + "/Ordenes")
+      .ref(`Users/${userid}/Ordenes/${recipe.fecha}`)
       .set(recipe);
   };
 };

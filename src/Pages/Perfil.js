@@ -15,7 +15,10 @@ var QRCode = require('qrcode.react');
 class Perfil extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
-    usuario: {},
+    usuario: {
+      Pacientes:{},
+      Historias:{}
+    },
   };
 
   componentDidMount() {
@@ -107,6 +110,7 @@ class Perfil extends Component {
  
   render() {
     if (!this.state.usuario) return <Spinner/>;
+    {console.log(this.state.usuario)}
     return this.toggleProfile();
   }
 }
