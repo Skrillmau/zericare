@@ -3,13 +3,16 @@ import Button from "../Componentes/Button/txt/txtButton.js";
 import InfoPaciente from "../Componentes/InfoPaciente/InfoPaciente";
 import { Firebase } from "../config/firebase";
 import HistoriaBanner from "../Componentes/HistoriaBanner/HistoriaBanner";
-import ListaHistorias from "../Componentes/ListaHistorias/ListaHistorias.js";
+import ListaHistorias from "../Componentes/ListaHistorias/ListaHistorias";
+import ListaOrdenes from "../Componentes/ListaOrdenes/ListaOrdenes";
+
 import Spinner from "../Componentes/Spinner/Spinner";
 
 class VerPaciente extends Component {
   state = {
     user: {
-        Historias:{}
+        Historias:{},
+        Ordenes:{}
         
     },
   };
@@ -59,6 +62,7 @@ class VerPaciente extends Component {
         </Button>
 
         <ListaHistorias historias={this.state.user.Historias} />
+        <ListaOrdenes ordenes={this.state.user.Ordenes} />
         
       </div>
     );
