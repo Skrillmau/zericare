@@ -41,12 +41,19 @@ class VerPaciente extends Component {
       <div>
         <h1>Informacion del paciente</h1>
         <InfoPaciente paciente={this.state.user} />
-        <Button
+        <Button color ="blue"
           onclick={() =>
             this.props.history.push(`/AddHistoria/${this.state.user.id}`)
           }
         >
           Añadir Historia
+        </Button>
+        <Button color="blue"
+          onclick={() =>
+            this.props.history.push(`/AddOrden/${this.state.user.id}`)
+          }
+        >
+          Añadir Receta
         </Button>
 
         <ListaHistorias historias={this.state.user.Historias} />

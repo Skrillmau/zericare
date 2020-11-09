@@ -62,8 +62,7 @@ export const addHistoria = (historia, userid) => {
 export const addRecipe = (recipe, userid) => {
   return (dispatch) => {
     database
-      .ref()
-      .set(`Users/${userid}/Ordenes`)
+      .ref(`Users/${userid}/Ordenes/${recipe.fecha}`)
       .set(recipe);
   };
 };
