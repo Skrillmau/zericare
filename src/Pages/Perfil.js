@@ -38,18 +38,18 @@ class Perfil extends Component {
     this.props.history.push(`/login`);
   };
   toggleProfile = () => {
-    if (this.state.usuario.Tipo == "Paciente") {
+    if (this.state.usuario.tipo == "Paciente") {
       return (
         <div className={classes.block}>
           <h1>Perfil</h1>
           <Info
             logout={this.handleLogout}
-            imagen={this.state.usuario.Imagen}
-            nombre={this.state.usuario.Nombre}
-            apellido={this.state.usuario.Apellido}
-            id={this.state.usuario.Registro}
-            sexo={this.state.usuario.Sexo}
-            ocupacion={this.state.usuario.Ocupacion}
+            imagen={this.state.usuario.imagen}
+            nombre={this.state.usuario.nombre}
+            apellido={this.state.usuario.apellido}
+            id={this.state.usuario.registro}
+            sexo={this.state.usuario.sexo}
+            ocupacion={this.state.usuario.ocupacion}
           />
          
           <BannerText title="Tu historia clínica">
@@ -74,17 +74,17 @@ class Perfil extends Component {
           <p>Insertar órdenes de firebase</p>
         </div>
       );
-    } else if (this.state.usuario.Tipo == "Medico") {
+    } else if (this.state.usuario.tipo == "Medico") {
       return (
         <div>
           <Info
             logout={this.handleLogout}
-            imagen={this.state.usuario.Imagen}
-            nombre={this.state.usuario.Nombre}
-            apellido={this.state.usuario.Apellido}
-            id={this.state.usuario.Registro}
-            sexo={this.state.usuario.Sexo}
-            ocupacion={this.state.usuario.Ocupacion}
+            imagen={this.state.usuario.imagen}
+            nombre={this.state.usuario.nombre}
+            apellido={this.state.usuario.apellido}
+            id={this.state.usuario.registro}
+            sexo={this.state.usuario.sexo}
+            ocupacion={this.state.usuario.ocupacion}
           />
           <p>Buenas noches</p>
 
