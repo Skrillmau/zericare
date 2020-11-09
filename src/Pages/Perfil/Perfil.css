@@ -21,3 +21,11 @@
   .lista{
       margin-top: 5%;
   }
+
+  .addBoton{      
+    position: -webkit-sticky; /* Safari */
+    position: sticky !important;
+    bottom: 0%;
+    right: 0%;
+    border-radius: 50%;
+  }

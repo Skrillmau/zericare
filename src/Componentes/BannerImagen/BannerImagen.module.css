@@ -71,7 +71,7 @@
         background: white;
         display: grid;
         grid-template-columns: repeat(2, 50%);
-        padding: 1%;
+        padding-top: 1%;
         vertical-align: middle;
         
         margin-right: 10%;
