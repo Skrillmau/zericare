@@ -25,7 +25,7 @@ function ListaPacientes(props) {
                 {pacientes.map((item, i) => {
                     return (
 
-                        <Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro} ver={props.ver} />
+                        <Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro} ver={() => this.props.history.push(`/paciente/${Object.keys(item)}`)} />
                     )
                 })}
 

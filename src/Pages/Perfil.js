@@ -90,7 +90,7 @@ class Perfil extends Component {
             En el listado a continuación, podrás ver el listado listado de los pacientes que están a tu cargo
           </BannerText>
           <div>
-            <ListaPacientes  pacientes={this.state.usuario.Pacientes}/>
+            <ListaPacientes  pacientes={this.state.usuario.Pacientes}   />
           </div>
         </div>
       );
