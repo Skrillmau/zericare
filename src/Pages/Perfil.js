@@ -4,6 +4,7 @@ import Historia from "../Componentes/Historia/Historia";
 import classes from "../Pages/Perfil/Perfil.css";
 import { Redirect, withRouter } from "react-router-dom";
 import BannerText from "../Componentes/BannerText/BannerText";
+import BannerImagen from "../Componentes/BannerImagen/BannerImagen";
 import { connect } from "react-redux";
 import ListaPacientes from "../Componentes/ListaPacientes/ListaPacientes";
 import Spinner from "../Componentes/Spinner/Spinner";
@@ -87,7 +88,11 @@ class Perfil extends Component {
             ocupacion={this.state.usuario.ocupacion}
           />
           <hr></hr>
-          <div className={classes.lista}>
+          <BannerImagen title="Tus pacientes">
+            En el listado a continuación, podrás ver el listado listado de los pacientes que están a tu cargo
+          </BannerImagen>
+          
+          <div>
             <ListaPacientes  pacientes={this.state.usuario.Pacientes}/>
           </div>
         </div>
