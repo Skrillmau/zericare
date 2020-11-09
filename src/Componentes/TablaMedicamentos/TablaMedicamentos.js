@@ -21,7 +21,7 @@ const TablaMedicamentos = (props) => {
         };
         console.log(item);
 
-        await setItems(Items.concat(item));
+        await setItems([...Items,item]);
     }
     const deleteMedicamentos = (index) => {
         const test = [...Items]

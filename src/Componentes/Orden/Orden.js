@@ -50,8 +50,9 @@ const orden = (props) => {
         </label>
         <div></div>
         <Button color={"blue"} type="submit" >Agregar</Button>
-        <Button color={"red"}  onclick={props.onSend}>Enviar</Button>
+       
       </form>
+      <Button color={"red"}  onclick={props.onSend}>Enviar</Button>
     </div>
 
   )
