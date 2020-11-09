@@ -44,22 +44,26 @@ export const fetchUser = (uid) => {
 
 export const addPaciente = (user, userid, uid) => {
   return (dispatch) => {
-
-    database.ref('Users/' + userid).set(user);
-    database.ref('Users/' + uid + '/Pacientes/' + userid).set(user);
-
-
+    try {
+      database.ref("Users/" + userid).set(user);
+      database.ref("Users/" + uid + "/Pacientes/" + userid).set(user);
+    } catch (error) {
+      console.log(error);
+    }
   };
-}
+};
 
-export const addHistoria =(historia, userid)=>{
-    return (dispatch) =>{
-        database.ref('Users/'+userid+'/Historial').set(historia);
-    };
-}
-
-export const addRecipe  = (recipe, userid) =>{
-  return(dispatch) =>{
-    database.ref().set('Users/'+userid+'/Ordenes').set(recipe);
+export const addHistoria = (historia, userid) => {
+  return (dispatch) => {
+    database.ref("Users/" + userid + "/Historial").set(historia);
   };
-}
+};
+
+export const addRecipe = (recipe, userid) => {
+  return (dispatch) => {
+    database
+      .ref()
+      .set("Users/" + userid + "/Ordenes")
+      .set(recipe);
+  };
+};
