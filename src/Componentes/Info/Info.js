@@ -15,7 +15,7 @@ class Info extends Component {
 
             <div className={classes.gridContainer}>
               <div className={classes.gridItem1}>
-                <img className={classes.imagen} src={this.props.imagen} />
+                <img className={classes.imagen} src={this.props.usuario.imagen} />
               </div>
               <div className={classes.gridItem2}>
                 Nombre:
@@ -53,7 +53,7 @@ class Info extends Component {
 
             <div className={classes.gridContainer}>
               <div className={classes.gridItem1}>
-                <img className={classes.imagen} src={this.props.imagen} />
+                <img className={classes.imagen} src={this.props.usuario.imagen} />
               </div>
               <div className={classes.gridItem2}>
                 Nombre:

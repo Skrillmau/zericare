@@ -2,6 +2,8 @@ import  Button  from '../Button/txt/txtButton';
 import React from 'react';
 import { Firebase } from "../../config/firebase";
 import { Redirect, withRouter } from "react-router-dom";
+import Style from './EditarPerfil.module.css'
+import BannerImagen from'../BannerImagen/BannerImagen'
 
 
 const EditarPerfil = (props) => {
@@ -29,11 +31,13 @@ const EditarPerfil = (props) => {
     }
     return (
         <div>
-            <form onSubmit={handleclick}>
-            <input type="text"  name="nombre" placeholder="Nuevo nombre"></input>
-            <input type="text" name ="apellido" placeholder="Nuevo apellido"></input>
-            <input type="text" name="ocupacion" placeholder="Nueva ocupación"></input>
-            <input type="text" name="sexo" placeholder="Nuevo sexo (?)"></input>
+              <BannerImagen title="Editar Información Básica">En el siguiente formulario podrás actualizar tu información, esta información será visible por tu médico encargado</BannerImagen>
+            <form onSubmit={handleclick} className={Style.form}>
+            <input className={Style.input}  type="text"  name="nombre" placeholder="Nuevo nombre" ></input>
+            <input className={Style.input}  type="text" name ="apellido" placeholder="Nuevo apellido"></input>
+            <input className={Style.input} type="text" name="ocupacion" placeholder="Nueva ocupación"></input>
+            <input className={Style.input} type="text" name="sexo" placeholder="Nuevo sexo (?)"></input>
+            <br></br>
             <Button color="blue" >Guardar</Button>
             </form>
         </div>
