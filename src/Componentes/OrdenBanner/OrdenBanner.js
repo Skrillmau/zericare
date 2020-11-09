@@ -21,7 +21,7 @@ class OrdenBanner extends Component {
         return (
             <div className={styles.banner} >
                 
-                <h3 onClick={this.handleclick.bind(this)}>Fecha: {new Date(this.props.orden.fecha).toLocaleDateString("en-US")} </h3>
+                <h3 onClick={this.handleclick.bind(this)}>Fecha: {new Date(this.props.fecha).toLocaleDateString("en-US")} </h3>
                 <div className={this.state.visible?styles.visible:styles.novisible}>
                 <OrdenCompleta orden={this.props.orden}/>
                 </div>
