@@ -74,7 +74,7 @@ class Perfil extends Component {
           <p>Insertar órdenes de firebase</p>
         </div>
       );
-    } else if (this.state.usuario.tipo == "Medico") {
+    } else if (this.state.usuario.tipo == "Medico" && this.state.usuario.Pacientes) {
       return (
         <div>
           <Info
@@ -86,10 +86,11 @@ class Perfil extends Component {
             sexo={this.state.usuario.sexo}
             ocupacion={this.state.usuario.ocupacion}
           />
-          <p>Buenas noches</p>
-
+          <BannerText title="Tus pacientes">
+            En el listado a continuación, podrás ver el listado listado de los pacientes que están a tu cargo
+          </BannerText>
           <div>
-            <ListaPacientes />
+            <ListaPacientes  pacientes={this.state.usuario.Pacientes}/>
           </div>
         </div>
       );

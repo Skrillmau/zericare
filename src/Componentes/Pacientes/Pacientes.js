@@ -11,8 +11,8 @@ const pacientes = (props) => {
             </div>
             <div>
                 <p>Nombre: {props.nombre}</p>
-                <p>Id: {props.id}</p>
-                <p>Visto última vez: {props.uv}</p>
+                <p>Apellido: {props.apellido}</p>
+                <p>Creado: {props.creado}</p>
 
 
             </div>

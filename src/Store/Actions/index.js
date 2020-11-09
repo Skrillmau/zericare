@@ -10,7 +10,9 @@ export {
 } from './error'
 export {
     fetchUser,
-    addPaciente
+    addPaciente,
+    addHistoria,
+    addRecipe
 
 }from './user'
 

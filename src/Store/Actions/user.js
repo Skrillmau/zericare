@@ -57,3 +57,9 @@ export const addHistoria =(historia, userid)=>{
         database.ref('Users/'+userid+'/Historial').set(historia);
     };
 }
+
+export const addRecipe  = (recipe, userid) =>{
+  return(dispatch) =>{
+    database.ref().set('Users/'+userid+'/Ordenes').set(recipe);
+  };
+}
