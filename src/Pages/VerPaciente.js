@@ -5,15 +5,15 @@ import { Firebase } from "../config/firebase";
 import HistoriaBanner from "../Componentes/HistoriaBanner/HistoriaBanner";
 import ListaHistorias from "../Componentes/ListaHistorias/ListaHistorias";
 import ListaOrdenes from "../Componentes/ListaOrdenes/ListaOrdenes";
-
+import classes from './VerPaciente/VerPaciente.css';
 import Spinner from "../Componentes/Spinner/Spinner";
 
 class VerPaciente extends Component {
   state = {
     user: {
-        Historias:{},
-        Ordenes:{}
-        
+      Historias: {},
+      Ordenes: {}
+
     },
   };
 
@@ -41,12 +41,12 @@ class VerPaciente extends Component {
   }
 
   render() {
-    if (!this.state.user) return <Spinner/>;
+    if (!this.state.user) return <Spinner />;
     return (
       <div>
         <h1>Informacion del paciente</h1>
         <InfoPaciente paciente={this.state.user} />
-        <Button color ="blue"
+        <Button color="blue"
           onclick={() =>
             this.props.history.push(`/AddHistoria/${this.state.user.id}`)
           }
@@ -60,10 +60,18 @@ class VerPaciente extends Component {
         >
           Añadir Receta
         </Button>
+        <div className={classes.gridContainer}>
+          <div className={classes.item1}>
+            <ListaHistorias historias={this.state.user.Historias} />
+          </div>
 
-        <ListaHistorias historias={this.state.user.Historias} />
+          <div className={classes.item1}>
+            <ListaOrdenes ordenes={this.state.user.Ordenes} />
+          </div>
+        </div>
+
         <ListaOrdenes ordenes={this.state.user.Ordenes} />
-        
+
       </div>
     );
   }
