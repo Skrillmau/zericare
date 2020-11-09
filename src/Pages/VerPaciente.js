@@ -9,7 +9,6 @@ import classes from './VerPaciente/VerPaciente.css';
 import Spinner from "../Componentes/Spinner/Spinner";
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import LocalPharmacyOutlinedIcon from '@material-ui/icons/LocalPharmacyOutlined';
-import NotFound from "../Pages/Nosotros";
 
 class VerPaciente extends Component {
   state = {
@@ -22,9 +21,6 @@ class VerPaciente extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    let userSession = localStorage.getItem("userSession");
-    userSession = JSON.parse(userSession);
-    const { tipo } = userSession;
     const database = Firebase.database();
     var ref = database.ref(`Users/${id}`);
     let user = {
@@ -38,7 +34,7 @@ class VerPaciente extends Component {
           ...user,
           ...snapshot.val(),
         };
-        this.setState({ user,tipo });
+        this.setState({ user });
       },
       function (errorObject) {
         console.log("The read failed: " + errorObject.code);
@@ -48,7 +44,6 @@ class VerPaciente extends Component {
 
   render() {
     if (!this.state.user) return <Spinner />;
-    else if (this.state.tipo !== "Medico") return <NotFound />;
     return (
       <div>
         <h1>Informacion del paciente</h1>
