@@ -266,7 +266,8 @@
     }
     .img {
         display: block;
-        height: 100%;
+        width: 30%;
+        
     }
     .dropzone {
         flex: 1;
@@ -298,7 +299,8 @@
         position: absolute;
         width: 25px;
         height: 25px;
-        margin-left: 65px;
+        margin-left: 5px;
+        margin-top:5px;
         background: #fff;
         border-radius: 50%;
         cursor: pointer;

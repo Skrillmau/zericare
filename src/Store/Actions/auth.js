@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
-import {Firebase, auxFirebase} from "../../config/firebase";
+import { Firebase, auxFirebase } from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
-
+const storage = Firebase.storage();
 const startAuthLoading = () => {
   return {
     type: actionTypes.START_LOADING_AUTH,
@@ -31,33 +31,43 @@ const cerrarSesion = () => {
   };
 };
 
-export const Register = (user, uid)=>{
-  return(dispatch)=>{
-  auxFirebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
-    console.log(response)
-    const IdUser = response.user.uid
-    dispatch(users.addPaciente(user, IdUser,uid));
-    auxFirebase.auth().signOut()
-
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    dispatch(errors.saveError(errorMessage));
-    // ...
-  });
-}
-}
-
-
+export const Register = (user, uid, image) => {
+  return (dispatch) => {
+    auxFirebase
+      .auth()
+      .createUserWithEmailAndPassword(user.email, user.password)
+      .then( function (response) {
+        var storageRef = storage.ref();
+        const IdUser = response.user.uid;
+        var imagesRef = storageRef.child(
+          `images/${IdUser}/${image.name}`
+        );
+       
+        imagesRef.put(image).then(async function (snapshot) {
+          const imgUrl = await snapshot.ref.getDownloadURL()
+          const newUser = { 
+            ...user,
+            imagen:imgUrl
+          }
+          dispatch(users.addPaciente(newUser, IdUser, uid));
+          auxFirebase.auth().signOut();
+        });
+      })
+      .catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage);
+        dispatch(errors.saveError(errorMessage));
+      });
+  };
+};
 
 export const logIn = (authData, onSuccessCallback) => {
   return (dispatch) => {
     dispatch(startAuthLoading());
     console.log(authData);
     const { email, password } = authData;
-    Firebase
-      .auth()
+    Firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (result) {
         const uid = result.user.uid;
@@ -89,8 +99,7 @@ export const logIn = (authData, onSuccessCallback) => {
 };
 export const logOut = () => {
   return (dispatch) => {
-    Firebase
-      .auth()
+    Firebase.auth()
       .signOut()
       .then(function () {
         // Sign-out successful.

@@ -5,14 +5,29 @@ import Button from "../Button/txt/txtButton";
 import Style from "./FormularioPaciente.css";
 import Icon from "@mdi/react";
 import Swal from "sweetalert2";
-import {mdiWindowClose } from "@mdi/js";
-
+import { mdiWindowClose } from "@mdi/js";
+import { connect } from "react-redux";
+import * as actionCreators from "../../Store/Actions/";
 
 const FormularioPaciente = (props) => {
   const [files, setFiles] = useState([]);
   const [images, setImages] = useState([]);
   const [isHovered, setHovered] = useState("");
 
+  useEffect(() => {
+    if(props.error!==''){
+      console.log(props.error);
+      Swal.fire({
+        title: "Error al registrar el paciente",
+        text: props.error,
+        icon: "error",
+        confirmButtonColor: "#CE0058",
+      }).then( (result) => {
+				props.onClearError();
+			});;
+      
+    }
+  });
   const thumbs = files.map((file, i) => (
     <div
       className={Style.thumb}
@@ -33,7 +48,7 @@ const FormularioPaciente = (props) => {
             path={mdiWindowClose}
             size={1}
             title="Eliminar imagen"
-            color="#ce0058"
+            color="#06b5ef"
           />
         </div>
 
@@ -49,14 +64,14 @@ const FormularioPaciente = (props) => {
     </div>
   ));
   const prettier = (data) => {
-		let newImages = data.map((file) => {
-			let preview = URL.createObjectURL(file);
+    let newImages = data.map((file) => {
+      let preview = URL.createObjectURL(file);
 
-			return { preview };
-		});
+      return { preview };
+    });
 
-		return newImages;
-	};
+    return newImages;
+  };
   async function deleteImg(index) {
     setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
     setImages([...images.slice(0, index), ...images.slice(index + 1)]);
@@ -84,33 +99,42 @@ const FormularioPaciente = (props) => {
       });
     }
   }
-  const handleSubmit = (e) =>{
-    let today = new Date().toLocaleDateString()
-    e.preventDefault();    
-    let user= {
+  const handleSubmit = (e) => {
+    let today = new Date().toLocaleDateString();
+    e.preventDefault();
+    let user = {
       nombre: e.target.name.value,
       apellido: e.target.apellido.value,
       sexo: e.target.sexo.value,
       ocupacion: e.target.ocupacion.value,
       email: e.target.correo.value,
       password: generatePassword(),
-      tipo:"Paciente",
-      registro: today
-    }
-    console.log(user);
-    props.onRegister(user,props.uid)
+      tipo: "Paciente",
+      registro: today,
+    };
+    console.log(images[0]);
+    props.onRegister(user, props.uid, images[0]);
 
-  }
+    Swal.fire({
+      title: "Paciente creado correctamente",
+      text: "El paciente se ha registrado correctamente",
+      icon: "success",
+      confirmButtonColor: "#06b5ef",
+    }).then((result)=>{
+      props.history.push(`/info/${props.uid}`);
+    });
+  };
   function generatePassword() {
     var length = 8,
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        retVal = "";
+      charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
     for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
+      retVal += charset.charAt(Math.floor(Math.random() * n));
     }
     return retVal;
-}
-  
+  }
+
   return (
     <div className={Style.item2}>
       <h3 className={Style.subtitulo}>Agregar Paciente</h3>
@@ -169,27 +193,29 @@ const FormularioPaciente = (props) => {
               </section>
             )}
           </Dropzone>
-          
         </div>
-        <Button color={"blue"} type="submit" >Enviar</Button>
+        <Button color={"blue"} type="submit">
+          Enviar
+        </Button>
       </form>
     </div>
   );
 };
 
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onRegister: (user,uid) => dispatch( actionCreators.Register(user,uid))
+    onRegister: (user, uid, image) =>
+      dispatch(actionCreators.Register(user, uid, image)),
+    onClearError: () => dispatch(actionCreators.clearError()),
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-      isUserLoggedIn: state.authStore.isUserLoggedIn,
-      uid:state.authStore.user.uid,
-      error:state.errorStore.error,
-  }
-}
+    isUserLoggedIn: state.authStore.isUserLoggedIn,
+    uid: state.authStore.user.uid,
+    error: state.errorStore.error,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormularioPaciente);
