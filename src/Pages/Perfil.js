@@ -86,11 +86,9 @@ class Perfil extends Component {
             sexo={this.state.usuario.sexo}
             ocupacion={this.state.usuario.ocupacion}
           />
-          <BannerText title="Tus pacientes">
-            En el listado a continuación, podrás ver el listado listado de los pacientes que están a tu cargo
-          </BannerText>
-          <div>
-            <ListaPacientes  pacientes={this.state.usuario.Pacientes}   />
+          <hr></hr>
+          <div className={classes.lista}>
+            <ListaPacientes  pacientes={this.state.usuario.Pacientes}/>
           </div>
         </div>
       );
