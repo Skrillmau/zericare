@@ -1,61 +1,68 @@
 import React from 'react';
 
+
+import Style from "./FormularioHistoria.css";
+import Button from "../Button/txt/txtButton";
+import emailjs from "emailjs-com";
+import swal from "sweetalert2";
+
 const FormularioHistoria = () => {
     return (
-        <div>
-            <h3>Agregar Paciente</h3>
-            <form className="" onSubmit={props.onsubmit} id="contactForm">
+        <div className={Style.item2}>
+            <h3 className={Style.subtitulo}>Agregar Historia Clinica</h3>
+            <form className={Style.form} onSubmit="" id="contactForm">
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="patalogicos"
-                    type="text"
+                    rows="3"
                     placeholder="Antecedentes Patológicos: "
                     required
                 />
                 <br />
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="afamiliares:"
-                    type="text"
+                    rows="3"
                     placeholder="Antecedentes familiares:"
                     required
                 />
                 <br />
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="peea"
-                    type="text"
+                    rows="3"
                     placeholder="PEEA última consulta:          "
                 />
                 <br />
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="efisica"
-                    rows="10"
+                    rows="3"
                     placeholder="Exploración Física: "
                     required
                 />
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="efisica"
-                    rows="10"
+                    rows="3"
                     placeholder="Antecedentes no Patológicos "
                     required
                 />
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="efisica"
-                    rows="10"
+                    rows="3"
                     placeholder="Antecedentes Gineco-Obstétricos "
                     required
                 />
                 <textarea
-                    className=""
+                    className={Style.input}
                     name="dnr"
-                    rows="10"
+                    rows="3"
                     placeholder="DNR"
                     required
                 />
+                <br />
                 <Button color={"blue"} type="submit" >Agregar</Button>
             </form>
         </div>
