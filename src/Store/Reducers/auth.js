@@ -30,6 +30,7 @@ const login = (state, action) => {
       userName: payload.userName,
       idToken: payload.idToken,
       uid: payload.uid,
+      tipo:payload.tipo
     },
   });
 };

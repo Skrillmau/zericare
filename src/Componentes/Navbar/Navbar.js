@@ -3,7 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import classes from "./Navbar.css";
+import classes from "./Navbar.module.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -32,8 +32,10 @@ function Navbar(props) {
     props.onlogOut();
     handleClose();
   };
+  let profileText;
   let LogedinMenu;
   if (props.isUserLoggedIn) {
+    profileText=props.tipo;
     LogedinMenu = (
       <Menu
         id="simple-menu"
@@ -55,7 +57,9 @@ function Navbar(props) {
       </Menu>
     );
   } else {
+    profileText="Login";
     LogedinMenu = (
+      
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -99,18 +103,6 @@ function Navbar(props) {
             </Link>
           </Button>
 
-          <Button color="inherit">
-            <Link to="/PerfilM" className={classes.linked}>
-              Perfil medico
-            </Link>
-          </Button>
-
-          <Button color="inherit">
-            <Link to="/FormularioMedicamentos" className={classes.linked}>
-              Listado puto
-            </Link>
-          </Button>
-
           <Button
             color="inherit"
             aria-controls="simple-menu"
@@ -119,6 +111,7 @@ function Navbar(props) {
             className={classes.boton}
           >
             <AccountCircleIcon />
+           {profileText} 
           </Button>
           {LogedinMenu}
         </Toolbar>
@@ -130,6 +123,7 @@ const mapStateToProps = (state) => {
   return {
     isUserLoggedIn: state.authStore.isUserLoggedIn,
     uid: state.authStore.user.uid,
+    tipo: state.authStore.user.tipo,
   };
 };
 const mapDispatchToProps = (dispatch) => {

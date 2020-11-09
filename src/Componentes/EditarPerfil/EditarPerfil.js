@@ -1,13 +1,15 @@
 import  Button  from '../Button/txt/txtButton';
 import React from 'react';
 import { Firebase } from "../../config/firebase";
-
+import { Redirect, withRouter } from "react-router-dom";
 
 
 const EditarPerfil = (props) => {
   const  handleclick=(e)=>{
       e.preventDefault();
      const {id}=props.match.params 
+     const ids = id.split('@');
+     console.log(ids);
       let  user={
             nombre:e.target.nombre.value,
             apellido: e.target.apellido.value,
@@ -18,15 +20,12 @@ const EditarPerfil = (props) => {
     userSession = JSON.parse(userSession);
     const { uid } = userSession;
         let updateUser = Firebase.database().ref('Users/');
-        let updatePaciente = Firebase.database().ref(`Users/${uid}/Pacientes/`);
+        let updatePaciente = Firebase.database().ref(`Users/${ids[1]}/Pacientes/`);
        
        
-         updateUser.child(id).update({'nombre':user.nombre,'apellido':user.apellido,'ocupacion':user.ocupacion,'sexo':user.sexo})
-         updatePaciente.child(id).update({'nombre':user.nombre,'apellido':user.apellido,'ocupacion':user.ocupacion,'sexo':user.sexo})
-       
-      
-        
-
+         updateUser.child(ids[0]).update({'nombre':user.nombre,'apellido':user.apellido,'ocupacion':user.ocupacion,'sexo':user.sexo})
+         updatePaciente.child(ids[0]).update({'nombre':user.nombre,'apellido':user.apellido,'ocupacion':user.ocupacion,'sexo':user.sexo})
+        props.history.push('/info/'+ids[0]);
     }
     return (
         <div>
@@ -41,4 +40,4 @@ const EditarPerfil = (props) => {
     );
 };
 
-export default EditarPerfil;
+export default withRouter(EditarPerfil);
