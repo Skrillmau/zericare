@@ -37,7 +37,6 @@ class VerPaciente extends Component {
                 <h1>Informacion del paciente</h1>
                 <InfoPaciente paciente={this.state.user}/>
                 <HistoriaBanner fecha={this.state.user.registro}></HistoriaBanner>
-
             </div>
         );
     }
