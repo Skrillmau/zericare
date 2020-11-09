@@ -70,7 +70,7 @@ class VerPaciente extends Component {
           </div>
         </div>
 
-        <ListaOrdenes ordenes={this.state.user.Ordenes} />
+        
 
       </div>
     );
