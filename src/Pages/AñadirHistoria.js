@@ -34,8 +34,7 @@ class AñadirHistoria extends Component {
     });
   }
   render() {
-    if (!this.state.usuario) return <Spinner />;
-    else if(this.state.tipo!=="Medico") return<NotFound />
+     if(this.state.tipo!=="Medico") return<NotFound />
     return (
       <div>
         <FormularioHistoria id={this.state.uid}/>

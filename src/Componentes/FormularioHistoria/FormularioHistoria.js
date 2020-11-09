@@ -19,13 +19,13 @@ const FormularioHistoria = (props) => {
             patologicos: e.target.patalogicos.value,
             afamiliares: e.target.afamiliares.value,
             peea: e.target.peea.value,
-            efisica: e.target.efisicas.value,
-            anopatologicos: e.target.anopatologicos.value,
+            efisica: e.target.efisica.value,
+            anopatologicos: e.target.anopatalogicos.value,
             aginecoobstetricos: e.target.aginecoobstetricos.value,
             dnr: e.target.dnr.value,
             fecha: timestamp 
           };
-          props.addHistoria(historia,props.userid);
+          props.addHistoria(historia,props.uid);
           Swal.fire({
             title: "Historia creado correctamente",
             text: "La historia se ha registrado correctamente",
@@ -49,7 +49,7 @@ const FormularioHistoria = (props) => {
                 <br />
                 <textarea
                     className={Style.input}
-                    name="afamiliares:"
+                    name="afamiliares"
                     rows="3"
                     placeholder="Antecedentes familiares:"
                     required

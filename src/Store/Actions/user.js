@@ -55,7 +55,7 @@ export const addPaciente = (user, userid, uid) => {
 
 export const addHistoria = (historia, userid) => {
   return (dispatch) => {
-    database.ref("Users/" + userid + "/Historial").set(historia);
+    database.ref("Users/" + userid + "/Historias").set(historia);
   };
 };
 
