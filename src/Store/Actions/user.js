@@ -44,14 +44,9 @@ export const fetchUser = (uid) => {
 
 export const addPaciente = (user, userid, uid) => {
   return (dispatch) => {
-    let finalUser = {
-      ...user,
-      Historias:{},
-      Ordenes:{}
-    }
     try {
       database.ref(`Users/${userid}`).set(user);
-      database.ref(`Users/${uid}/Pacientes/${userid}`).set(finalUser);
+      database.ref(`Users/${uid}/Pacientes/${userid}`).set(user);
     } catch (error) {
       console.log(error);
     }
