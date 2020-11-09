@@ -33,7 +33,7 @@ class Info extends Component {
           </div>
          
         </div>
-        <Button color="blue">Editar Perfil</Button>
+        <Button color="blue" onclick={()=>this.props.history.push("/editarPerfil")}>Editar Perfil</Button>
       </div>
       
 
