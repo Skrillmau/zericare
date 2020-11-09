@@ -10,11 +10,12 @@ const getUser = (user) => {
     },
   };
 };
-const addUser = (user) => {
+const addUser = (user,userid) => {
   return {
     type: actionTypes.ADD_USER,
     payload: {
       user,
+      userid
     },
   };
 };
@@ -47,6 +48,7 @@ export const addPaciente = (user, userid, uid) => {
     try {
       database.ref(`Users/${userid}`).set(user);
       database.ref(`Users/${uid}/Pacientes/${userid}`).set(user);
+      dispatch(addUser(user,userid));
     } catch (error) {
       console.log(error);
     }

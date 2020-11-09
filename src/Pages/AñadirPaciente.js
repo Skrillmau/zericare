@@ -9,6 +9,7 @@ class AñadirPaciente extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
     tipo: "",
+    usuario:{},
     uid: this.props.uid,
   };
   componentDidMount() {
