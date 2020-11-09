@@ -17,6 +17,7 @@ import Perfil from './Pages/Perfil'
 import FormularioPaciente from './Pages/AñadirPaciente';
 import VerPaciente from './Pages/VerPaciente';
 import AñadirHistoria from './Pages/AñadirHistoria';
+import FormularioMedicamento from './Pages/FormularioMedicamento';
 
 // Import Swiper styles
 
@@ -37,7 +38,9 @@ function App(props) {
         <Route path="/info/:id"  component={Perfil}/>
         <Route path="/addPaciente" component={FormularioPaciente}/>
         <Route path="/AddHistoria/:id" component={AñadirHistoria}/>
+        <Route path="/AddOrden/:id" component={FormularioMedicamento}/>
         <Route path="/paciente/:id" component={VerPaciente}/>
+        
         <Route component={NotFound} />
       </Switch>
       <Footer />

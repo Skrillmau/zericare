@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import OrdenFinal from '../OrdenFinal/OrdenFinal';
 import Orden from '../Orden/Orden'
 import classes from "./TablaMedicamentos.css";
+import * as actionCreators from '../../Store/Actions/';
+import { connect } from 'react-redux';
 
-const TablaMedicamentos = () => {
+const TablaMedicamentos = (props) => {
     const [Items, setItems] = useState([]);
     const [Selecteditem, setSelecteditem] = useState(null);
 
@@ -27,12 +29,22 @@ const TablaMedicamentos = () => {
         console.log(test, "test")
         setItems(test);
     }
+    const onSend=()=>{
+        let date = new Date();
+        console.log(Items);
+        let recipe = {
+            fecha: date.getTime(),
+            ...Items
+        }
+      props.addRecipe(recipe,props.id);
+
+    }
 
     return (
         <div className={classes.App}>
             <div className={classes.gridContainer}>
                 <div className={classes.item2}>
-                    <Orden onsubmit={addMedicamentos} />
+                    <Orden onsubmit={addMedicamentos} onSend={onSend} />
                 </div>
 
                 <div className={classes.item2}>
@@ -43,6 +55,7 @@ const TablaMedicamentos = () => {
                             <OrdenFinal nombre={item.Nombre} cantidad={item.Cantidad} dosis={item.Dosis} observaciones={item.Observaciones} onclick={() => deleteMedicamentos(i)} />
                         )
                     })}
+                   
                 </div>
             </div>
 
@@ -52,5 +65,20 @@ const TablaMedicamentos = () => {
     );
 
 };
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authStore.isUserLoggedIn,
+        uid:state.authStore.user.uid,
+        loadingAuth: state.authStore.loadingAuth,
+        error:state.errorStore.error,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        addRecipe:(recipe,userid)=>dispatch(actionCreators.addRecipe(recipe,userid)),
+        onClearError: () => dispatch(actionCreators.clearError())
+    }
+}
 
-export default TablaMedicamentos;
+
+export default connect(mapStateToProps, mapDispatchToProps)(TablaMedicamentos);
