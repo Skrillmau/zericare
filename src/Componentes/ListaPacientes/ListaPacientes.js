@@ -12,11 +12,23 @@ import "swiper/components/scrollbar/scrollbar.scss";
 
 
 
-function ListaPacientes() {
+function ListaPacientes(props) {
+    const pacientesDef= []
+    var pacientes = Object.values(props.pacientes).map(function (obj) {
+        return obj; 
+    });
+
     return (
         <div className={classes.main}>
             <div className={classes.gridContainer}>
-                <Pacientes nombre="Nikolas" />
+                {pacientes.map((item, i) => {
+
+                    return (
+
+                        <Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro} ver={props.ver} />
+                    )
+                })}
+
             </div>
         </div>
     )

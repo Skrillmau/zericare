@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import {Firebase} from "../../config/firebase";
+import { Firebase } from "../../config/firebase";
 
 const database = Firebase.database();
 const getUser = (user) => {
@@ -10,10 +10,10 @@ const getUser = (user) => {
     },
   };
 };
-const addUser =(user)=>{
-  return{
+const addUser = (user) => {
+  return {
     type: actionTypes.ADD_USER,
-    payload:{
+    payload: {
       user,
     },
   };
@@ -42,12 +42,24 @@ export const fetchUser = (uid) => {
   };
 };
 
-export const addPaciente = (user, userid, uid) =>{
-  return (dispatch) =>{
+export const addPaciente = (user, userid, uid) => {
+  return (dispatch) => {
 
-    database.ref('Users/'+userid).set(user);
-    database.ref('Users/'+uid+'/Pacientes'+userid).set(user);
-     
+    database.ref('Users/' + userid).set(user);
+    database.ref('Users/' + uid + '/Pacientes/' + userid).set(user);
 
+
+  };
+}
+
+export const addHistoria =(historia, userid)=>{
+    return (dispatch) =>{
+        database.ref('Users/'+userid+'/Historial').set(historia);
+    };
+}
+
+export const addRecipe  = (recipe, userid) =>{
+  return(dispatch) =>{
+    database.ref().set('Users/'+userid+'/Ordenes').set(recipe);
   };
 }

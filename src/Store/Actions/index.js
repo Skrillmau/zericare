@@ -1,6 +1,7 @@
 export {
     logIn,
     logOut,
+    Register,
     persistAuthentication
 } from './auth';
 export {
@@ -8,5 +9,10 @@ export {
     clearError
 } from './error'
 export {
-    fetchUser
+    fetchUser,
+    addPaciente,
+    addHistoria,
+    addRecipe
+
 }from './user'
+

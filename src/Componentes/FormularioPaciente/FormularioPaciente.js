@@ -84,11 +84,37 @@ const FormularioPaciente = (props) => {
       });
     }
   }
+  const handleSubmit = (e) =>{
+    let today = new Date().toLocaleDateString()
+    e.preventDefault();    
+    let user= {
+      nombre: e.target.name.value,
+      apellido: e.target.apellido.value,
+      sexo: e.target.sexo.value,
+      ocupacion: e.target.ocupacion.value,
+      email: e.target.correo.value,
+      password: generatePassword(),
+      tipo:"Paciente",
+      registro: today
+    }
+    console.log(user);
+    props.onRegister(user,props.uid)
+
+  }
+  function generatePassword() {
+    var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
   
   return (
     <div className={Style.item2}>
       <h3 className={Style.subtitulo}>Agregar Paciente</h3>
-      <form className={Style.form} onSubmit="" id="contactForm">
+      <form className={Style.form} onSubmit={handleSubmit} id="contactForm">
         <div className={Style.grid}>
           <div>
             <input
@@ -109,14 +135,14 @@ const FormularioPaciente = (props) => {
             <br />
             <input
               className={Style.input}
-              name="Sexo"
+              name="sexo"
               type="text"
               placeholder="Sexo "
             />
             <br />
             <input
               className={Style.input}
-              name="Ocupación"
+              name="ocupacion"
               rows="10"
               placeholder="Ocupación"
               required
@@ -125,7 +151,7 @@ const FormularioPaciente = (props) => {
 
             <input
               className={Style.input}
-              name="Correo"
+              name="correo"
               rows="10"
               placeholder="Correo"
               required
@@ -151,4 +177,19 @@ const FormularioPaciente = (props) => {
   );
 };
 
-export default FormularioPaciente;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onRegister: (user,uid) => dispatch( actionCreators.Register(user,uid))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+      isUserLoggedIn: state.authStore.isUserLoggedIn,
+      uid:state.authStore.user.uid,
+      error:state.errorStore.error,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormularioPaciente);
