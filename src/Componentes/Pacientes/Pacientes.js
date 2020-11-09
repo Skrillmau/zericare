@@ -7,7 +7,7 @@ const pacientes = (props) => {
     return (
         <div className={classes.gridContainer}>
             <div className={classes.item}>
-                <img src="https://p16-sg.tiktokcdn.com/aweme/1080x1080/tiktok-obj/1666346592333826.jpeg" />
+                <img src={props.imagen} />
             </div>
             <div className={classes.item}>
                 <p>{props.nombre}</p>

@@ -134,8 +134,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onUserLogin: (authData, onSuccessCallback) =>
-      dispatch(actionCreators.logIn(authData, onSuccessCallback)),
     onClearError: () => dispatch(actionCreators.clearError()),
     onlogOut: () => dispatch(actionCreators.logOut()),
   };
