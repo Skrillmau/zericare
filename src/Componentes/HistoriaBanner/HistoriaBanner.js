@@ -20,9 +20,10 @@ class HistoriaBanner extends Component {
     render() {
         return (
             <div className={styles.banner} >
-                <h3 onClick={this.handleclick.bind(this)}>Fecha: {this.props.fecha} </h3>
+                
+                <h3 onClick={this.handleclick.bind(this)}>Fecha: {new Date(this.props.historia.fecha).toLocaleDateString("en-US")} </h3>
                 <div className={this.state.visible?styles.visible:styles.novisible}>
-                <HistoriaCompleta />
+                <HistoriaCompleta historia={this.props.historia}/>
                 </div>
             </div>
         );

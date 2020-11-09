@@ -8,7 +8,7 @@ import NotFound from "../Pages/NotFound";
 class AñadirPaciente extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
-    tipo:"",
+    tipo: "",
     uid: this.props.uid,
   };
   componentDidMount() {
@@ -16,8 +16,7 @@ class AñadirPaciente extends Component {
     let userSession = localStorage.getItem("userSession");
     userSession = JSON.parse(userSession);
     const { tipo } = userSession;
-    this.setState({tipo})
-    
+    this.setState({ tipo });
   }
 
   componentDidUpdate() {
@@ -34,12 +33,15 @@ class AñadirPaciente extends Component {
       uid: nextState.uid,
     });
   }
+  handleRedirect = (url) => {
+    this.props.history.push(url);
+  };
   render() {
     if (!this.state.usuario) return <Spinner />;
-    else if(this.state.tipo!=="Medico") return<NotFound />
+    else if (this.state.tipo !== "Medico") return <NotFound />;
     return (
       <div>
-        <FormularioPaciente />
+        <FormularioPaciente onRedirect={this.handleRedirect} />
       </div>
     );
   }

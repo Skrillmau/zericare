@@ -8,16 +8,16 @@ import NotFound from "../Pages/NotFound";
 class AñadirHistoria extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
-    tipo:"",
-    uid: ""
+    tipo: "",
+    patientId: "",
   };
   componentDidMount() {
     console.log(this.props.uid);
     let userSession = localStorage.getItem("userSession");
     userSession = JSON.parse(userSession);
     const { tipo } = userSession;
-    const {id} = this.props.match.params;
-    this.setState({tipo,uid:id})
+    const { id } = this.props.match.params;
+    this.setState({ tipo, patientId: id });
   }
 
   componentDidUpdate() {
@@ -33,11 +33,14 @@ class AñadirHistoria extends Component {
       isUserLoaded: nextState.isUserLoaded,
     });
   }
+  handleRedirect = (url) => {
+    this.props.history.push(url);
+  };
   render() {
-     if(this.state.tipo!=="Medico") return<NotFound />
+    if (this.state.tipo !== "Medico") return <NotFound />;
     return (
       <div>
-        <FormularioHistoria id={this.state.uid}/>
+        <FormularioHistoria onRedirect={this.handleRedirect} id={this.state.patientId} />
       </div>
     );
   }
@@ -45,7 +48,6 @@ class AñadirHistoria extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
     onClearError: () => dispatch(actionCreators.clearError()),
     fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
   };

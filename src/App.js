@@ -12,11 +12,9 @@ import Footer from './Componentes/footer/footer'
 import Navbar from './Componentes/Navbar/Navbar'
 import ProductoDetail from './Pages/ProductoDetail'
 import Tienda from './Pages/Tienda'
-import PerfilM from './Pages/PerfilM'
 import FormularioMedicamentos from './Pages/FormularioMedicamento'
 import Perfil from './Pages/Perfil'
 import FormularioPaciente from './Pages/AñadirPaciente';
-import FormularioHistoria from './Componentes/FormularioHistoria/FormularioHistoria';
 import VerPaciente from './Pages/VerPaciente';
 import AñadirHistoria from './Pages/AñadirHistoria';
 
@@ -34,7 +32,6 @@ function App(props) {
         <Route path="/nosotros" component={Nosotros} />
         <Route path="/login" component={Login} />
         <Route path="/Tienda" component={Tienda} />
-        <Route path="/PerfilM" component={PerfilM} />
         <Route path="/producto/:id" component={ProductoDetail} />
         <Route path="/FormularioMedicamentos"  component={FormularioMedicamentos}/>
         <Route path="/info/:id"  component={Perfil}/>
