@@ -32,11 +32,12 @@ const cerrarSesion = () => {
 };
 
 export const Register = (user, uid)=>{
+  return(dispatch)=>{
   auxFirebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
     console.log(response)
     const IdUser = response.user.uid
     users.addPaciente(user, IdUser,uid);
-    auxFirebase.auth().signOut();
+    auxFirebase.auth().signOut()
 
   }).catch(function(error) {
     // Handle Errors here.
@@ -45,6 +46,7 @@ export const Register = (user, uid)=>{
     dispatch(errors.saveError(errorMessage));
     // ...
   });
+}
 }
 
 
