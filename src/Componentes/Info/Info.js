@@ -29,9 +29,13 @@ class Info extends Component {
             </div>
           <div className={classes.gridItem3}>
             <QRCode size="420" value="http://facebook.github.io/react/" />
+       
           </div>
+         
         </div>
+        <Button color="blue">Editar Perfil</Button>
       </div>
+      
 
     );}
     else{
