@@ -41,7 +41,6 @@ class VerPaciente extends Component {
                   `/AddHistoria/${this.state.user.id}`
                 )}>Añadir Historia</Button>
                 <HistoriaBanner fecha={this.state.user.registro}></HistoriaBanner>
-
             </div>
         );
     }
