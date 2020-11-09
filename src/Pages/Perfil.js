@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 import ListaPacientes from "../Componentes/ListaPacientes/ListaPacientes";
 import Spinner from "../Componentes/Spinner/Spinner";
 import * as actionCreators from "../Store/Actions/";
+var QRCode = require('qrcode.react');
+
 
 class Perfil extends Component {
   state = {
@@ -51,6 +53,7 @@ class Perfil extends Component {
             sexo={this.state.usuario.sexo}
             ocupacion={this.state.usuario.ocupacion}
           />
+          <QRCode value="http://facebook.github.io/react/" />,
          
           <BannerText title="Tu historia clínica">
             En el listado a continuación, podrás ver tus historial médico más
