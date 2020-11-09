@@ -56,7 +56,7 @@ class Perfil extends Component {
         <div className={classes.block}>
           <h1>Perfil</h1>
           <Info
-            onclick={()=>this.props.history.push("/editarPerfil/"+this.state.usuario.uid)}
+            onclick={()=>this.props.history.push("/editarPerfil/"+this.state.usuario.uid+'@'+this.state.usuario.doctor)}
             tipo="Paciente"
             usuario={this.state.usuario}
             logout={this.handleLogout}
