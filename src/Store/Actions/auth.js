@@ -2,7 +2,7 @@ import * as actionTypes from "./actionTypes";
 import {Firebase, auxFirebase} from "../../config/firebase";
 import * as errors from "../Actions/error";
 import * as users from "../Actions/user";
-
+const storage = Firebase.storage();
 const startAuthLoading = () => {
   return {
     type: actionTypes.START_LOADING_AUTH,
@@ -31,20 +31,23 @@ const cerrarSesion = () => {
   };
 };
 
-export const Register = (user, uid)=>{
+export const Register = (user, uid,image)=>{
+  
+
   return(dispatch)=>{
   auxFirebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function(response){
-    console.log(response)
-    const IdUser = response.user.uid
+    var storageRef = storage.ref();
+    const IdUser = response.user.uid;
+    var mountainImagesRef = storageRef.child(`images/${IdUser}/${image.name}`);
+    mountainImagesRef.put(image).then(function(snapshot) {
+      console.log('Uploaded an array!');
+    });
     dispatch(users.addPaciente(user, IdUser,uid));
-    auxFirebase.auth().signOut()
-
+    auxFirebase.auth().signOut();
   }).catch(function(error) {
-    // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     dispatch(errors.saveError(errorMessage));
-    // ...
   });
 }
 }

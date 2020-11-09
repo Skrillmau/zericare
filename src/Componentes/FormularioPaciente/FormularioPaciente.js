@@ -6,6 +6,8 @@ import Style from "./FormularioPaciente.css";
 import Icon from "@mdi/react";
 import Swal from "sweetalert2";
 import {mdiWindowClose } from "@mdi/js";
+import {connect} from 'react-redux';
+import * as actionCreators from '../../Store/Actions/';
 
 
 const FormularioPaciente = (props) => {
@@ -98,7 +100,7 @@ const FormularioPaciente = (props) => {
       registro: today
     }
     console.log(user);
-    props.onRegister(user,props.uid)
+    props.onRegister(user,props.uid,files[0]);
 
   }
   function generatePassword() {
