@@ -97,7 +97,7 @@ class Perfil extends Component {
           <BannerImagen title="Tus pacientes">
             En el listado a continuación, podrás ver el listado listado de los pacientes que están a tu cargo
           </BannerImagen>
-          <Button color="blue" onclick={this.props.history.push("/addPaciente")}>Añadir Paciente</Button>
+          <Button color="blue" onclick={()=>this.props.history.push("/addPaciente")}>Añadir Paciente</Button>
           <div>
             <ListaPacientes  pacientes={this.state.usuario.Pacientes}/>
           </div>
