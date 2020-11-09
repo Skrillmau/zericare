@@ -33,6 +33,7 @@ class Info extends Component {
           </div>
          
         </div>
+        <br></br>
         <Button color="blue">Editar Perfil</Button>
       </div>
       
