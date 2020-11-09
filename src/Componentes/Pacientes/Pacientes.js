@@ -18,7 +18,7 @@ const pacientes = (props) => {
             </div>
             
             <div >
-                <Button color="blue"> Ver más</Button>
+                <Button color="blue" onclick={props.ver}> Ver más</Button>
             </div>
 
         </div>

@@ -25,7 +25,7 @@ function ListaPacientes(props) {
 
                     return (
 
-                        <Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro}  />
+                        <Pacientes nombre={item.nombre} apellido={item.apellido} creado={item.registro} ver={props.ver} />
                     )
                 })}
 
