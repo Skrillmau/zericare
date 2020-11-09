@@ -23,7 +23,7 @@ function ProductGrid(props) {
                 key={i}
                 nombre={item.nombre}
                 imagen={item.imagen}
-                id={i}
+                id={item.id}
               />
             
           );

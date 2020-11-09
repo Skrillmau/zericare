@@ -19,7 +19,7 @@ function CarouselProductos(props) {
         navigation={true}
         spaceBetween={20}
         slidesPerView={3}
-        pagination={{ clickable: true }}
+        //pagination={{ clickable: true }}
         loop="true"
       >
         {props.products.map((item, i) => {
@@ -29,7 +29,7 @@ function CarouselProductos(props) {
                 key={i}
                 nombre={item.nombre}
                 imagen={item.imagen}
-                id={i}
+                id={item.id}
               />
             </SwiperSlide>
           );

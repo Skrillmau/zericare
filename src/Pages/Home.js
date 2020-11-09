@@ -6,7 +6,7 @@ import Contact from "../Componentes/contact/contact";
 import 'swiper/swiper.scss';
 import CarouselProductos from '../Componentes/CarouselProductos/carouselProductos';
 import Footer from '../Componentes/footer/footer';
-import axios from 'axios';
+import { Firebase } from "../config/firebase";
 import PasosPedido from '../Componentes/Pasos/pasospedido'
 
 
@@ -18,17 +18,25 @@ class Home extends Component {
         };
     }
     componentDidMount() {
-
-        axios
-            .get(`https://api.npoint.io/091cb40bb6d0f229f0d2`, {})
-            .then((res) => {
-                const data = res.data;
-                console.log(data);
-                this.setState({ productos: data.productos });
-            })
-            .catch((error) => {
-                console.log(error);
+        const database = Firebase.database();
+        var ref = database.ref(`Products/`);
+        ref.once(
+          "value",
+          (snapshot) => {
+            
+            const productos = Object.values(snapshot.val()).map(function (obj,i) {
+                let newObj = {
+                  id:Object.keys(snapshot.val())[i],
+                  ...obj
+                }
+              return newObj;
             });
+            this.setState({ productos });
+          },
+          function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+          }
+        );
     }
     render() {
         return (

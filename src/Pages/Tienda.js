@@ -1,40 +1,43 @@
-import React, { Component } from 'react';
-import ProductGrid from '../Componentes/ProductGrid/ProductGrid'
-import 'swiper/swiper.scss';
-import axios from 'axios';
-
-
+import React, { Component } from "react";
+import ProductGrid from "../Componentes/ProductGrid/ProductGrid";
+import "swiper/swiper.scss";
+import { Firebase } from "../config/firebase";
 
 class Tienda extends Component {
-    constructor() {
-        super();
-        this.state = {
-            productos: [],
-        };
-    }
-    componentDidMount() {
-
-        axios
-            .get(`https://api.npoint.io/091cb40bb6d0f229f0d2`, {})
-            .then((res) => {
-                const data = res.data;
-                console.log(data);
-                this.setState({ productos: data.productos });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-    render() {
-        return (
-            <div>
-                
-                <ProductGrid products={this.state.productos}/>
-                
-
-            </div>
-        );
-    }
+  constructor() {
+    super();
+    this.state = {
+      productos: [],
+    };
+  }
+  componentDidMount() {
+    const database = Firebase.database();
+    var ref = database.ref(`Products/`);
+    ref.once(
+      "value",
+      (snapshot) => {
+        
+        const productos = Object.values(snapshot.val()).map(function (obj,i) {
+            let newObj = {
+              id:Object.keys(snapshot.val())[i],
+              ...obj
+            }
+          return newObj;
+        });
+        this.setState({ productos });
+      },
+      function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      }
+    );
+  }
+  render() {
+    return (
+      <div>
+        <ProductGrid products={this.state.productos} />
+      </div>
+    );
+  }
 }
 
 export default Tienda;
