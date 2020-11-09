@@ -49,8 +49,8 @@
 }
 
 .imagen {
-  max-width: 200px;
-  height: auto;
+  width: 200px;
+  height: 200px;
   -webkit-box-shadow: 10px 10px 29px -13px rgba(0, 0, 0, 0.72);
   -moz-box-shadow: 10px 10px 29px -13px rgba(0, 0, 0, 0.72);
   box-shadow: 10px 10px 29px -13px rgba(0, 0, 0, 0.72);

@@ -31,6 +31,7 @@ class Info extends Component {
             <QRCode size="420" value="http://facebook.github.io/react/" />
           </div>
         </div>
+        <br></br>
       </div>
 
     );}
