@@ -1,10 +1,12 @@
 .gridContainer {
     display: grid;
-    grid-template-columns: auto auto 15%;
-    padding: 3%;
+    grid-template-columns:repeat(5, 17%);
+    padding: 2%;
     grid-gap: 3%;
     justify-content: center;
     align-items: center;
+    box-shadow: 7px 6px 23px -8px rgba(173, 173, 173, 1);
+    border-radius: 10px;
   }
 
   .gridContainer img{
@@ -12,3 +14,11 @@
     height: auto;
     width: 100px;
   }
+
+  .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  

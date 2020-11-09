@@ -1,14 +1,19 @@
 .gridContainer {
+
     display: grid;
-    grid-template-columns: 100%;
-    padding: 3%;
-    grid-gap: 10%;
+    grid-template-columns:repeat(1, 100%);
+    grid-gap: 3%;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .main{
+    position: relative !important;
     width: 100%;
     margin-bottom: 3%;
     margin-top: 3%;
+}
+
+.item1 {
+  grid-column: 1 / span 2;
 }
