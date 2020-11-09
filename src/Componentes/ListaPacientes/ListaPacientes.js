@@ -28,6 +28,7 @@ function ListaPacientes(props) {
         {pacientes.map((item, i) => {
           return (
             <Pacientes
+              imagen={item.imagen}
               nombre={item.nombre}
               apellido={item.apellido}
               creado={item.registro}
