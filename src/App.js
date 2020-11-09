@@ -19,6 +19,7 @@ import VerPaciente from './Pages/VerPaciente';
 import AñadirHistoria from './Pages/AñadirHistoria';
 import FormularioMedicamento from './Pages/FormularioMedicamento';
 import EditarPerfil from './Componentes/EditarPerfil/EditarPerfil';
+import EditPerfil from './Pages/EditPerfil';
 
 // Import Swiper styles
 
@@ -41,7 +42,7 @@ function App(props) {
         <Route path="/AddHistoria/:id" component={AñadirHistoria}/>
         <Route path="/AddOrden/:id" component={FormularioMedicamento}/>
         <Route path="/paciente/:id" component={VerPaciente}/>
-        <Route path="/editarPerfil/:id" component={EditarPerfil}/>
+        <Route path="/editarPerfil/:id" component={EditPerfil}/>
         
         <Route component={NotFound} />
       </Switch>

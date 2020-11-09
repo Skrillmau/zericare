@@ -1,5 +1,5 @@
 import  Button  from '../Button/txt/txtButton';
-import React from 'react';
+import React,{useState} from 'react';
 import { Firebase } from "../../config/firebase";
 import { Redirect, withRouter } from "react-router-dom";
 import Style from './EditarPerfil.module.css'
@@ -7,10 +7,15 @@ import BannerImagen from'../BannerImagen/BannerImagen'
 
 
 const EditarPerfil = (props) => {
+
+    const [nombre,setNombre] = useState(props.user.nombre);
+    const [ocupacion,setOcupacion] = useState(props.user.ocupacion)
+    const [apellido,setApellido] = useState(props.user.apellido);
+    const [sexo,setSexo] = useState(props.user.sexo)
   const  handleclick=(e)=>{
       e.preventDefault();
-     const {id}=props.match.params 
-     const ids = id.split('@');
+     
+     const ids = props.ids
      console.log(ids);
       let  user={
             nombre:e.target.nombre.value,
@@ -33,10 +38,10 @@ const EditarPerfil = (props) => {
         <div>
               <BannerImagen title="Editar Información Básica">En el siguiente formulario podrás actualizar tu información, esta información será visible por tu médico encargado</BannerImagen>
             <form onSubmit={handleclick} className={Style.form}>
-            <input className={Style.input}  type="text"  name="nombre" placeholder="Nuevo nombre" ></input>
-            <input className={Style.input}  type="text" name ="apellido" placeholder="Nuevo apellido"></input>
-            <input className={Style.input} type="text" name="ocupacion" placeholder="Nueva ocupación"></input>
-            <input className={Style.input} type="text" name="sexo" placeholder="Nuevo sexo (?)"></input>
+            <input className={Style.input}  type="text"  name="nombre" placeholder="Nuevo nombre" value={nombre} onChange={(e)=>{setNombre(e.target.value)}}/>
+            <input className={Style.input}  type="text" name ="apellido" placeholder="Nuevo apellido" value={apellido} onChange={(e)=>{setApellido(e.target.value)}}/>
+            <input className={Style.input} type="text" name="ocupacion" placeholder="Nueva ocupación"value={ocupacion} onChange={(e)=>{setOcupacion(e.target.value)}}/>
+            <input className={Style.input} type="text" name="sexo" placeholder="Nuevo sexo (?)"value={sexo} onChange={(e)=>{setSexo(e.target.value)}}/>
             <br></br>
             <Button color="blue" >Guardar</Button>
             </form>
