@@ -12,6 +12,8 @@ import * as actionCreators from "../Store/Actions/";
 import ListaOrdenes from "../Componentes/ListaOrdenes/ListaOrdenes";
 import ListaHistorias from "../Componentes/ListaHistorias/ListaHistorias";
 import Button from '../Componentes/Button/txt/txtButton'
+
+import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
 var QRCode = require('qrcode.react');
 
 class Perfil extends Component {
@@ -79,18 +81,25 @@ class Perfil extends Component {
     } else if (this.state.usuario.tipo == "Medico") {
       return (
         <div>
+          
           <Info 
             tipo="Medico"
             logout={this.handleLogout}
             usuario={this.state.usuario}
           />
+          <br></br>
           <hr></hr>
           <BannerImagen title="Tus pacientes">
             En el listado a continuación, podrás ver el listado listado de los pacientes que están a tu cargo
           </BannerImagen>
-          <Button color="blue" onclick={()=>this.props.history.push("/addPaciente")}>Añadir Paciente</Button>
+          
+
+          
           <div>
             <ListaPacientes  pacientes={this.state.usuario.Pacientes}/>
+          </div>
+          <div className={classes.addBoton}>
+          <Button color="blue" onclick={()=>this.props.history.push("/addPaciente")}><GroupAddOutlinedIcon/></Button>
           </div>
         </div>
       );
