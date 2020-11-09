@@ -46,7 +46,7 @@ const orden = (props) => {
           required
         />
         <label htmlFor={"check"}>
-          Acepto Términos y Condiciones y Política de Privacidad.
+          Acepto que estoy certificado para la prescripción de medicamentos y cuento con el aval gubernamental para el mismo fin
         </label>
         <div></div>
         <Button color={"blue"} type="submit" >Agregar</Button>
