@@ -9,15 +9,17 @@ import { connect } from "react-redux";
 import ListaPacientes from "../Componentes/ListaPacientes/ListaPacientes";
 import Spinner from "../Componentes/Spinner/Spinner";
 import * as actionCreators from "../Store/Actions/";
+import ListaOrdenes from "../Componentes/ListaOrdenes/ListaOrdenes";
+import ListaHistorias from "../Componentes/ListaHistorias/ListaHistorias";
 var QRCode = require('qrcode.react');
-
 
 class Perfil extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
     usuario: {
       Pacientes:{},
-      Historias:{}
+      Historias:{},
+      Ordenes:{}
     },
   };
 
@@ -49,6 +51,7 @@ class Perfil extends Component {
         <div className={classes.block}>
           <h1>Perfil</h1>
           <Info
+            tipo="Paciente"
             logout={this.handleLogout}
             imagen={this.state.usuario.imagen}
             nombre={this.state.usuario.nombre}
@@ -59,32 +62,24 @@ class Perfil extends Component {
           />
           
          
-          <BannerText title="Tu historia clínica">
-            En el listado a continuación, podrás ver tus historial médico más
-            reciente (recuerda darle tu código al médico encargado de tu
-            consulta para que pueda actualizar tu historial)
+          <BannerText title="Tus historias clínicas">
+            En el listado a continuación, podrás ver tu historial clínico de cada consulta (recuerda darle tu código care a tu médico correspondiente)
           </BannerText>
-          <Historia
-            patologicos={this.state.usuario.patologicos}
-            npatologicos={this.state.usuario.nopatologicos}
-            familiares={this.state.usuario.familiares}
-            go={this.state.usuario.gineco}
-            consulta={this.state.usuario.PEEA}
-            dnr={this.state.usuario.dnr}
-            ef={this.state.usuario.fisica}
-          />
+          <ListaHistorias historias={this.state.usuario.Historias}/>
           <BannerText title="Tus órdenes">
             En el listado a continuación, podrás ver las órdenes provistas por
             tu médico asignado (recuerda confirmar cada orden por separado para
             poder autorizar el envío de las misma)
           </BannerText>
-          <p>Insertar órdenes de firebase</p>
+          <ListaOrdenes ordenes={this.state.usuario.Ordenes}/>
+         
         </div>
       );
     } else if (this.state.usuario.tipo == "Medico") {
       return (
         <div>
-          <Info
+          <Info 
+            tipo="Medico"
             logout={this.handleLogout}
             imagen={this.state.usuario.imagen}
             nombre={this.state.usuario.nombre}

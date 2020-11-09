@@ -243,4 +243,14 @@
         margin-bottom: 30px;
     }
 
+    .item3{
+        display: flex;
+        margin: 5% 0;
+        font-size: 24px;
+        color: #888b8d;
+        width: 90%;
+        align-items: center;
+        align-content: center;
+    }
+
 }
