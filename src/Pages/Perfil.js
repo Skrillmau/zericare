@@ -54,7 +54,7 @@ class Perfil extends Component {
             sexo={this.state.usuario.sexo}
             ocupacion={this.state.usuario.ocupacion}
           />
-          <QRCode size="200" x="-1000" value="http://facebook.github.io/react/" />,
+          <QRCode size="200"  value="http://facebook.github.io/react/" />,
          
           <BannerText title="Tu historia clínica">
             En el listado a continuación, podrás ver tus historial médico más

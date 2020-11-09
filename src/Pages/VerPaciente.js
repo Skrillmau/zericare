@@ -36,6 +36,10 @@ class VerPaciente extends Component {
             <div>
                 <h1>Informacion del paciente</h1>
                 <InfoPaciente paciente={this.state.user}/>
+                <Button onclick={() =>
+                this.props.history.push(
+                  `/AddHistoria/${this.state.user.id}`
+                )}>Añadir Historia</Button>
                 <HistoriaBanner fecha={this.state.user.registro}></HistoriaBanner>
 
             </div>

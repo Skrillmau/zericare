@@ -1,16 +1,44 @@
 import React from 'react';
-
-
+import * as actionCreators from "../../Store/Actions/";
 import Style from "./FormularioHistoria.css";
 import Button from "../Button/txt/txtButton";
 import emailjs from "emailjs-com";
-import swal from "sweetalert2";
+import Swal from "sweetalert2";
+import { StylesProvider } from "@material-ui/core";
+import { mdiWindowClose } from "@mdi/js";
+import { connect } from "react-redux";
 
-const FormularioHistoria = () => {
+
+const FormularioHistoria = (props) => {
+    const handleSubmit =async (e) => {
+        e.preventDefault();
+        console.log(props.user);
+        var date = new Date();
+        var timestamp = date.getTime();
+          let historia = {
+            patologicos: e.target.patalogicos.value,
+            afamiliares: e.target.afamiliares.value,
+            peea: e.target.peea.value,
+            efisica: e.target.efisicas.value,
+            anopatologicos: e.target.anopatologicos.value,
+            aginecoobstetricos: e.target.aginecoobstetricos.value,
+            dnr: e.target.dnr.value,
+            fecha: timestamp 
+          };
+          props.addHistoria(historia,props.userid);
+          Swal.fire({
+            title: "Historia creado correctamente",
+            text: "La historia se ha registrado correctamente",
+            icon: "success",
+            confirmButtonColor: "#06b5ef",
+          }).then((result) => {
+            props.history.push(`/paciente/${props.uid}`);
+          });
+      };
     return (
         <div className={Style.item2}>
             <h3 className={Style.subtitulo}>Agregar Historia Clinica</h3>
-            <form className={Style.form} onSubmit="" id="contactForm">
+            <form className={Style.form} onSubmit={handleSubmit} id="contactForm">
                 <textarea
                     className={Style.input}
                     name="patalogicos"
@@ -43,14 +71,14 @@ const FormularioHistoria = () => {
                 />
                 <textarea
                     className={Style.input}
-                    name="efisica"
+                    name="anopatalogicos"
                     rows="3"
                     placeholder="Antecedentes no Patológicos "
                     required
                 />
                 <textarea
                     className={Style.input}
-                    name="efisica"
+                    name="aginecoobstetricos"
                     rows="3"
                     placeholder="Antecedentes Gineco-Obstétricos "
                     required
@@ -68,5 +96,20 @@ const FormularioHistoria = () => {
         </div>
     );
 };
-
-export default FormularioHistoria;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addHistoria: (recipe,id)=> dispatch(actionCreators.addHistoria(recipe,id)),
+      onClearError: () => dispatch(actionCreators.clearError()),
+      fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
+    };
+  };
+  
+  const mapStateToProps = (state) => {
+    return {
+      user: state.userStore.user,
+      isUserLoggedIn: state.authStore.isUserLoggedIn,
+      uid: state.authStore.user.uid,
+      error: state.errorStore.error,
+    };
+  };
+  export default connect(mapStateToProps, mapDispatchToProps)(FormularioHistoria);
