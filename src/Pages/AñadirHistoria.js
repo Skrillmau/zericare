@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import FormularioPaciente from "../Componentes/FormularioPaciente/FormularioPaciente";
+import FormularioHistoria from "../Componentes/FormularioHistoria/FormularioHistoria";
 import { connect } from "react-redux";
 import * as actionCreators from "../Store/Actions/";
 import Spinner from "../Componentes/Spinner/Spinner";
 import NotFound from "../Pages/NotFound";
 
-class AñadirPaciente extends Component {
+class AñadirHistoria extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
     tipo:"",
-    uid: this.props.uid,
+    uid: ""
   };
   componentDidMount() {
     console.log(this.props.uid);
     let userSession = localStorage.getItem("userSession");
     userSession = JSON.parse(userSession);
     const { tipo } = userSession;
-    this.setState({tipo})
-    
+    const {id} = this.props.match.params;
+    this.setState({tipo,uid:id})
   }
 
   componentDidUpdate() {
@@ -31,7 +31,6 @@ class AñadirPaciente extends Component {
       isUserLoggedIn: nextState.isUserLoggedIn,
       usuario: nextState.user,
       isUserLoaded: nextState.isUserLoaded,
-      uid: nextState.uid,
     });
   }
   render() {
@@ -39,7 +38,7 @@ class AñadirPaciente extends Component {
     else if(this.state.tipo!=="Medico") return<NotFound />
     return (
       <div>
-        <FormularioPaciente />
+        <FormularioHistoria id={this.state.uid}/>
       </div>
     );
   }
@@ -47,6 +46,7 @@ class AñadirPaciente extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    
     onClearError: () => dispatch(actionCreators.clearError()),
     fetchUser: (id) => dispatch(actionCreators.fetchUser(id)),
   };
@@ -61,4 +61,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AñadirPaciente);
+export default connect(mapStateToProps, mapDispatchToProps)(AñadirHistoria);

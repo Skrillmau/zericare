@@ -38,7 +38,7 @@ function App(props) {
         <Route path="/FormularioMedicamentos"  component={FormularioMedicamentos}/>
         <Route path="/info/:id"  component={Perfil}/>
         <Route path="/addPaciente" component={FormularioPaciente}/>
-        <Route path="/FormularioHistoria" component={FormularioHistoria}/>
+        <Route path="/AddHistoria/:id" component={FormularioHistoria}/>
         <Route path="/paciente/:id" component={VerPaciente}/>
         <Route component={NotFound} />
       </Switch>
