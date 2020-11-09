@@ -1,18 +1,46 @@
 import React, { Component } from 'react';
-
+import classes from "./InfoPaciente.module.css";
+import Paragraph from "../Paragraph/Paragraph";
 class InfoPaciente extends Component {
 
-    
+
     render() {
         return (
-            <div>
-                <img src={this.props.paciente.imagen} />
-                <p>Nombre: {this.props.paciente.nombre} </p>
-                <p>Apellido: {this.props.paciente.apellido} </p>
-                <p>Sexo {this.props.paciente.sexo}</p>
-                <p>Ocupación: {this.props.paciente.ocupacion}</p>
-                <p>Creado: {this.props.paciente.registro}</p>
-                <p>Código Care: {this.props.paciente.id}</p>
+
+            <div className={classes.block}>
+                <div className={classes.gridContainer}>
+                    <div className={classes.gridItem1}>
+                        <img className={classes.imagen} src={this.props.paciente.imagen} />
+                    </div>
+
+                    <div className={classes.gridItem2}>
+
+                        <div>
+                            Apellido:
+                            <Paragraph contenido={this.props.paciente.apellido} clase={"cuerpo"} />
+                        </div>
+
+                        <div>
+                            Sexo:
+                            <Paragraph contenido={this.props.paciente.sexo} clase={"cuerpo"} />
+                        </div>
+
+                        <div>
+                            Ocupacion:
+                            <Paragraph contenido={this.props.paciente.ocupacion} clase={"cuerpo"} />
+                        </div>
+
+                        <div>
+                            Creado:
+                            <Paragraph contenido={this.props.paciente.registro} clase={"cuerpo"} />
+                        </div>
+
+                        <div>
+                            Codigo care:
+                            <Paragraph contenido={this.props.paciente.id} clase={"cuerpo"} />
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Componentes/Button/txt/txtButton.js'
 import InfoPaciente from '../Componentes/InfoPaciente/InfoPaciente'
 import { Firebase } from "../config/firebase";
+import HistoriaBanner from '../Componentes/HistoriaBanner/HistoriaBanner'
 
 class VerPaciente extends Component {
 
@@ -33,7 +34,10 @@ class VerPaciente extends Component {
 
         return (
             <div>
+                <h1>Informacion del paciente</h1>
                 <InfoPaciente paciente={this.state.user}/>
+                <HistoriaBanner fecha={this.state.user.registro}></HistoriaBanner>
+
             </div>
         );
     }
