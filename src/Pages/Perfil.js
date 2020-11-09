@@ -74,7 +74,7 @@ class Perfil extends Component {
           <p>Insertar órdenes de firebase</p>
         </div>
       );
-    } else if (this.state.usuario.tipo == "Medico" && this.state.usuario.Pacientes) {
+    } else if (this.state.usuario.tipo == "Medico") {
       return (
         <div>
           <Info
